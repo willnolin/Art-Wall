@@ -48,7 +48,7 @@ The **Art-Wall** is a tool that will allow Artists to search for spaces in the d
 | :--------------: | :----------------------------------------- |
 |      React       | for front-end functionality and DOM manipulation |
 |   React Router   | for routing the client-side|
-| Ruby on Rails | for the the back-end server |
+| Ruby on Rails | for the back-end server |
 |     Axios      | will make front-end calls to communicate with the db |
 |  PostgreSQL  |for database management|
 
