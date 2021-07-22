@@ -147,9 +147,9 @@ src
 | Create Form in CreateLocation, Test Post  |    H     |     3 hrs      |         |       |
 | Create FeaturedArtists component with ability add new artist  |    H     |     3 hrs      |         |       |
 | Copy Form to EditLocation w/filled inputs, render FeaturedArtists   |    H     |     3 hrs      |         |       |
-| Test Put for Edit Location|    H     |     2 hrs      |         |       |
+| Test Put, Delete for Edit Location|    H     |     2 hrs      |         |       |
 | Create Form in EditArtist (profile) page   |    H     |     1 hrs      |         |       |
-| Test Put for Edit Artist    |    H     |     3 hrs      |         |       |
+| Test Put, Delete for Edit Artist    |    H     |     3 hrs      |         |       |
 | Create Form in AddArtwork |    H     |     1 hrs      |         |       |
 | Render new Artwork to ArtistDetail screen   |    H     |     3 hrs      |         |       |
 | CSS  |    H     |     6 hrs      |         |       |
