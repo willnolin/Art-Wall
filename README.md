@@ -19,13 +19,13 @@
 
 ## Overview
 
-_**Art-Wall** is a community where Artists can find space to showcase their artwork, register to create a profile and make worthwhile connections.  Likewise, businesses and individuals who wish to provide space for Art-Walls can help local artists shine by joining the community.  
+_**Art-Wall** is a community where Artists can find space to showcase their artwork, register to create a profile and make worthwhile connections.  Likewise, Artists who wish to provide space for Art-Walls can help local artists shine by joining the community.   
 
 <br>
 
 ## MVP
 
-_The **Art-Wall** is a tool that will allow Artists to search for spaces in the database by name, city and state.  This will make it easier for them to quickly and efficiently showcase and sell their artwork, make connections in their area, and reach a broader audience.  Hosts will provide space and will have a way to showcase their own establishments via a public profile on the site.  
+_The **Art-Wall** is a tool that will allow Artists to search for spaces in the database by name, city and state.  This will make it easier for them to quickly and efficiently showcase and sell their artwork, make connections in their area, and reach a broader audience.  Hosts will provide space and will have a way to showcase their own establishments via a public profile on the site.  You will have to create an Artist profile (but you don't have to be an Artist) to create a location profile.  
 
 <br>
 
@@ -36,7 +36,8 @@ _The **Art-Wall** is a tool that will allow Artists to search for spaces in the 
 - A user may create a location which will make them a host.  They can then update or delete that location.  
 - Must implement an is_admin boolean (to authorize ownership of location).
 - Hosts will additionally be able to add and delete from their featured artist's list. Their profiles will have a link to a map with location.
-- User can add a location links to their profile by clicks 'Add to my locations" on Location detail page 
+- Add Contact form modal on artist detail page. 
+
 
 
 <br>
@@ -57,14 +58,12 @@ _The **Art-Wall** is a tool that will allow Artists to search for spaces in the 
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
-
 [Design](https://www.figma.com/file/gqodXoEwbmVdMPhlApo2a7/Art-Wall?node-id=0%3A1)
 
 
 #### Component Tree
 
-[Component Tree](https://res.cloudinary.com/willnolin/image/upload/v1626971109/Art_Wall_2_sg9mg6.png)
+[Component Tree](https://res.cloudinary.com/willnolin/image/upload/v1626979573/Art_Wall_3_nkax0f.png)
 
 #### Component Architecture
  
@@ -125,14 +124,12 @@ src
 
 #### Time Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
-
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
 | Create user model with controllers, routes  |    H     |     3 hrs      |         |        |
 | Create artwork model with contorollers, routes   |    H     |     1 hrs      |         |        |
 | Create location model with controllers, routes   |    H     |     1 hrs      |         |       |
-| Test routes / associations    |    H     |     2 hrs      |         |       |
+| Migrate, test routes / associations    |    H     |     2 hrs      |         |       |
 | Implement / Test user authentication for CUD |    H     |     5 hrs      |         |       |
 | Custom routes / methods    |    H     |     3 hrs      |         |      |
 | Create seed file to test and Finish back-end   |    H     |     3 hrs      |         |      |
@@ -141,7 +138,7 @@ src
 | Link to detail. Render Location details to LocationDetail screen    |    H     |     3 hrs      |         |       |
 | Create Artist Detail page. Render appropriate user data to the screen    |    H     |     3 hrs      |         |       |
 | Link to Artist detail from Location detail page.    |    H     |     3 hrs      |         |       |
-| Create EditLocation, CreateLocation, EditArtist, AddArtwork screens|    H     |     1.5 hrs      |         |       |
+| Create EditLocation, CreateLocation, EditArtist, AddArtwork screens|    H     |     1 hrs      |         |       |
 | Create Form in CreateLocation, Test Post  |    H     |     3 hrs      |         |       |
 | Create FeaturedArtists component with ability add new artist  |    H     |     3 hrs      |         |       |
 | Copy Form to EditLocation w/filled inputs, render FeaturedArtists   |    H     |     3 hrs      |         |       |
@@ -150,21 +147,16 @@ src
 | Test Put for Edit Artist    |    H     |     3 hrs      |         |       |
 | Create Form in AddArtwork |    H     |     1 hrs      |         |       |
 | Render new Artwork to ArtistDetail screen   |    H     |     3 hrs      |         |       |
-| Create and Render FeaturedLocations to ArtistDetail screen   |    H     |     3 hrs      |         |       |
-| Add Contact Form Modal in ArtistDetail    |    M     |     3 hrs      |         |       |
-| Add "Add to My Locations" button to ArtistDetail which updates FeaturedLocations|    M     |     3 hrs      |        |         |
 | CSS  |    H     |     6 hrs      |         |       |
-| TOTAL               |          |     68.5 hrs      |        |         |
+| TOTAL               |          |     59 hrs      |        |         |
 
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
+
 
 <br>
 
 ### Server (Back End)
 
 #### ERD Model
-
-> Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
 [ERD](https://res.cloudinary.com/willnolin/image/upload/v1626978260/Screen_Shot_2021-07-22_at_2.23.50_PM_ynyg1w.png)
 <br>
@@ -173,7 +165,10 @@ src
 
 ## Post-MVP
 
-For PMVP, I would like to: 
+For PMVP, I would like to:  
+- Create and Render FeaturedLocations to ArtistDetail screen 
+- Create a separate roles for hosts and artists. (Hosts will no longer need an artist profile) 
+- Add "Add to My Locations" button to ArtistDetail which updates FeaturedLocations       
 - Implement a map view where the user can view all the locations on a map. 
 - Make the contact forms functional and able to send emails to the owner of that location.  Also emails to verify registration.
 - Build an ArtWork detail page.
@@ -183,8 +178,8 @@ For PMVP, I would like to:
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution.
+
