@@ -19,13 +19,13 @@
 
 ## Overview
 
-_**Art-Wall** is a community where Artists can find space to showcase their artwork, register to create a profile and make worthwhile connections.  Likewise, Artists who wish to provide space for Art-Walls can help local artists shine by joining the community.   
+**Art-Wall** is a community where Artists can find space to showcase their artwork, register to create a profile and make worthwhile connections.  Likewise, Artists who wish to provide space for Art-Walls can help local artists shine by joining the community.   
 
 <br>
 
 ## MVP
 
-_The **Art-Wall** is a tool that will allow Artists to search for spaces in the database by name, city and state.  This will make it easier for them to quickly and efficiently showcase and sell their artwork, make connections in their area, and reach a broader audience.  Hosts will provide space and will have a way to showcase their own establishments via a public profile on the site.  You will have to create an Artist profile (even if you aren't ACTUALLY an artist) to create a location profile.  
+The **Art-Wall** is a tool that will allow Artists to search for spaces in the database by name, city and state.  This will make it easier for them to quickly and efficiently showcase and sell their artwork, make connections in their area, and reach a broader audience.  Hosts will provide space and will have a way to showcase their own establishments via a public profile on the site.  You will have to create an Artist profile (even if you aren't ACTUALLY an artist) to create a location profile.  
 
 <br>
 
@@ -71,6 +71,11 @@ _The **Art-Wall** is a tool that will allow Artists to search for spaces in the 
 ``` structure
 
 src
+|__ App.js
+|__ App.css
+|__ index.js
+|__ index.css
+|__ Context.js
 |__ assets/
       |__ fonts
       |__ images
