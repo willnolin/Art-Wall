@@ -31,23 +31,23 @@ _The **Art-Wall** is a tool that will allow Artists to search for spaces in the 
 
 ### Goals
 
-- To have a fully functioning website that people can use to connect.
-- Implement authentication AND authorization for certain user roles(hosts, artists).
-- Implement search functionality. A user will not have to log in to search.
-- Allow authorized users to create, update, and delete their profiles.
+- To have a fully functioning website that people can use to connect. Without logging in, you can view locations and look at featured artist profiles.
+- Once a user exists (signs up for account), if they are logged in, they can edit their profile, add, update and delete artwork, contact locations, add and delete locations links from their profile or delete their account. 
+- A user may create a location which will make them a host.  They can then update or delete that location.  
+- Must implement an is_admin boolean (to authorize ownership of location).
 - Hosts will additionally be able to add and delete from their featured artist's list. Their profiles will have a link to a map with location.
+- User can add a location links to their profile by clicks 'Add to my locations" on Location detail page 
+
 
 <br>
 
 ### Libraries and Dependencies
 
-> Use this section to list all supporting libraries and dependencies, and their role in the project. Below is an example - this needs to be replaced!
-
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
 |      React       | for front-end functionality and DOM manipulation |
-|   React Router   | for routing the user on the front-end|
-| Ruby on Rails | will be the back-end server database|
+|   React Router   | for routing the client-side|
+| Ruby on Rails | for the the back-end server |
 |     Axios      | will make front-end calls to communicate with the db |
 |  PostgreSQL  |for database management|
 
@@ -59,52 +59,68 @@ _The **Art-Wall** is a tool that will allow Artists to search for spaces in the 
 
 > Use the Wireframes section to display desktop, tablet and mobile views. No hand-drawn wireframes. Use a tool like wireframe.cc, Whimsical or AdobeXD
 
-![Dummy Link](url)
+[Design](https://www.figma.com/file/gqodXoEwbmVdMPhlApo2a7/Art-Wall?node-id=0%3A1)
 
-- Desktop Landing
-
-![Dummy Link](url)
-
-- Desktop Hero
-
-![Dummy Link](url)
-
-- Resource Index
-
-![Dummy Link](url)
-
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. Include a link to your component tree
-
-[Component Tree Sample](https://gist.git.generalassemb.ly/davidtwhitlatch/414107e2560ae0bb65e233570f2fe056#file-component-tree-png)
+[Component Tree](https://res.cloudinary.com/willnolin/image/upload/v1626971109/Art_Wall_2_sg9mg6.png)
 
 #### Component Architecture
-
-> Use this section to define your React components and the data architecture of your app. This should be a reflection of how you expect your directory/file tree to look like. 
+ 
 
 ``` structure
 
 src
 |__ assets/
       |__ fonts
-      |__ graphics
       |__ images
-      |__ mockups
+|__ layouts/
+      |__ Layout.css
+      |__ Layout.jsx
 |__ components/
+      |__ css/
+        |__ Header.css
+        |__ Nav.css
+        |__ Footer.css
+        |__ Search.css 
       |__ Header.jsx
+      |__ Nav.jsx
+      |__ Footer.jsx
+      |__ Search.jsx
+      |__ FeaturedArtists.jsx
+      |__ FeaturedLocations.jsx
+      |__ Contact.jsx
 |__ services/
-
+      |__ api-config.js
+      |__ auth.js
+      |__ locations.js
+      |__ artworks.js
+      |__ users.js
+|__ screens/
+      |__ Login.jsx
+      |__ Register.jsx
+      |__ Landing.jsx
+      |__ LocationList.jsx
+      |__ LocationDetail.jsx
+      |__ ArtistDetail.jsx
+      |__ css/
+        |__ Login.css
+        |__ Register.css
+        |__ Landing.css
+        |__ LocationList.css
+        |__ LocationDetail.css
+        |__ ArtistDetail.css
+|__controlled_components/      
+      |__ EditLocation.jsx
+      |__ CreateLocation.jsx
+      |__ EditArtist.jsx
+      |__ EditArtwork.jsx
+      |__ css/
+        |__ EditLocation.css
+        |__ CreateLocation.css
+        |__ EditArtist.css
+        |__ EditArtwork.css
 ```
 
 #### Time Estimates
@@ -113,9 +129,32 @@ src
 
 | Task                | Priority | Estimated Time | Time Invested | Actual Time |
 | ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
+| Create user model with controllers, routes  |    H     |     3 hrs      |         |        |
+| Create artwork model with contorollers, routes   |    H     |     1 hrs      |         |        |
+| Create location model with controllers, routes   |    H     |     1 hrs      |         |       |
+| Test routes / associations    |    H     |     2 hrs      |         |       |
+| Implement / Test user authentication for CUD |    H     |     5 hrs      |         |       |
+| Custom routes / methods    |    H     |     3 hrs      |         |      |
+| Create seed file to test and Finish back-end   |    H     |     3 hrs      |         |      |
+| Build Landing Screen / Create LocationList and LocationDetail Component Screens    |    H     |     3 hrs      |         |       |
+| Render List of Locations (name, image, city) to LocationList screen    |    H     |     3 hrs      |         |        |
+| Link to detail. Render Location details to LocationDetail screen    |    H     |     3 hrs      |         |       |
+| Create Artist Detail page. Render appropriate user data to the screen    |    H     |     3 hrs      |         |       |
+| Link to Artist detail from Location detail page.    |    H     |     3 hrs      |         |       |
+| Create EditLocation, CreateLocation, EditArtist, AddArtwork screens|    H     |     1.5 hrs      |         |       |
+| Create Form in CreateLocation, Test Post  |    H     |     3 hrs      |         |       |
+| Create FeaturedArtists component with ability add new artist  |    H     |     3 hrs      |         |       |
+| Copy Form to EditLocation w/filled inputs, render FeaturedArtists   |    H     |     3 hrs      |         |       |
+| Test Put for Edit Location|    H     |     2 hrs      |         |       |
+| Create Form in EditArtist (profile) page   |    H     |     1 hrs      |         |       |
+| Test Put for Edit Artist    |    H     |     3 hrs      |         |       |
+| Create Form in AddArtwork |    H     |     1 hrs      |         |       |
+| Render new Artwork to ArtistDetail screen   |    H     |     3 hrs      |         |       |
+| Create and Render FeaturedLocations to ArtistDetail screen   |    H     |     3 hrs      |         |       |
+| Add Contact Form Modal in ArtistDetail    |    M     |     3 hrs      |         |       |
+| Add "Add to My Locations" button to ArtistDetail which updates FeaturedLocations|    M     |     3 hrs      |        |         |
+| CSS  |    H     |     6 hrs      |         |       |
+| TOTAL               |          |     68.5 hrs      |        |         |
 
 > _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
@@ -127,14 +166,18 @@ src
 
 > Use this section to display an image of a computer generated ERD model. You can use draw.io, Lucidchart or another ERD tool.
 
-[ERD Sample](https://drive.google.com/file/d/1kLyQTZqfcA4jjKWQexfEkG2UspyclK8Q/view)
+[ERD](https://res.cloudinary.com/willnolin/image/upload/v1626978260/Screen_Shot_2021-07-22_at_2.23.50_PM_ynyg1w.png)
 <br>
 
 ***
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
+For PMVP, I would like to: 
+- Implement a map view where the user can view all the locations on a map. 
+- Make the contact forms functional and able to send emails to the owner of that location.  Also emails to verify registration.
+- Build an ArtWork detail page.
+- Create a customer user account where people can purchase the art.  
 
 ***
 
