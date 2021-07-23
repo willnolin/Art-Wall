@@ -9,9 +9,12 @@ Artwork.destroy_all
 Location.destroy_all
 User.destroy_all
 
-@admin = User.create!(username: 'sparrow', email: 'sparrow@email.com', password: '123456')
-@molly = User.create!(username: 'molly', email: 'molly@email.com', password: '654321')
-@billy = User.create!(username: 'billly', email: 'Billy@email.com', password: 'sparrow')
+@admin = User.create!(name: 'Admin Sparrow',
+                      profile_pic: 'https://res.cloudinary.com/willnolin/image/upload/v1627062609/girl_lagp5c.jpg', username: 'sparrow', email: 'sparrow@email.com', password: '123456')
+@billy = User.create!(name: 'Billy Bob',
+                      profile_pic: 'https://res.cloudinary.com/willnolin/image/upload/v1627063576/man_wftcux.jpg', username: 'billy', email: 'molly@email.com', password: '654321')
+@molly = User.create!(name: 'Molly Parks',
+                      profile_pic: 'https://res.cloudinary.com/willnolin/image/upload/v1627062609/girl_lagp5c.jpg', username: 'molly', email: 'Billy@email.com', password: 'sparrow')
 @james = User.create!(username: 'james', email: 'kjames@email.com', password: 'sparrow1')
 @kevin = User.create!(username: 'kevin', email: 'kevin@email.com', password: 'sparrow2')
 puts "#{User.count} users(s) created"
@@ -36,12 +39,19 @@ puts "#{User.count} users(s) created"
                              user: @molly)
 puts "#{Location.count} locations created"
 
-Artwork.create!(title: 'freedom', img_url: 'www.dsf.fs.com', user: @molly, location: @five_o)
-Artwork.create!(title: 'black swan', img_url: 'www.silly.com', user: @admin, location: @van_ward)
-Artwork.create!(title: 'capers', img_url: 'www.silly.com', user: @molly, location: @van_ward)
-Artwork.create!(title: 'oceanscape', img_url: 'www.silly.com', user: @molly, location: @five_o)
-Artwork.create!(title: 'portrait', img_url: 'www.silly.com', user: @billy, location: @van_ward)
-Artwork.create!(title: 'lice music', img_url: 'www.silly.com', user: @billy, location: @van_ward)
-Artwork.create!(title: 'or live music?', img_url: 'www.silly.com', user: @billy, location: @van_ward)
+Artwork.create!(title: 'freedom',
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @molly, location: @five_o)
+Artwork.create!(title: 'black swan',
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062611/grey-brick-wall_nepjxb.jpg', user: @admin, location: @van_ward)
+Artwork.create!(title: 'capers',
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062608/chirag-saini-YP8drQuufyw-unsplash_xgwevq.jpg', user: @molly, location: @van_ward)
+Artwork.create!(title: 'oceanscape',
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @molly, location: @five_o)
+Artwork.create!(title: 'portrait',
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @billy, location: @van_ward)
+Artwork.create!(title: 'lice music',
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @billy, location: @van_ward)
+Artwork.create!(title: 'or live music?',
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @billy, location: @van_ward)
 
 puts "#{Artwork.count} locations created"

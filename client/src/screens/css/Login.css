@@ -1,0 +1,23 @@
+.login-form-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  height:80%;
+  width: 100%;
+  margin: 0 auto;
+}
+.login-form {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #C4C4C4;
+  height: 50%;
+  width:50%;
+}
+.form-inputs {
+  display:flex;
+  flex-direction: row;
+}

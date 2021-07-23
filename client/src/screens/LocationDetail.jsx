@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import FeaturedArtists from '../components/FeaturedArtists'
+// import Layout from '../layouts/Layout'
 import { getAllArtworks } from '../services/artworks'
 import { getOneLocation } from '../services/locations'
-import { getAllUsers } from '../services/users'
+// import { getAllUsers } from '../services/users'
 // import { Context } from '../Context'
 
 export default function LocationDetail() {
   const [location, setLocation] = useState(null)
   const [artworks, setArtworks] = useState([])
-  const [users, setUsers] = useState([])
   const { id } = useParams()
-  // const { user, setUser } = useContext(Context)
 
   useEffect(() => {
     const fetchLocation = async () => {
@@ -21,24 +21,12 @@ export default function LocationDetail() {
       const allArt = await getAllArtworks();
       setArtworks(allArt);
     };
-    // const fetchUsers = async () => {
-    //   const allUsers = await getAllUsers();
-    //   setUsers(allUsers);
-    // };
     fetchLocation();
     fetchArtworks();
-    // fetchUsers();
   }, [])
 
-  useEffect(() => {
-    const fetchUsers = async () => {
-      const allUsers = await getAllUsers();
-      setUsers(allUsers);
-    }
-    fetchUsers();
-  }, [users])
-
   return (
+    // <Layout>
     <div className="location-detail-container">
       <h3>{location?.name}</h3>
       <hr />
@@ -46,12 +34,12 @@ export default function LocationDetail() {
       <h4>Featured Artists</h4>
       {artworks.map(artwork => {
         if (artwork.location_id === location?.id) {
-          //change this to name when we have names in users table
           return <Link to={`/users/${artwork.user_id}`}>
-            <p>{users.find((user) => user.id === artwork.user_id)?.username}</p>
+            <FeaturedArtists userId={artwork.user_id} />
           </Link>
         }
       })}
     </div>
+    // </Layout>
   )
 }

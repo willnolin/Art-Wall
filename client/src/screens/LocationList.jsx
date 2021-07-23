@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../Context'
+// import Layout from '../layouts/Layout'
 import { getAllLocations } from '../services/locations'
 
 export default function LocationList() {
@@ -16,6 +17,7 @@ export default function LocationList() {
 
 
   return (
+    // <Layout>
     <div>
       <h3>All Hosts</h3>
       {locations.map(location => (
@@ -26,5 +28,6 @@ export default function LocationList() {
         </div>
       ))}
     </div>
+    // </Layout>
   )
 }

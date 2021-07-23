@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show update destroy]
-  before_action :authorize_request, only: %i[show update destroy]
+  before_action :authorize_request, only: %i[update destroy]
   # before_action :get_users_at_location, only: :all_by_location
   # GET /users
   def index
