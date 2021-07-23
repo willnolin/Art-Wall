@@ -49,7 +49,7 @@ function App() {
   return (
     <div className="App">
       <Provider>
-        <Layout>
+        <Layout currentUser={currentUser} handleLogout={handleLogout}>
           <Switch>
             <Route path="/login">
               <Login handleLogin={handleLogin} />

@@ -6,7 +6,6 @@ export default function Landing() {
   return (
     // <Layout>
     <div>
-      <Link to="/locations">Search Hosts</Link>
       <h3>Hi this is the Landing page</h3>
     </div>
     // </Layout>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import "./css/Login.css"
 
 // import Layout from '../layouts/Layout'
@@ -25,7 +26,7 @@ export default function Login(props) {
         e.preventDefault();
         handleLogin(formData)
       }} onChange={handleChange}>
-
+        <h3>Login</h3>
         <label className="form-inputs">Username:
           <input type="text" name="username" value={username}></input>
         </label>
@@ -33,6 +34,7 @@ export default function Login(props) {
           <input type="password" name="password" value={password}></input>
         </label>
         <button>Login</button>
+        <Link to="/register">Register</Link>
       </form>
 
     </div>
