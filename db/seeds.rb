@@ -5,3 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Artwork.destroy_all
+Location.destroy_all
+User.destroy_all
+
+@admin = User.create!(username: 'sparrow', email: 'sparrow@email.com', password: '123456')
+@molly = User.create!(username: 'molly', email: 'molly@email.com', password: '654321')
+puts "#{User.count} users(s) created"
+
+@five_o = Location.create!(name: 'Five-O Gallery',
+                           street: '14 Debbie Lane',
+                           city: 'New York',
+                           state: 'New York',
+                           img_url: 'www.image_uro.com',
+                           sales: false,
+                           commission: 3,
+                           message: 'What a great Gallery! Five-O is the best!',
+                           user: @admin)
+@van_ward = Location.create!(name: 'Van Ward Gallery',
+                             street: '5 Turtle St.',
+                             city: 'Ogunquit',
+                             state: 'Maine',
+                             img_url: 'www.dragon_uro.com',
+                             sales: true,
+                             commission: 1,
+                             message: 'What a great Gallery! Van Ward is the best!',
+                             user: @molly)
+puts "#{Location.count} locations created"
+
+Artwork.create!(title: 'freedom', img_url: 'www.dsf.fs.com', user: @molly, location: @five_o)
+Artwork.create!(title: 'black swan', img_url: 'www.silly.com', user: @admin, location: @van_ward)
+
+puts "#{Artwork.count} locations created"
