@@ -11,6 +11,9 @@ User.destroy_all
 
 @admin = User.create!(username: 'sparrow', email: 'sparrow@email.com', password: '123456')
 @molly = User.create!(username: 'molly', email: 'molly@email.com', password: '654321')
+@billy = User.create!(username: 'billly', email: 'Billy@email.com', password: 'sparrow')
+@james = User.create!(username: 'james', email: 'kjames@email.com', password: 'sparrow1')
+@kevin = User.create!(username: 'kevin', email: 'kevin@email.com', password: 'sparrow2')
 puts "#{User.count} users(s) created"
 
 @five_o = Location.create!(name: 'Five-O Gallery',
@@ -35,5 +38,10 @@ puts "#{Location.count} locations created"
 
 Artwork.create!(title: 'freedom', img_url: 'www.dsf.fs.com', user: @molly, location: @five_o)
 Artwork.create!(title: 'black swan', img_url: 'www.silly.com', user: @admin, location: @van_ward)
+Artwork.create!(title: 'capers', img_url: 'www.silly.com', user: @molly, location: @van_ward)
+Artwork.create!(title: 'oceanscape', img_url: 'www.silly.com', user: @molly, location: @five_o)
+Artwork.create!(title: 'portrait', img_url: 'www.silly.com', user: @billy, location: @van_ward)
+Artwork.create!(title: 'lice music', img_url: 'www.silly.com', user: @billy, location: @van_ward)
+Artwork.create!(title: 'or live music?', img_url: 'www.silly.com', user: @billy, location: @van_ward)
 
 puts "#{Artwork.count} locations created"

@@ -1,11 +1,18 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show update destroy]
-  before_action :authorize_request, only: %i[index show update destroy]
+  before_action :authorize_request, only: %i[show update destroy]
+  # before_action :get_users_at_location, only: :all_by_location
   # GET /users
   def index
     @users = User.all
     render json: @users
   end
+
+  # # Get all users by location
+  # def all_by_location
+  #   @id_array = Artwork.all.where("location_id = #{params[:id]}")
+  #   render json: @id_array
+  # end
 
   # GET /users/1
   def show

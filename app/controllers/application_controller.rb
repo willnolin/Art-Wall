@@ -23,4 +23,9 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     end
   end
+
+  def get_users_at_location
+    @id_array = Artwork.all.where("location_id = #{params[:id]}")
+    puts @id_array
+  end
 end
