@@ -10,7 +10,7 @@ export default function FeaturedArtists(props) {
       setUsers(allUsers);
     }
     fetchUsers();
-  }, [users])
+  }, [])
 
   return (
     <div>

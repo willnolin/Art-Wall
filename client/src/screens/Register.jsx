@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-
+import React, { useState, useContext } from 'react'
+import { Context } from '../Context';
 // import Layout from '../layouts/Layout'
-export default function Register(props) {
+export default function Register() {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: ''
   })
   const { username, email, password } = formData
-  const { handleRegister } = props;
+  const { handleRegister } = useContext(Context);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

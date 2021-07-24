@@ -10,6 +10,7 @@
   justify-content:space-around;
   align-items: center;
   margin-left: -70px;
+  width: 30%;
   /* font-size: 1.5em;
   font-weight: bolder;
   color:#E7B780;
@@ -40,6 +41,7 @@ a.header-links {
   display:flex;
   justify-content:space-around;
   align-items: center;
+  width: 25%;
 }
 
 
