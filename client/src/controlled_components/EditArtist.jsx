@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Context } from "../Context"
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
+import { putUser } from '../services/users.js'
 import "./css/EditArtist.css"
 
 export default function EditArtist() {
-  const { currentUser, handleUpdate } = useContext(Context)
+  const { currentUser, setCurrentUser } = useContext(Context)
   const { id } = useParams();
+  const history = useHistory()
   const [formData, setFormData] = useState({
     name: '',
     profile_pic: '',
@@ -24,14 +26,18 @@ export default function EditArtist() {
 
   useEffect(() => {
     const prefillFormData = () => {
-      setFormData({
-        name: currentUser.name,
-        profile_pic: currentUser.profile_pic,
-        contact: currentUser.contact,
-        city_state: currentUser.city_state,
-        website: currentUser.website,
-        message: currentUser.message
-      });
+      currentUser &&
+        setFormData({
+          name: currentUser.name,
+          profile_pic: currentUser.profile_pic,
+          contact: currentUser.contact,
+          city_state: currentUser.city_state,
+          website: currentUser.website,
+          message: currentUser.message,
+          username: currentUser.username,
+          email: currentUser.email,
+          password: currentUser.password_digest
+        });
     };
 
     prefillFormData();
@@ -43,6 +49,14 @@ export default function EditArtist() {
     console.log(formData)
     handleUpdate(currentUser.id, formData)
   }
+
+  const handleUpdate = async (id, formData) => {
+    const userData = await putUser(id, formData);
+    setCurrentUser({
+      userData
+    });
+    history.push(`/user/${id}}`);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;

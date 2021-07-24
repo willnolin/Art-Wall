@@ -6,7 +6,7 @@ import {
   removeToken,
   verifyUser,
 } from './services/auth'
-import { putUser } from './services/users.js'
+// import { putUser } from './services/users.js'
 
 export const Context = createContext();
 
@@ -40,23 +40,18 @@ export const Provider = (props) => {
     history.push('/');
   };
 
-  const handleUpdate = async (id, formData) => {
-    const userData = await putUser(id, formData);
-    setCurrentUser({
-      ...currentUser,
-      userData
-      // (prevState) =>
-      // prevState.map((user) => {
-      // 	return user.id === Number(id) ? userData : user;
-      // })
-    });
-    history.push(`/user/${id}}`);
-  };
+  // const handleUpdate = async (id, formData) => {
+  //   const userData = await putUser(id, formData);
+  //   setCurrentUser({
+  //     userData
+  //   });
+  //   history.push(`/user/${id}}`);
+  // };
 
   const providerValue = {
     user, setUser, locations, setLocations,
     handleLogin, handleRegister, handleVerify,
-    handleLogout, handleUpdate, currentUser
+    handleLogout, currentUser, setCurrentUser
   }
 
 
