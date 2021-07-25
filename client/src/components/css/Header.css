@@ -17,6 +17,15 @@
   text-shadow: 4px 4px 4px rgba(0,0,0,0.6) */
 }
 
+.header-profile-pic {
+  width: 32px;
+  border-radius: 50px;
+  /* margin-right:5px; */
+}
+.header-username {
+  /* margin-left: 5px; */
+}
+
 a.header-links {
   text-decoration: none;
   font-size: 1em;

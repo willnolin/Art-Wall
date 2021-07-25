@@ -11,7 +11,9 @@ import { Context } from '../Context'
 export default function LocationDetail() {
   const [location, setLocation] = useState(null)
   const { id } = useParams()
-  const { currentUser } = useContext(Context)
+  const { currentUser, setIsEditing } = useContext(Context)
+
+  // setIsEditing(false);
   useEffect(() => {
     const fetchLocation = async () => {
       const resp = await getOneLocation(id)
@@ -25,9 +27,9 @@ export default function LocationDetail() {
     // <Layout>
     <div className="location-details-container">
       <div className="location-details-title">
-        {currentUser.id === location?.user_id ?
+        {currentUser?.id === location?.user_id ?
           <>
-            <p>You are the owner of this location'</p>
+            <p>You are the owner of this location</p>
             <Link to={`/locations/${id}/edit`}><button>Edit</button></Link>
           </>
           : ''}

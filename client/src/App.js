@@ -19,6 +19,7 @@ import EditArtist from './controlled_components/EditArtist';
 import CreateLocation from './controlled_components/CreateLocation';
 import EditArtwork from './controlled_components/EditArtwork';
 import AddArtwork from './controlled_components/AddArtwork';
+import EditLocation from './controlled_components/EditLocation';
 function App() {
 
   // const [currentUser, setCurrentUser] = useState(null);
@@ -67,6 +68,9 @@ function App() {
             </Route>
             <Route path="/users/:id">
               <ArtistDetail />
+            </Route>
+            <Route path="/locations/:id/edit">
+              <EditLocation />
             </Route>
             <Route path="/locations/new">
               <CreateLocation />

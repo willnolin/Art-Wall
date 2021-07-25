@@ -19,6 +19,8 @@ export default function CreateLocation() {
   const { setLocations } = useContext(Context);
   const history = useHistory();
 
+
+
   const handleCreate = async (formData) => {
     const locationData = await postLocation(formData);
     setLocations((prevState) => [...prevState, locationData]);

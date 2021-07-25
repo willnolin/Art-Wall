@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import { useHistory } from "react-router-dom"
 import {
   loginUser,
@@ -13,6 +13,7 @@ export const Provider = (props) => {
   const [artwork, setArtwork] = useState(null);
   const [locations, setLocations] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
   const history = useHistory();
 
   const handleVerify = async () => {
@@ -42,7 +43,7 @@ export const Provider = (props) => {
   const providerValue = {
     artwork, setArtwork, locations, setLocations,
     handleLogin, handleRegister, handleVerify,
-    handleLogout, currentUser, setCurrentUser
+    handleLogout, currentUser, setCurrentUser, isEditing, setIsEditing
   }
 
 

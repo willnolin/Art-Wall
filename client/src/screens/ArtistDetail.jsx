@@ -10,8 +10,9 @@ export default function ArtistDetail() {
   const { id } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [user, setUser] = useState(null);
-  const { currentUser } = useContext(Context)
+  const { currentUser, setIsEditing } = useContext(Context)
 
+  setIsEditing(false);
   useEffect(() => {
     const fetchUser = async () => {
       const thisArtist = await getOneUser(id);
@@ -59,7 +60,7 @@ export default function ArtistDetail() {
                     <h4>{art.title}</h4>
                     <img src={art.img_url} alt={art.title}
                       className="artist-details-artwork" />
-                    {currentUser &&
+                    {currentUser?.id === Number(id) &&
                       <div className="artwork-edit-links">
                         <Link to={`/artworks/${art.id}`}>
                           <p>Edit</p>
@@ -73,7 +74,7 @@ export default function ArtistDetail() {
                 ))
               }</>
             }
-            {currentUser &&
+            {currentUser?.id === Number(id) &&
               <div className="add-art-container">
                 <Link to={`/artworks`}><img src="https://res.cloudinary.com/willnolin/image/upload/v1627152616/add-sign_is1j85.jpg"
                   alt="click to add art"
