@@ -14,9 +14,8 @@ a {
 textarea {
   resize: none;
 }
-/* img {
-  box-shadow: 10px, 10px, rgb(78, 78, 78);
-} */
-
+img {
+box-shadow: 2px 2px 10px rgb(99, 98, 98);
+}
 
 

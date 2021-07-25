@@ -25,7 +25,3 @@ export const deleteLocation = async (id) => {
   return resp;
 };
 
-// export const addFlavor = async (flavorId, locationId) => {
-// 	const resp = await api.put(`/flavors/${flavorId}/locations/${foodId}`);
-// 	return resp.data;
-// };

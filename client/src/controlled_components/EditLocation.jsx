@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Context } from '../Context'
 import { useHistory, useParams } from 'react-router-dom'
-import { getOneLocation, putLocation } from '../services/locations.js'
+import { getOneLocation, putLocation, deleteLocation } from '../services/locations.js'
+import './css/EditLocation.css'
 
 export default function EditLocation() {
   const [formData, setFormData] = useState({
@@ -15,15 +16,16 @@ export default function EditLocation() {
     commission: 0
   });
   const { name, street, city, state, img_url, message, sales, commission } = formData;
-  const { currentUser, setLocations } = useContext(Context);
-  const [location, setLocation] = useState(null)
+  const { currentUser, locations, setLocations } = useContext(Context);
+  const [location, setLocation] = useState(null);
+  const [deleted, setDeleted] = useState(false);
   const history = useHistory();
   const { id } = useParams();
 
   useEffect(() => {
     const fetchLocation = async () => {
       const thisLocation = await getOneLocation(id);
-      setLocation(thisLocation)
+      setLocation(thisLocation);
     }
     fetchLocation();
   }, [])
@@ -47,6 +49,12 @@ export default function EditLocation() {
 
   }, [location]);
 
+  // useEffect(() => {
+  //   const fetchArtists = async () => {
+  //     const artists = await 
+  //   }
+  // })
+
   const handleUpdate = async (formData) => {
     const locationData = await putLocation(id, formData);
     setLocations((prevState) =>
@@ -54,7 +62,7 @@ export default function EditLocation() {
         return location.id === Number(id) ? locationData : location;
       })
     );
-    history.push('/locations');
+    history.push(`/locations/${id}`);
   };
 
   const handleChange = (e) => {
@@ -65,44 +73,71 @@ export default function EditLocation() {
     }));
   };
 
-  return (
-    <div className="create-location-form">
+  const handleDelete = async () => {
+    await deleteLocation(id)
+    debugger
+    locations.splice(locations.indexOf(id), 1);
+    setDeleted(prevState => !prevState)
+  }
 
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        handleUpdate(formData);
-      }}>
-        <h3>Edit Location</h3>
-        <label className="form-field">Name:
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
-        <label className="form-field">Street:
-          <input type="text" name="street" value={street} onChange={handleChange} />
-        </label>
-        <label className="form-field">City:
-          <input type="text" name="city" value={city} onChange={handleChange} />
-        </label>
-        <label className="form-field">State:
-          <input type="text" name="state" value={state} onChange={handleChange} />
-        </label>
-        <label className="form-field">Image:
-          <input type="text" name="img_url" value={img_url} onChange={handleChange} />
-        </label>
-        <label className="form-field">Message:
-          <textarea name="message" rows="5" value={message} onChange={handleChange} />
-        </label>
-        <div className="form-field">
-          <p>On-site sales?</p>
-          <input type="radio" id="yes" name="sales" value={true} onChange={handleChange} />
-          <label for="html">yes</label><br />
-          <input type="radio" id="no" name="sales" value={false} onChange={handleChange} />
-          <label for="no">no</label> <br />
-        </div>
-        <label className="form-field">Commission:
-          <input type="number" name="commission" value={commission} onChange={handleChange} />
-        </label>
-        <button>Submit</button>
-      </form>
+  return (
+    <div className="edit-location-container">
+      <div className="edit-location-artists">
+        <form>
+          <label>
+            <input type="text" />
+          </label>
+          <button>Add Artist</button>
+        </form>
+        {location?.artworks.reduce((acc, artwork) => (
+          acc.map(a => a.user.name).includes(artwork.user.name) ?
+            acc : [...acc, artwork]
+        ), [])
+          .map(artwork => (
+            <>
+              <p>{artwork.user.name}</p> <button onClick={() => handleDelete(artwork.user.id)}>delete</button>
+            </>
+          )
+          )}
+      </div>
+      <div className="edit-location-form">
+
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleUpdate(formData);
+        }}>
+          <h3>Edit Location</h3>
+          <label className="form-field">Name:
+            <input type="text" name="name" value={name} onChange={handleChange} />
+          </label>
+          <label className="form-field">Street:
+            <input type="text" name="street" value={street} onChange={handleChange} />
+          </label>
+          <label className="form-field">City:
+            <input type="text" name="city" value={city} onChange={handleChange} />
+          </label>
+          <label className="form-field">State:
+            <input type="text" name="state" value={state} onChange={handleChange} />
+          </label>
+          <label className="form-field">Image:
+            <input type="text" name="img_url" value={img_url} onChange={handleChange} />
+          </label>
+          <label className="form-field">Message:
+            <textarea name="message" rows="5" value={message} onChange={handleChange} />
+          </label>
+          <div className="form-field">
+            <p>On-site sales?</p>
+            <input type="radio" id="yes" name="sales" value={true} onChange={handleChange} />
+            <label for="html">yes</label><br />
+            <input type="radio" id="no" name="sales" value={false} onChange={handleChange} />
+            <label for="no">no</label> <br />
+          </div>
+          <label className="form-field">Commission:
+            <input type="number" name="commission" value={commission} onChange={handleChange} />
+          </label>
+          <button type="submit">Submit</button> <button onClick={handleDelete}>delete</button>
+        </form>
+      </div>
     </div>
   )
 }

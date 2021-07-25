@@ -6,7 +6,7 @@ import './css/EditArtwork.css'
 
 export default function EditArtwork() {
   const { currentUser } = useContext(Context)
-  const { artwork, setArtwork, } = useContext(Context)
+  const { artwork, setArtwork } = useContext(Context)
   const { id } = useParams();
   const history = useHistory()
 
