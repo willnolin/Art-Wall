@@ -4,10 +4,12 @@
   justify-content:space-around;
   align-items: center;
   width: 25%;
-  margin: 0 auto;
+  margin: 30px auto;
+  background-color: #C4C4C4;
 }
 .form-field {
   display:flex;
   flex-direction: row;
-  
+  justify-content: space-around;
+  align-items: center;
 }

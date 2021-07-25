@@ -6,10 +6,7 @@
   display:flex;
   flex-direction: row;
   justify-content: space-around;
-  /* margin: 10px */
-}
-.location-details-section {
- 
+  margin: 10px
 }
 .location-details-title {
   display: flex;
@@ -22,7 +19,18 @@
 .city-state {
   margin-top: 2px
 }
+.location-details-artists {
+background-color: #C4C4C4;
+padding: 10px;
+height: auto;
+overflow: scroll;
+}
 
 .location-image {
   width: 300px;
+}
+.location-details-details {
+  display: flex;
+  flex-direction:column;
+  width: 350px;
 }

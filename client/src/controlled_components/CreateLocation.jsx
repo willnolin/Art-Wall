@@ -11,9 +11,11 @@ export default function CreateLocation() {
     city: '',
     state: '',
     img_url: '',
-    message: ''
+    message: '',
+    sales: false,
+    commission: 0
   });
-  const { name, street, city, state, img_url, message } = formData;
+  const { name, street, city, state, img_url, message, sales, commission } = formData;
   const { setLocations } = useContext(Context);
   const history = useHistory();
 
@@ -65,7 +67,17 @@ export default function CreateLocation() {
           <input type="text" name="img_url" value={img_url} onChange={handleChange} />
         </label>
         <label className="form-field">Message:
-          <input type="text" name="message" value={message} onChange={handleChange} />
+          <textarea name="message" rows="5" value={message} onChange={handleChange} />
+        </label>
+        <div className="form-field">
+          <p>On-site sales?</p>
+          <input type="radio" id="yes" name="sales" value={true} onChange={handleChange} />
+          <label for="html">yes</label><br />
+          <input type="radio" id="no" name="sales" value={false} onChange={handleChange} />
+          <label for="no">no</label> <br />
+        </div>
+        <label className="form-field">Commission:
+          <input type="number" name="commission" value={commission} onChange={handleChange} />
         </label>
         <button>Submit</button>
       </form>

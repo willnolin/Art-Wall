@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-// import { Context } from "../Context"
+import React, { useState, useEffect, useContext } from 'react'
+import { Context } from "../Context"
 import { useParams, Link } from 'react-router-dom'
 import { getOneUser } from "../services/users";
 import { deleteArtwork } from '../services/artworks';
@@ -10,6 +10,7 @@ export default function ArtistDetail() {
   const { id } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [user, setUser] = useState(null);
+  const { currentUser } = useContext(Context)
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -58,25 +59,28 @@ export default function ArtistDetail() {
                     <h4>{art.title}</h4>
                     <img src={art.img_url} alt={art.title}
                       className="artist-details-artwork" />
-                    <div className="artwork-edit-links">
-                      <Link to={`/artworks/${art.id}`}>
-                        <p>Edit</p>
-                      </Link>
-                      {/* <Link to={`/users/${user.id}`}> */}
-                      <p className="artwork-delete-link"
-                        onClick={() => handleDelete(art.id)}>Delete</p>
-                      {/* </Link> */}
-                    </div>
+                    {currentUser &&
+                      <div className="artwork-edit-links">
+                        <Link to={`/artworks/${art.id}`}>
+                          <p>Edit</p>
+                        </Link>
+
+                        <p className="artwork-delete-link"
+                          onClick={() => handleDelete(art.id)}>Delete</p>
+                      </div>
+                    }
                   </div>
                 ))
               }</>
             }
-            <div className="add-art-container">
-              <Link to={`/artworks`}><img src="https://res.cloudinary.com/willnolin/image/upload/v1627152616/add-sign_is1j85.jpg"
-                alt="click to add art"
-                className="artist-details-artwork add-art" />
-                <p className="hidden-text">Add Image</p></Link>
-            </div>
+            {currentUser &&
+              <div className="add-art-container">
+                <Link to={`/artworks`}><img src="https://res.cloudinary.com/willnolin/image/upload/v1627152616/add-sign_is1j85.jpg"
+                  alt="click to add art"
+                  className="artist-details-artwork add-art" />
+                  <p className="hidden-text">Add Image</p></Link>
+              </div>
+            }
           </div>
         </div>
       }

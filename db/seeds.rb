@@ -23,7 +23,7 @@ puts "#{User.count} users(s) created"
                            street: '14 Debbie Lane',
                            city: 'New York',
                            state: 'New York',
-                           img_url: 'www.image_uro.com',
+                           img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062611/grey-brick-wall_nepjxb.jpg',
                            sales: false,
                            commission: 3,
                            message: 'What a great Gallery! Five-O is the best!',
@@ -32,11 +32,15 @@ puts "#{User.count} users(s) created"
                              street: '5 Turtle St.',
                              city: 'Ogunquit',
                              state: 'Maine',
-                             img_url: 'www.dragon_uro.com',
+                             img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/yellow_wall_ndtmes.jpg',
                              sales: true,
                              commission: 1,
                              message: 'What a great Gallery! Van Ward is the best!',
                              user: @molly)
+@white_house = Location.create!(name: 'White House', street: 'white street', city: 'Brooklyn', state: 'New York',
+                                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/b_w_pnsvm1.jpg',
+                                sales: false, commission: 3, message: 'White house has been a staple of the community
+                                since 1901 when we made bathtub gin', user: @admin)
 puts "#{Location.count} locations created"
 
 Artwork.create!(title: 'freedom',
@@ -46,9 +50,9 @@ Artwork.create!(title: 'black swan',
 Artwork.create!(title: 'capers',
                 img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062608/chirag-saini-YP8drQuufyw-unsplash_xgwevq.jpg', user: @molly, location: @van_ward)
 Artwork.create!(title: 'oceanscape',
-                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @molly, location: @five_o)
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @admin, location: @white_house)
 Artwork.create!(title: 'portrait',
-                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @billy, location: @van_ward)
+                img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @admin, location: @white_house)
 Artwork.create!(title: 'lice music',
                 img_url: 'https://res.cloudinary.com/willnolin/image/upload/v1627062610/david-clode-Ysmu6i5bfIc-unsplash_kuz3ts.jpg', user: @billy, location: @van_ward)
 Artwork.create!(title: 'or live music?',

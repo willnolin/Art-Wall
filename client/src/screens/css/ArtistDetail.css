@@ -52,14 +52,18 @@
   opacity: 0.5;
 }
 
+.artwork-container {
+  border: 1px solid black;
+  height: 200px;
+  margin: 0 auto;
+}
 .artist-details-artwork{
   width: 150px;
+  height: auto;
+  max-height: 150px;
   margin: 0 auto;
 }
 
-.artwork-container {
-  margin: 0 auto;
-}
 
 .artwork-edit-links {
   display: flex;
