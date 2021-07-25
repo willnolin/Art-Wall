@@ -13,7 +13,7 @@ export const Provider = (props) => {
   const [artwork, setArtwork] = useState(null);
   const [locations, setLocations] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
+  const [isOnProfile, setIsOnProfile] = useState(false);
   const history = useHistory();
 
   const handleVerify = async () => {
@@ -43,7 +43,7 @@ export const Provider = (props) => {
   const providerValue = {
     artwork, setArtwork, locations, setLocations,
     handleLogin, handleRegister, handleVerify,
-    handleLogout, currentUser, setCurrentUser, isEditing, setIsEditing
+    handleLogout, currentUser, setCurrentUser, isOnProfile, setIsOnProfile
   }
 
 

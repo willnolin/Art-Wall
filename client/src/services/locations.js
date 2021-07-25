@@ -21,7 +21,9 @@ export const putLocation = async (id, locationData) => {
 };
 
 export const deleteLocation = async (id) => {
+
   const resp = await api.delete(`/locations/${id}`);
+
   return resp;
 };
 

@@ -1,9 +1,35 @@
+.edit-location-container {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items:center;
+  width:50%;
+  margin: 0 auto;
+  
+}
+.edit-location-artists {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+  height:100%;
+  background-color: #B79FAD;
+}
+
+.edit-location-artist {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+} 
+
 .edit-location-form {
   display:flex;
   flex-direction: column;
   justify-content:space-around;
   align-items: center;
-  width: 25%;
   margin: 30px auto;
   background-color: #C4C4C4;
 }

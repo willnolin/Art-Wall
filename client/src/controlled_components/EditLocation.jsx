@@ -18,7 +18,8 @@ export default function EditLocation() {
   const { name, street, city, state, img_url, message, sales, commission } = formData;
   const { currentUser, locations, setLocations } = useContext(Context);
   const [location, setLocation] = useState(null);
-  const [deleted, setDeleted] = useState(false);
+  const [featuredArtists, setFeaturedArtists] = useState([]);
+  // const [deleted, setDeleted] = useState(false);
   const history = useHistory();
   const { id } = useParams();
 
@@ -73,17 +74,21 @@ export default function EditLocation() {
     }));
   };
 
-  const handleDelete = async () => {
+  const handleDelete = async (id) => {
     await deleteLocation(id)
-    debugger
     locations.splice(locations.indexOf(id), 1);
-    setDeleted(prevState => !prevState)
+    // setDeleted(prevState => !prevState)
+    history.push(`/locations`)
   }
+  const handleArtistList = (e) => {
+    e.preventDefault();
 
+
+  }
   return (
     <div className="edit-location-container">
       <div className="edit-location-artists">
-        <form>
+        <form onSubmit={(e) => handleArtistList(e)}>
           <label>
             <input type="text" />
           </label>
@@ -94,9 +99,9 @@ export default function EditLocation() {
             acc : [...acc, artwork]
         ), [])
           .map(artwork => (
-            <>
-              <p>{artwork.user.name}</p> <button onClick={() => handleDelete(artwork.user.id)}>delete</button>
-            </>
+            <div className="edit-location-artist">
+              <p>{artwork.user.name}</p> <button onClick={() => handleArtistDelete(artwork.user.id)}>delete</button>
+            </div>
           )
           )}
       </div>
@@ -135,7 +140,7 @@ export default function EditLocation() {
           <label className="form-field">Commission:
             <input type="number" name="commission" value={commission} onChange={handleChange} />
           </label>
-          <button type="submit">Submit</button> <button onClick={handleDelete}>delete</button>
+          <button type="submit">Submit</button> <button onClick={() => handleDelete(id)}>delete</button>
         </form>
       </div>
     </div>

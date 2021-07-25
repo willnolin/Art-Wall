@@ -4,18 +4,18 @@ import { Context } from "../Context"
 import "./css/Header.css"
 
 export default function Header() {
-  const { currentUser, handleLogout, isEditing } = useContext(Context);
+  const { currentUser, handleLogout, isOnProfile } = useContext(Context);
   return (
     <div className="header-container">
       <div className="header-left">
 
         {currentUser &&
-          (isEditing ?
-            <Link to={`/users/${currentUser.id}`} className="header-links">
-              View Profile
-            </Link> :
+          (isOnProfile ?
             <Link to={`/users/${currentUser.id}/edit`} className="header-links">
               Edit Profile
+            </Link> :
+            <Link to={`/users/${currentUser.id}`} className="header-links">
+              View Profile
             </Link>)}
         {currentUser ?
           <>

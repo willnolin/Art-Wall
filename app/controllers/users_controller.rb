@@ -42,7 +42,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # DELETE /users/1
   def destroy
     @user.destroy
   end

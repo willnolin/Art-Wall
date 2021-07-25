@@ -8,13 +8,10 @@ class LocationsController < ApplicationController
     render json: @locations
   end
 
-  # GET /locations/1
-  #
   def show
     render json: @location, include: { artworks: { include: :user } }
   end
 
-  # POST /locations
   def create
     @location = Location.new(location_params)
     @location.user = @current_user # set location.user_id to the user from the token
@@ -25,7 +22,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /locations/1
   def update
     if @location.update(location_params)
       render json: @location
@@ -34,7 +30,6 @@ class LocationsController < ApplicationController
     end
   end
 
-  # DELETE /locations/1
   def destroy
     @location.destroy
   end

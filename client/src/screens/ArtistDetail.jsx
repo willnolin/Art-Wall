@@ -10,9 +10,9 @@ export default function ArtistDetail() {
   const { id } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [user, setUser] = useState(null);
-  const { currentUser, setIsEditing } = useContext(Context)
+  const { currentUser, setIsOnProfile } = useContext(Context)
 
-  setIsEditing(false);
+  setIsOnProfile(true);
   useEffect(() => {
     const fetchUser = async () => {
       const thisArtist = await getOneUser(id);
@@ -24,7 +24,6 @@ export default function ArtistDetail() {
 
   const handleDelete = async (id) => {
     await deleteArtwork(id)
-    console.log(user)
     user.artworks.splice(user.artworks.indexOf(id), 1);
     setDeleted(prevState => !prevState)
   }
@@ -53,7 +52,7 @@ export default function ArtistDetail() {
             </div>
           </div>
           <div className="artist-details-row artwork-row">
-            {user.artworks.length &&
+            {user.artworks &&
               <>{
                 user.artworks.map(art => (
                   <div className="artwork-container">

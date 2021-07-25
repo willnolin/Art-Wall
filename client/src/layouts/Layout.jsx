@@ -6,8 +6,8 @@ import { Context } from "../Context";
 
 import "./Layout.css"
 const Layout = (props) => {
-  const { currentUser, handleVerify, handleLogout, setIsEditing } = useContext(Context);
-  setIsEditing(false);
+  const { currentUser, handleVerify, handleLogout, setIsOnProfile } = useContext(Context);
+  setIsOnProfile(false);
   useEffect(() => {
     handleVerify()
   }, [])

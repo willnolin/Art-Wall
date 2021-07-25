@@ -6,9 +6,9 @@ import './css/LocationList.css'
 import { getAllLocations } from '../services/locations'
 
 export default function LocationList() {
-  const { locations, setLocations, setIsEditing } = useContext(Context)
+  const { locations, setLocations } = useContext(Context)
 
-  setIsEditing(false);
+
 
   useEffect(() => {
     const fetchLocations = async () => {
