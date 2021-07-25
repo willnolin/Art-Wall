@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
-  before_action :set_artwork, only: [:show, :update, :destroy]
-
+  before_action :set_artwork, only: %i[show update destroy]
+  before_action :authorize_request, only: %i[create update destroy]
   # GET /artworks
   def index
     @artworks = Artwork.all
@@ -16,9 +16,9 @@ class ArtworksController < ApplicationController
   # POST /artworks
   def create
     @artwork = Artwork.new(artwork_params)
-
+    @artwork.user = @current_user
     if @artwork.save
-      render json: @artwork, status: :created, location: @artwork
+      render json: @artwork, status: :created
     else
       render json: @artwork.errors, status: :unprocessable_entity
     end
@@ -39,13 +39,14 @@ class ArtworksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_artwork
-      @artwork = Artwork.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def artwork_params
-      params.require(:artwork).permit(:title, :img_url, :user_id, :location_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_artwork
+    @artwork = Artwork.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def artwork_params
+    params.require(:artwork).permit(:title, :img_url, :user_id, :location_id)
+  end
 end

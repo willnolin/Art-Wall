@@ -1,0 +1,8 @@
+.add-artwork-form-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 40%;
+  margin: 0 auto;
+}

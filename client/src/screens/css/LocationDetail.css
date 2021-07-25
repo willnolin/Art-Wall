@@ -1,0 +1,28 @@
+.location-details-container {
+  display: flex;
+  flex-direction: column;
+}
+.location-details-row {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* margin: 10px */
+}
+.location-details-section {
+ 
+}
+.location-details-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.title {
+  margin-bottom: 0
+}
+.city-state {
+  margin-top: 2px
+}
+
+.location-image {
+  width: 300px;
+}

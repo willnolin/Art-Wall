@@ -6,12 +6,11 @@ import {
   removeToken,
   verifyUser,
 } from './services/auth'
-// import { putUser } from './services/users.js'
 
 export const Context = createContext();
 
 export const Provider = (props) => {
-  const [user, setUser] = useState(null);
+  const [artwork, setArtwork] = useState(null);
   const [locations, setLocations] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
@@ -40,16 +39,8 @@ export const Provider = (props) => {
     history.push('/');
   };
 
-  // const handleUpdate = async (id, formData) => {
-  //   const userData = await putUser(id, formData);
-  //   setCurrentUser({
-  //     userData
-  //   });
-  //   history.push(`/user/${id}}`);
-  // };
-
   const providerValue = {
-    user, setUser, locations, setLocations,
+    artwork, setArtwork, locations, setLocations,
     handleLogin, handleRegister, handleVerify,
     handleLogout, currentUser, setCurrentUser
   }

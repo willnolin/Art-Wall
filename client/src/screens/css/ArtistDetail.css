@@ -1,3 +1,72 @@
 .profile-pic {
   width: 300px
 }
+
+.artist-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-around;
+  margin: 0 auto;
+  padding: 30px
+}
+.artist-details-row {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 10px
+}
+.artist-details-section {
+  padding: 20px;
+}
+.artwork-row {
+  width: 100%;
+  margin-top: 20px;
+  padding:20px;
+  /* padding: 20px; */
+  
+}
+.add-art-container {
+  position:relative;
+  text-align: center;
+  color: black;
+  margin: 0 auto;
+}
+.add-art {
+  transition:1s ease-out;
+
+}
+.hidden-text {
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index:1;
+  display: none;
+}
+.hidden-text:hover {
+  display: block;
+}
+.add-art:hover {
+  /* display:block; */
+  opacity: 0.5;
+}
+
+.artist-details-artwork{
+  width: 150px;
+  margin: 0 auto;
+}
+
+.artwork-container {
+  margin: 0 auto;
+}
+
+.artwork-edit-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.artwork-delete-link {
+  cursor: pointer;
+}

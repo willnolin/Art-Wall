@@ -16,6 +16,9 @@ import Layout from './layouts/Layout';
 //   verifyUser,
 // } from './services/auth'
 import EditArtist from './controlled_components/EditArtist';
+import CreateLocation from './controlled_components/CreateLocation';
+import EditArtwork from './controlled_components/EditArtwork';
+import AddArtwork from './controlled_components/AddArtwork';
 function App() {
 
   // const [currentUser, setCurrentUser] = useState(null);
@@ -65,11 +68,20 @@ function App() {
             <Route path="/users/:id">
               <ArtistDetail />
             </Route>
+            <Route path="/locations/new">
+              <CreateLocation />
+            </Route>
             <Route path="/locations/:id">
               <LocationDetail />
             </Route>
             <Route path="/locations">
               <LocationList />
+            </Route>
+            <Route path="/artworks/:id">
+              <EditArtwork />
+            </Route>
+            <Route path="/artworks">
+              <AddArtwork />
             </Route>
             <Route path="/" exact>
               <Landing />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Context } from "../Context"
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import { putUser } from '../services/users.js'
 import "./css/EditArtist.css"
 
@@ -14,7 +14,7 @@ export default function EditArtist() {
     contact: '',
     city_state: '',
     website: '',
-    message: ''
+    message: '',
   })
 
   const { name,
@@ -34,9 +34,9 @@ export default function EditArtist() {
           city_state: currentUser.city_state,
           website: currentUser.website,
           message: currentUser.message,
-          username: currentUser.username,
-          email: currentUser.email,
-          password: currentUser.password_digest
+          // username: currentUser.username,
+          // email: currentUser.email,
+          // password: currentUser.password_digest
         });
     };
 
@@ -52,10 +52,10 @@ export default function EditArtist() {
 
   const handleUpdate = async (id, formData) => {
     const userData = await putUser(id, formData);
-    setCurrentUser({
+    setCurrentUser(
       userData
-    });
-    history.push(`/user/${id}}`);
+    );
+    history.push(`/users/${id}`);
   };
 
   const handleChange = (e) => {
@@ -87,7 +87,9 @@ export default function EditArtist() {
         <label className="form-input">Message:
           <textarea type="text" name="message" value={message} rows="4" cols="50" placeholder="a little about you" />
         </label>
-        <button>Save</button>
+        <div className="edit-artist-form-footer">
+          <button>Save</button> <Link to={`/users/${id}`}>Back to Profile (Discard changes)</Link>
+        </div>
       </form>
     </div>
   )

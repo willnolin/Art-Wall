@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import './css/LocationDetail.css'
 import FeaturedArtists from '../components/FeaturedArtists'
 // import Layout from '../layouts/Layout'
 import { getAllArtworks } from '../services/artworks'
@@ -9,7 +10,6 @@ import { getOneLocation } from '../services/locations'
 
 export default function LocationDetail() {
   const [location, setLocation] = useState(null)
-  const [artworks, setArtworks] = useState([])
   const { id } = useParams()
 
   useEffect(() => {
@@ -17,28 +17,30 @@ export default function LocationDetail() {
       const resp = await getOneLocation(id)
       setLocation(resp)
     };
-    const fetchArtworks = async () => {
-      const allArt = await getAllArtworks();
-      setArtworks(allArt);
-    };
     fetchLocation();
-    fetchArtworks();
+
   }, [])
 
   return (
     // <Layout>
-    <div className="location-detail-container">
-      <h3>{location?.name}</h3>
-      <hr />
-      <p>{`${location?.city}, ${location?.state}`}</p>
-      <h4>Featured Artists</h4>
-      {artworks.map(artwork => {
-        if (artwork.location_id === location?.id) {
-          return <Link to={`/users/${artwork.user_id}`}>
-            <FeaturedArtists userId={artwork.user_id} />
-          </Link>
-        }
-      })}
+    <div className="location-details-container">
+      <div className="location-details-title">
+        <h3 className="title">{location?.name}</h3>
+        <p className="city-state"> {`${location?.city}, ${location?.state}`}</p>
+      </div>
+      <div className="location-details-row">
+        <h4>Featured Artists</h4>
+        {location?.artworks.reduce((acc, artwork) => (
+          acc.map(a => a.user.name).includes(artwork.user.name) ?
+            acc : [...acc, artwork]
+        ), [])
+          .map(artwork => (
+            <Link to={`/users/${artwork.user_id}`}><p>{artwork.user.name}</p></Link>
+          )
+          )}
+        <img src={location?.img_url} alt={location?.name} className="location-image" />
+      </div>
+      <div className="location-details-row"></div>
     </div>
     // </Layout>
   )

@@ -1,0 +1,13 @@
+.create-location-form {
+  display:flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: center;
+  width: 25%;
+  margin: 0 auto;
+}
+.form-field {
+  display:flex;
+  flex-direction: row;
+  
+}

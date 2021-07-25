@@ -25,7 +25,7 @@ export default function Header() {
               Logout
             </Link>
 
-            <Link to="/location/new" className="header-links">
+            <Link to="/locations/new" className="header-links">
               Become a host
             </Link>
           </>

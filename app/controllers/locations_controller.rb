@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: %i[show update destroy]
-
+  before_action :authorize_request, only: %i[create update destroy]
   # GET /locations
   def index
     @locations = Location.all
@@ -9,14 +9,15 @@ class LocationsController < ApplicationController
   end
 
   # GET /locations/1
+  #
   def show
-    render json: @location
+    render json: @location, include: { artworks: { include: :user } }
   end
 
   # POST /locations
   def create
     @location = Location.new(location_params)
-
+    @location.user = @current_user # set location.user_id to the user from the token
     if @location.save
       render json: @location, status: :created
     else
