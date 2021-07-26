@@ -162,18 +162,23 @@ export default function EditLocation() {
           <label className="form-field">Name:
             <input type="text" name="name" value={name} onChange={handleChange} />
           </label>
+          <br />
           <label className="form-field">Street:
             <input type="text" name="street" value={street} onChange={handleChange} />
           </label>
+          <br />
           <label className="form-field">City:
             <input type="text" name="city" value={city} onChange={handleChange} />
           </label>
+          <br />
           <label className="form-field">State:
             <input type="text" name="state" value={state} onChange={handleChange} />
           </label>
+          <br />
           <label className="form-field">Image:
             <input type="text" name="img_url" value={img_url} onChange={handleChange} />
           </label>
+          <br />
           <label className="form-field">Message:
             <textarea name="message" rows="5" value={message} onChange={handleChange} />
           </label>
@@ -184,10 +189,13 @@ export default function EditLocation() {
             <input type="radio" id="no" name="sales" value={false} onChange={handleChange} />
             <label htmlFor="no">no</label> <br />
           </div>
+          <br />
           <label className="form-field">Commission:
             <input type="number" name="commission" value={commission} onChange={handleChange} />
           </label>
+          <br />
           <button type="submit">Submit</button> <button onClick={() => handleDelete(id)}>delete</button>
+          <br />
         </form>
       </div>
     </div>

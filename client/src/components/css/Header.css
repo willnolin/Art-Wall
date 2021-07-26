@@ -17,6 +17,10 @@
   text-shadow: 4px 4px 4px rgba(0,0,0,0.6) */
 }
 
+.profile-pic-menu-icon {
+  display:none;
+}
+
 .header-profile-pic {
   width: 32px;
   border-radius: 70px;
@@ -45,6 +49,15 @@ a.header-links {
 
 
 }
+.hamburger-menu {
+  display: none;
+
+}
+.hamburger {
+  display: none;
+  width: 30px;
+  margin: 15px;
+}
 
 .header-right {
   display:flex;
@@ -52,6 +65,39 @@ a.header-links {
   align-items: center;
   width: 25%;
 }
+@media screen and (max-width:1024px) {
 
+  .header-left {
+    margin-left: 0
+  }
+  .header-username {
+  display: none;
+  }
+
+}
+
+@media screen and (max-width:420px) {
+  
+  .header-left {
+    display: none;
+  }
+  
+  .header-right {
+    display: none;
+  }
+  
+  .profile-pic-menu-icon {
+      display: block;
+      border-radius: 100px;
+      margin:20px;
+  }
+  .hamburger-menu-icon {
+    display: block;
+}
+.hamburger {
+  display:block;
+}
+
+}
 
 
