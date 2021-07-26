@@ -19,7 +19,7 @@ export default function Header() {
             </Link>)}
         {currentUser ?
           <>
-            < img src={currentUser.profile_pic} className="header-profile-pic" />
+            < img src={currentUser.profile_pic} alt="profile_pic" className="header-profile-pic" />
             <p className="header-username">{currentUser.username}</p>
             <Link to="/" className="header-links" onClick={handleLogout}>
               Logout
