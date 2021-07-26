@@ -22,6 +22,7 @@
 .location-details-artists {
 background-color: #C4C4C4;
 padding: 10px;
+margin: 20px;
 height: auto;
 overflow: scroll;
 }
@@ -46,7 +47,6 @@ overflow: scroll;
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.6);
-  
 }
 
 .form {
@@ -58,6 +58,7 @@ overflow: scroll;
   margin: 10% auto;
   padding: 10px;
   border: 1px solid #888;
+  box-shadow: 2px 2px 10px rgb(109, 109, 109);
   border-radius: 5px;
   width: 200px; 
 }
@@ -73,6 +74,18 @@ overflow: scroll;
 @media screen and (max-width: 420px) {
   .location-details-row {
     flex-direction: column-reverse;
+    justify-content:space-evenly;
+    align-items: center;
+  }
+  .location-details-artists {
+    margin-bottom: 0
+  }
+  .location-image{
+    margin-bottom: 20px;
+
+  }
+  .location-details-details {
+    margin-bottom: 20px;
   }
 
 }

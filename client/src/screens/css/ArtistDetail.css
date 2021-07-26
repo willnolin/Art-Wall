@@ -22,7 +22,7 @@
 .artwork-row {
   width: 100%;
   margin-top: 20px;
-  padding:20px;
+  /* padding:20px; */
   /* padding: 20px; */
   
 }
@@ -53,10 +53,12 @@
 }
 
 .artwork-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 250px;
   padding: 0 10px;
   margin: 0 auto;
+  background-color: #C4C4C4;
+  box-shadow: 2px 2px 10px rgb(109, 108, 108);
 }
 .artist-details-artwork{
   width: 150px;
@@ -79,11 +81,23 @@
 
 @media screen and (max-width: 420px) {
   .artist-details-row {
-    flex-direction: column;
+    flex-direction: column; 
   }
+.artist-details-section {
+  padding: 20px;
+}
+.artwork-row {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 0;
+  margin-left: 0;
+  /* padding: 20px; */
   
+}
   .artwork-container {
-    margin: 10px auto;
+    margin: 20px auto;
   }
 }
 
