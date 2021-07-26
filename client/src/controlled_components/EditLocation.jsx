@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { Context } from '../Context'
 import { useHistory, useParams } from 'react-router-dom'
 import { getOneLocation, putLocation, deleteLocation } from '../services/locations.js'
+import { getAllUsers } from '../services/users'
 import './css/EditLocation.css'
 
 export default function EditLocation() {
@@ -83,44 +84,60 @@ export default function EditLocation() {
   }
 
   //  Add Artist Form /////////////////////////////////////
-  useEffect(() => {
-    const initArtists = () => {
-      const featured = []
-      location?.artworks.reduce((acc, artwork) => (
-        acc.map(a => a.user.name).includes(artwork.user.name) ?
-          acc : [...acc, artwork]
-      ), [])
-        .map(artwork => (
-          featured.push(artwork.user)
-        )
-        )
-      console.log(featured)
-      setFeaturedArtists(featured)
-    }
-    initArtists();
-  }, [location])
+  // grab all users from this location
+  // useEffect(() => {
+  //   const initArtists = () => {
+  //     const featured = []
+  //     location?.artworks.reduce((acc, artwork) => (
+  //       acc.map(a => a.user.name).includes(artwork.user.name) ?
+  //         acc : [...acc, artwork]
+  //     ), [])
+  //       .map(artwork => (
+  //         featured.push(artwork.user)
+  //       )
+  //       )
+  //     console.log(featured)
+  //     setFeaturedArtists(featured)
+  //   }
+  //   initArtists();
+  // }, [location])
+  // // handle change for add artist form
+  // const artistInputHandleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setArtistFormData((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // }
+  // // updating state of featured artist list, clear form input, flag change in list
+  // const handleArtistList = (artistFormData) => {
+  //   setFeaturedArtists(prevState => ([
+  //     ...prevState, artistFormData
+  //   ]));
+  //   setArtistFormData({
+  //     artistName: ''
+  //   });
+  //   setArtistsUpdated(prevState => !prevState);
+  // }
+  // // check to see if artist exists 
+  // const checkForExistingArtist = async () => {
+  //   const allArtists = await getAllUsers();
+  //   allArtists.map(artist => {
+  //     if (artist.name === artistName) {
+  //       artist.artworks.location_id = id;
+  //       return true;
+  //     }
+  //   });
+  //   return false;
+  // }
+  // //add artist to location(set user_id to id of entered user in artwork table)
+  // const setLocationId = () => {
 
-  const artistInputHandleChange = (e) => {
-    const { name, value } = e.target;
-    setArtistFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  }
-
-  const handleArtistList = (artistFormData) => {
-    setFeaturedArtists(prevState => ([
-      ...prevState, artistFormData
-    ]));
-    setArtistFormData({
-      artistName: ''
-    });
-    setArtistsUpdated(prevState => !prevState);
-  }
+  // }
 
   return (
     <div className="edit-location-container">
-      <div className="edit-location-artists">
+      {/* <div className="edit-location-artists">
         <form onSubmit={(e) => {
           e.preventDefault();
           handleArtistList(artistFormData);
@@ -134,7 +151,7 @@ export default function EditLocation() {
           <p>{artist?.name}</p>
         ))}
 
-      </div>
+      </div> */}
       <div className="edit-location-form">
 
         <form onSubmit={(e) => {
