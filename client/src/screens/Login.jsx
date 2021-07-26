@@ -35,7 +35,9 @@ export default function Login(props) {
           <input type="password" name="password" value={password}></input>
         </label>
         <button>Login</button>
-        <Link to="/register">Register</Link>
+        <div className="login-form-footer">
+          Don't have an account yet? <Link className="register-link" to="/register">Register Here</Link>
+        </div>
       </form>
 
     </div>

@@ -11,8 +11,27 @@ import { Context } from '../Context'
 export default function LocationDetail() {
   const [location, setLocation] = useState(null)
   const { id } = useParams()
-  const { currentUser, setIsEditing } = useContext(Context)
+  const { currentUser } = useContext(Context)
+  const formObj = {
+    name: "",
+    email: "",
+    message: ""
 
+  }
+  const [input, setInput] = useState(formObj);
+  const [show, setShow] = useState('none')
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value
+    }))
+  }
+  const handleClick = () => {
+    setShow('block')
+  }
   // setIsEditing(false);
   useEffect(() => {
     const fetchLocation = async () => {
@@ -58,11 +77,36 @@ export default function LocationDetail() {
           <p>{`Commission: ${location?.commission}%`}</p>
           <p>On-site sales: {location?.sales ? 'YES' : 'NO'}</p>
           {currentUser ?
-            <button>Contact {location?.name}</button> :
+            <button onClick={handleClick}>Contact {location?.name}</button> :
             <p className="login-to-contact-message">Log in to contact {location?.name}</p>
           }
         </div>
       </div>
+      <>
+        <div className="modal" style={{ display: show }}>
+          <div className="form">
+            <span class="close" onClick={() => {
+              setShow('none')
+            }}>&times;</span>
+            {/* {console.log(score > parseInt(scores[0].fields.score))} */}
+            <form onChange={handleChange}>
+              {/* onSubmit={handleSubmit} onChange={handleChange} */}
+              <p>Contact {location?.name}</p>
+              <br />
+              <label>Enter your name:</label>
+              <input type="text" name="name" />
+              <br />
+              <label>Enter your email:</label>
+              <input type="text" name="email" />
+              <br />
+              <label>Type your message:</label>
+              <textarea name="message" rows='5' />
+              <br />
+              <button>submit</button>
+            </form>
+          </div>
+        </div>
+      </>
     </div>
     // </Layout>
   )

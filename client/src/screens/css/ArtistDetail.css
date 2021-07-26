@@ -76,3 +76,14 @@
 .artwork-delete-link {
   cursor: pointer;
 }
+
+@media screen and (max-width: 420px) {
+  .artist-details-row {
+    flex-direction: column;
+  }
+  
+  .artwork-container {
+    margin: 10px auto;
+  }
+}
+
