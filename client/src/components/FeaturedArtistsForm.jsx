@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getAllUsers } from '../services/users';
 
-export default function FeaturedArtists(props) {
+export default function FeaturedArtistsForm(props) {
   const [users, setUsers] = useState([])
   const { userId } = props;
   useEffect(() => {

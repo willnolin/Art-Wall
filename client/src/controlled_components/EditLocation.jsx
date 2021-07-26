@@ -19,6 +19,11 @@ export default function EditLocation() {
   const { currentUser, locations, setLocations } = useContext(Context);
   const [location, setLocation] = useState(null);
   const [featuredArtists, setFeaturedArtists] = useState([]);
+  const [artistsUpdated, setArtistsUpdated] = useState(false);  // flag for when the featured artist list is updated
+  const [artistFormData, setArtistFormData] = useState({
+    artistName: ''
+  });
+  const { artistName } = artistFormData;
   // const [deleted, setDeleted] = useState(false);
   const history = useHistory();
   const { id } = useParams();
@@ -30,6 +35,7 @@ export default function EditLocation() {
     }
     fetchLocation();
   }, [])
+  // Location Edit form //////////////////////////////////
   //AUTO FILL FORM DATA RADIO BUTTON??? ???????????????????/
   useEffect(() => {
     const prefillFormData = () => {
@@ -50,11 +56,6 @@ export default function EditLocation() {
 
   }, [location]);
 
-  // useEffect(() => {
-  //   const fetchArtists = async () => {
-  //     const artists = await 
-  //   }
-  // })
 
   const handleUpdate = async (formData) => {
     const locationData = await putLocation(id, formData);
@@ -80,30 +81,59 @@ export default function EditLocation() {
     // setDeleted(prevState => !prevState)
     history.push(`/locations`)
   }
-  const handleArtistList = (e) => {
-    e.preventDefault();
 
+  //  Add Artist Form /////////////////////////////////////
+  useEffect(() => {
+    const initArtists = () => {
+      const featured = []
+      location?.artworks.reduce((acc, artwork) => (
+        acc.map(a => a.user.name).includes(artwork.user.name) ?
+          acc : [...acc, artwork]
+      ), [])
+        .map(artwork => (
+          featured.push(artwork.user)
+        )
+        )
+      console.log(featured)
+      setFeaturedArtists(featured)
+    }
+    initArtists();
+  }, [location])
 
+  const artistInputHandleChange = (e) => {
+    const { name, value } = e.target;
+    setArtistFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   }
+
+  const handleArtistList = (artistFormData) => {
+    setFeaturedArtists(prevState => ([
+      ...prevState, artistFormData
+    ]));
+    setArtistFormData({
+      artistName: ''
+    });
+    setArtistsUpdated(prevState => !prevState);
+  }
+
   return (
     <div className="edit-location-container">
       <div className="edit-location-artists">
-        <form onSubmit={(e) => handleArtistList(e)}>
+        <form onSubmit={(e) => {
+          e.preventDefault();
+          handleArtistList(artistFormData);
+        }}>
           <label>
-            <input type="text" />
+            <input type="text" name="artistName" value={artistName} onChange={artistInputHandleChange} />
           </label>
           <button>Add Artist</button>
         </form>
-        {location?.artworks.reduce((acc, artwork) => (
-          acc.map(a => a.user.name).includes(artwork.user.name) ?
-            acc : [...acc, artwork]
-        ), [])
-          .map(artwork => (
-            <div className="edit-location-artist">
-              <p>{artwork.user.name}</p> <button onClick={() => handleArtistDelete(artwork.user.id)}>delete</button>
-            </div>
-          )
-          )}
+        {featuredArtists?.map(artist => (
+          <p>{artist?.name}</p>
+        ))}
+
       </div>
       <div className="edit-location-form">
 
@@ -133,9 +163,9 @@ export default function EditLocation() {
           <div className="form-field">
             <p>On-site sales?</p>
             <input type="radio" id="yes" name="sales" value={true} onChange={handleChange} />
-            <label for="html">yes</label><br />
+            <label htmlFor="html">yes</label><br />
             <input type="radio" id="no" name="sales" value={false} onChange={handleChange} />
-            <label for="no">no</label> <br />
+            <label htmlFor="no">no</label> <br />
           </div>
           <label className="form-field">Commission:
             <input type="number" name="commission" value={commission} onChange={handleChange} />
