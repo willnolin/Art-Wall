@@ -84,7 +84,7 @@ export default function CreateLocation() {
           <label for="no">no</label> <br />
         </div>
         <label className="form-field">Commission:
-          <input type="number" name="commission" value={commission} onChange={handleChange} />
+          <input type="number" name="commission" min="0" value={commission} onChange={handleChange} />
         </label>
         <br />
         <button>Submit</button>

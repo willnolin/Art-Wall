@@ -16,11 +16,37 @@
   color:#E7B780;
   text-shadow: 4px 4px 4px rgba(0,0,0,0.6) */
 }
+.blank-profile-pic {
+  display: none;
+  width: 32px;
+  border-radius: 70px;
+  background: gray;
+}
+
+.blank-profile-pic-menu-content {
+ display:none;
+}
+
+.blank-profile-pic-menu {
+  display:none;
+}
 
 .profile-pic-menu-icon {
   display:none;
 }
-
+.profile-pic-menu-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: -100px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  transform: translateX(10px);
+  transition: 2s ease-in-out; 
+}
 .header-profile-pic {
   width: 32px;
   border-radius: 70px;
@@ -49,15 +75,10 @@ a.header-links {
 
 
 }
-.hamburger-menu {
+/* .hamburger-menu {
   display: none;
 
-}
-.hamburger {
-  display: none;
-  width: 30px;
-  margin: 15px;
-}
+} */
 
 .header-right {
   display:flex;
@@ -65,6 +86,29 @@ a.header-links {
   align-items: center;
   width: 25%;
 }
+
+.hamburger-image {
+  display: none;
+  width: 30px;
+  margin: 15px;
+}
+.hamburger-menu-icon {
+  display: none;
+}
+.hamburger-menu-content {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: -100px;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  transform: translateX(-10px);
+  transition: 2s ease-in-out; 
+}
+
 @media screen and (max-width:1024px) {
 
   .header-left {
@@ -73,7 +117,7 @@ a.header-links {
   .header-username {
   display: none;
   }
-
+  
 }
 
 @media screen and (max-width:420px) {
@@ -85,19 +129,52 @@ a.header-links {
   .header-right {
     display: none;
   }
-  
+  .blank-profile-pic-menu {
+    display:block;
+  }
+  .blank-profile-pic {
+    display: block
+  }
+
   .profile-pic-menu-icon {
-      display: block;
+    position:relative;  
+    display: block;
       border-radius: 100px;
       margin:20px;
   }
-  .hamburger-menu-icon {
-    display: block;
-}
-.hamburger {
-  display:block;
-}
+  .hamburger-menu-content {
+ display:flex;
+    flex-direction: column;
+  }
+  .profile-pic-menu {
+    display:flex;
+    flex-direction: column;
+  }
 
+  .hamburger-menu-icon {
+    position:relative;
+    display: block;
+    cursor: pointer;
+    /* transition: all .5s ease-in-out; */
+  }
+  .hamburger-image {
+    display:block;
+  }
+
+/* 
+.hamburger:hover .hamburger-menu-content {
+  display: block;
+  animation: translateFromRight 3s 1;
+} */
+/* @keyframes translateFromRight {
+  0% {
+    transform: translateX(300px);
+  }
+  100% {
+    transform: translateX(-150px);
+  }
+ 
+} */
 }
 
 
