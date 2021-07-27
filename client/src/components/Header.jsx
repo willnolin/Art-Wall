@@ -6,23 +6,23 @@ import Hamburger from '../assets/images/hamburger_icon.png'
 import GrayMan from '../assets/images/gray-person.png'
 export default function Header() {
   const { currentUser, handleLogout, isOnProfile } = useContext(Context);
-  const [menuOpen, setMenuOpen] = useState('none');
-  const [profileMenuOpen, setProfileMenuOpen] = useState('none');
+  const [menuOpen, setMenuOpen] = useState('');
+  const [profileMenuOpen, setProfileMenuOpen] = useState('');
   const [clicked, setClicked] = useState(false);
   const [profileMenuClicked, setProfileMenuClicked] = useState(false);
 
   const handleHamburger = () => {
     if (clicked)
-      setMenuOpen('block')
+      setMenuOpen('show-hamburger')
     else
-      setMenuOpen('none')
+      setMenuOpen('')
   }
 
   const handleProfileMenu = () => {
     if (profileMenuClicked)
-      setProfileMenuOpen('block')
+      setProfileMenuOpen('show-profile-menu')
     else
-      setProfileMenuOpen('none')
+      setProfileMenuOpen('')
   }
 
   return (
@@ -37,17 +37,19 @@ export default function Header() {
           }>
 
             < img src={currentUser.profile_pic} alt="profile_pic" className="header-profile-pic" />
-            <div className="profile-pic-menu-content" style={{ display: profileMenuOpen }}>
+            <div className={`profile-pic-menu-content ${profileMenuOpen}`} >
               <div>
                 <Link to={`/users/${currentUser.id}/edit`} className="profile-menu-links">
                   Edit Profile
                 </Link>
               </div>
+              <br />
               <div>
                 <Link to={`/users/${currentUser.id}`} className="profile-menu-links">
                   View Profile
                 </Link>
               </div>
+              <br />
               <div>
                 <Link to="/" className="profile-menu-links" onClick={handleLogout}>
                   Logout
@@ -107,13 +109,15 @@ export default function Header() {
           }
           }>
             < img src={Hamburger} alt="profile_pic" className="hamburger-image" />
-            <div className="hamburger-menu-content" style={{ display: menuOpen }}>
-              <div>
+            {/* <div className={`hamburger-menu-content ${menuOpen}`} style={{ display: menuOpen }}> */}
+            <div className={`hamburger-menu-content ${menuOpen}`}>
+              <div className="hamburger-link-div">
                 <Link to="/locations" className="hamburger-links">
                   Search Hosts
                 </Link>
               </div>
-              <div>
+              <br />
+              <div className="hamburger-link-div">
                 <Link to="/locations/new" className="hamburger-links">
                   Become a host
                 </Link>
