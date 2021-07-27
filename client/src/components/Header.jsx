@@ -80,10 +80,12 @@ export default function Header() {
           }
           }>
             <img src={GrayMan} alt="login" className={`blank-profile-pic ${profileHighlight}`} />
-            <div className={`profile-pic-menu-content ${profileMenuOpen}`} style={{ display: profileMenuOpen }}>
-              <Link to="/login" className="profile-menu-links">
-                Login
-              </Link>
+            <div className={`profile-pic-menu-content ${profileMenuOpen}`}>
+              <div className="profile-menu-links-div">
+                <Link to="/login" className="profile-menu-links">
+                  Login
+                </Link>
+              </div>
             </div>
           </div>
         </>

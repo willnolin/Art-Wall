@@ -63,6 +63,10 @@
   background-color: #bd9fa16f;
 }
 
+.profile-menu-links:hover {
+  text-shadow:4px 4px 10px wheat;
+}
+
 .profile-pic-menu-content .profile-menu-links-div:hover {
   background-color: #6b686862;
 
@@ -142,7 +146,7 @@ a.header-links {
   padding-top: 16px;
   /* padding-bottom: ‒16; */
   padding-bottom: 16px;
-  background-color: #bd9fa16f;
+  background-color: #bd9fa1;
 }
 
 .hamburger-links {
@@ -150,8 +154,14 @@ a.header-links {
  
 }
 
+.hamburger-links:hover {
+  text-shadow:4px 4px 10px wheat;
+}
+
+
+
 .hamburger-menu-content .hamburger-link-div:hover {
-  background-color: #6b686862;
+  background-color: #a09c9ce9;
 
 }
 
