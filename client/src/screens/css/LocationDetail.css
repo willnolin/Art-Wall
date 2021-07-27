@@ -36,6 +36,12 @@ overflow: scroll;
   width: 350px;
 }
 
+.contact-button {
+  background-color:#B98F91;
+  width: 200px;
+  margin: 0 auto;
+}
+
 .modal {
   display:none;
   position: fixed;

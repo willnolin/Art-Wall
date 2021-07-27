@@ -74,24 +74,31 @@ export default function EditArtist() {
         <label className="form-input">Name:
           <input type="text" name="name" value={name} placeholder="artist name" />
         </label>
+        <br />
         <label className="form-input">Profile_pic:
           <input type="text" name="profile_pic" value={profile_pic} placeholder="link to photo" />
         </label>
+        <br />
         <label className="form-input">Contact:
           <input type="text" name="contact" value={contact} placeholder="email or phone" />
         </label>
+        <br />
         <label className="form-input">City, State:
           <input type="text" name="city_state" value={city_state} placeholder="Where are you located?" />
         </label>
+        <br />
         <label className="form-input">Website:
           <input type="text" name="website" value={website} placeholder="www.yoursite.com" />
         </label>
+        <br />
         <label className="form-input">Message:
-          <textarea type="text" name="message" value={message} rows="4" cols="50" placeholder="a little about you" />
+          <textarea type="text" name="message" value={message} rows="4" cols="20" placeholder="a little about you" />
         </label>
+        <br />
         <div className="edit-artist-form-footer">
-          <button>Save</button> <Link to={`/users/${id}`}>Back to Profile (Discard changes)</Link>
+          <button className="save-btn">Save</button> <Link to={`/users/${id}`}>Back to Profile (Discard changes)</Link>
         </div>
+        <br />
       </form>
     </div>
   )

@@ -77,7 +77,7 @@ export default function LocationDetail() {
           <p>{`Commission: ${location?.commission}%`}</p>
           <p>On-site sales: {location?.sales ? 'YES' : 'NO'}</p>
           {currentUser ?
-            <button onClick={handleClick}>Contact {location?.name}</button> :
+            <button className="contact-button" onClick={handleClick}>Contact {location?.name}</button> :
             <p className="login-to-contact-message">Log in to contact {location?.name}</p>
           }
         </div>
