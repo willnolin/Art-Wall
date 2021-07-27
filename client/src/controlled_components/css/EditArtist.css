@@ -29,5 +29,19 @@
 }
 
 .save-btn {
-  background-color: #B98F91
+  background-color: #B98F91;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #d5cdce;
+  /* cursor: pointer; */
+}
+
+.back-to-profile {
+  font-size: 10px;
+}
+
+.back-to-profile:hover {
+  text-shadow:2px 2px 10px rgb(224, 49, 25);
 }

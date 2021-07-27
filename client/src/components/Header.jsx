@@ -115,7 +115,7 @@ export default function Header() {
 
         }
       </div>
-      <div className="header-title">Art-Wall</div>
+      <div><Link to="/" className="header-title">Art-Wall</Link></div>
       {/* Hamburger when logged in  ///////////////*/}
       {
         currentUser ?
