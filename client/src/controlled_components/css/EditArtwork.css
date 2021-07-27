@@ -18,3 +18,13 @@
   justify-content: space-between;
   width: 250px;
 }
+
+.save-btn {
+  background-color: #B98F91;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #d5cdce;
+  /* cursor: pointer; */
+}
