@@ -9,20 +9,33 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState('');
   const [profileMenuOpen, setProfileMenuOpen] = useState('');
   const [clicked, setClicked] = useState(false);
+  const [profileHighlight, setProfileHighlight] = useState('')
+  const [hamburgerHighlight, setHamburgerHighlight] = useState('')
+
+  const [hamburgerRotate, setHamburgerRotate] = useState('');
   const [profileMenuClicked, setProfileMenuClicked] = useState(false);
 
   const handleHamburger = () => {
-    if (clicked)
+    if (clicked) {
+      setHamburgerRotate('hamburger-rotate')
+      setHamburgerHighlight('highlight')
       setMenuOpen('show-hamburger')
-    else
+    } else {
+      setHamburgerRotate('')
+      setHamburgerHighlight('')
       setMenuOpen('')
+    }
   }
 
   const handleProfileMenu = () => {
-    if (profileMenuClicked)
+    if (profileMenuClicked) {
+      setProfileHighlight('highlight')
       setProfileMenuOpen('show-profile-menu')
-    else
+    }
+    else {
+      setProfileHighlight('')
       setProfileMenuOpen('')
+    }
   }
 
   return (
@@ -36,21 +49,22 @@ export default function Header() {
           }
           }>
 
-            < img src={currentUser.profile_pic} alt="profile_pic" className="header-profile-pic" />
+            < img src={currentUser.profile_pic} alt="profile_pic"
+              className={`header-profile-pic ${profileHighlight}`} />
             <div className={`profile-pic-menu-content ${profileMenuOpen}`} >
-              <div>
+              <div className="profile-menu-links-div">
                 <Link to={`/users/${currentUser.id}/edit`} className="profile-menu-links">
                   Edit Profile
                 </Link>
               </div>
-              <br />
-              <div>
+
+              <div className="profile-menu-links-div">
                 <Link to={`/users/${currentUser.id}`} className="profile-menu-links">
                   View Profile
                 </Link>
               </div>
-              <br />
-              <div>
+
+              <div className="profile-menu-links-div">
                 <Link to="/" className="profile-menu-links" onClick={handleLogout}>
                   Logout
                 </Link>
@@ -108,7 +122,7 @@ export default function Header() {
             handleHamburger()
           }
           }>
-            < img src={Hamburger} alt="profile_pic" className="hamburger-image" />
+            < img src={Hamburger} alt="profile_pic" className={`hamburger-image ${hamburgerRotate} ${hamburgerHighlight}`} />
             {/* <div className={`hamburger-menu-content ${menuOpen}`} style={{ display: menuOpen }}> */}
             <div className={`hamburger-menu-content ${menuOpen}`}>
               <div className="hamburger-link-div">
@@ -116,7 +130,6 @@ export default function Header() {
                   Search Hosts
                 </Link>
               </div>
-              <br />
               <div className="hamburger-link-div">
                 <Link to="/locations/new" className="hamburger-links">
                   Become a host

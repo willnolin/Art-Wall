@@ -40,15 +40,15 @@ export default function AddArtwork() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <h3>Add New Artwork</h3>
         <div className="form-row">
-          <label>Title:
-            <input type="text" name="title" value={title} onChange={handleChange} />
-          </label>
+          <label>Title:</label>
+          <input type="text" name="title" value={title} onChange={handleChange} />
         </div>
-        <div className="for-row">
-          <label>Image URL:
-            <input type="text" name="img_url" value={img_url} onChange={handleChange} />
-          </label>
+        <br />
+        <div className="form-row">
+          <label>Image URL: </label>
+          <input type="text" name="img_url" value={img_url} onChange={handleChange} />
         </div>
+        <br />
         <button>Save</button>
       </form>
     </div>
