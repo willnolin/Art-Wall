@@ -4,6 +4,7 @@
   justify-content: space-around;
   background-color: #B98F91;
   height: 60px;
+  font-family: Attack;
 }
 .header-left {
   display:flex;
@@ -39,6 +40,7 @@
   position: absolute;
   top: 40px;
   right: 100px;
+  font-family: Bear;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -87,6 +89,7 @@ a.header-links {
   display:flex;
   justify-content:space-around;
   align-items: center;
+  font-family: Attack;
   font-size: 2.5em;
   font-weight: bolder;
   color:#E7B780;
@@ -100,6 +103,7 @@ a.header-links {
   justify-content:space-between;
   align-items: center;
   width: 25%;
+  font-family: Bear;
 }
 
 .hamburger-image {
@@ -117,6 +121,7 @@ a.header-links {
   position: absolute;
   top: 60px;
   left: 100px;
+  font-family: Bear;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -161,7 +166,7 @@ a.header-links {
   
 }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width:480px) {
   
   .header-left {
     display: none;

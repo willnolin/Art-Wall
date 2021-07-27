@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Attack";
+  src: url("./assets/fonts/Attack13-rKrx.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Autobabahn";
+  src: url("./assets/fonts/Autobabahn-pnjZ.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bear";
+  src: url("./assets/fonts/BaarZeitgeist-2EZo.ttf") format("truetype");
+}
+

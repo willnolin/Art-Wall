@@ -77,7 +77,7 @@ overflow: scroll;
   cursor: pointer;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
   .location-details-row {
     flex-direction: column-reverse;
     justify-content:space-evenly;
