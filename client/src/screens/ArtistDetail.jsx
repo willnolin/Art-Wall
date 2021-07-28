@@ -35,7 +35,8 @@ export default function ArtistDetail() {
         <div className="artist-details-container">
           <div className="artist-details-row">
             <div className="artist-details-section">
-              <h1>{user.name}</h1>
+            <h1 className="artist-details-name">{user.name}</h1>
+            <p className="artist-details-city-state">{`Works in: ${user.city_state}`}</p>
               <p>{user.message}</p>
             </div>
             <img src={`${user.profile_pic}`} alt={`${user.username}`} className="profile-pic" />
