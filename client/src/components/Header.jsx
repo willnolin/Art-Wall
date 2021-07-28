@@ -79,11 +79,13 @@ export default function Header() {
             handleProfileMenu()
           }
           }>
-            <img src={GrayMan} alt="login" className="blank-profile-pic" />
-            <div className="profile-pic-menu-content" style={{ display: profileMenuOpen }}>
-              <Link to="/login" className="profile-menu-links">
-                Login
-              </Link>
+            <img src={GrayMan} alt="login" className={`blank-profile-pic ${profileHighlight}`} />
+            <div className={`profile-pic-menu-content ${profileMenuOpen}`}>
+              <div className="profile-menu-links-div">
+                <Link to="/login" className="profile-menu-links">
+                  Login
+                </Link>
+              </div>
             </div>
           </div>
         </>
@@ -113,7 +115,7 @@ export default function Header() {
 
         }
       </div>
-      <div className="header-title">Art-Wall</div>
+      <div><Link to="/" className="header-title">Art-Wall</Link></div>
       {/* Hamburger when logged in  ///////////////*/}
       {
         currentUser ?
@@ -132,7 +134,7 @@ export default function Header() {
               </div>
               <div className="hamburger-link-div">
                 <Link to="/locations/new" className="hamburger-links">
-                  Become a host
+                  Become A Host
                 </Link>
               </div>
             </div>
@@ -143,23 +145,25 @@ export default function Header() {
             handleHamburger()
           }
           }>
-            < img src={Hamburger} alt="profile_pic" className="hamburger-image" />
-            <div className="hamburger-menu-content" style={{ display: menuOpen }}>
-              <Link to="/locations" className="hamburger-links">
-                Search Hosts
-              </Link>
+            < img src={Hamburger} alt="profile_pic" className={`hamburger-image ${hamburgerRotate} ${hamburgerHighlight}`} />
+            <div className={`hamburger-menu-content ${menuOpen}`}>
+              <div className="hamburger-link-div">
+                <Link to="/locations" className="hamburger-links">
+                  SEARCH HOSTS
+                </Link>
+              </div>
             </div>
           </div>
 
       }
       <div className="header-right">
         <Link to="/locations" className="header-links">
-          Search Hosts
+          SEARCH HOSTS
         </Link>
         {currentUser &&
 
           <Link to="/locations/new" className="header-links">
-            Become a host
+            BECOME A HOST
           </Link>
 
         }

@@ -4,23 +4,22 @@
   justify-content: space-around;
   background-color: #B98F91;
   height: 60px;
+  font-family: Attack;
 }
+
 .header-left {
   display:flex;
   justify-content:space-around;
   align-items: center;
   margin-left: -70px;
   width: 30%;
-  /* font-size: 1.5em;
-  font-weight: bolder;
-  color:#E7B780;
-  text-shadow: 4px 4px 4px rgba(0,0,0,0.6) */
 }
 .blank-profile-pic {
   display: none;
   width: 32px;
   border-radius: 70px;
   background: gray;
+  margin-bottom: 40px;
 }
 
 .blank-profile-pic-menu-content {
@@ -34,11 +33,13 @@
 .profile-pic-menu-icon {
   display:none;
 }
+
 .profile-pic-menu-content {
   /* display: none; */
   position: absolute;
   top: 40px;
   right: 100px;
+  font-family: Bear;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -59,6 +60,10 @@
   /* padding-bottom: ‒16; */
   padding-bottom: 16px;
   background-color: #bd9fa16f;
+}
+
+.profile-menu-links:hover {
+  text-shadow:4px 4px 10px wheat;
 }
 
 .profile-pic-menu-content .profile-menu-links-div:hover {
@@ -87,6 +92,7 @@ a.header-links {
   display:flex;
   justify-content:space-around;
   align-items: center;
+  font-family: Attack;
   font-size: 2.5em;
   font-weight: bolder;
   color:#E7B780;
@@ -97,9 +103,10 @@ a.header-links {
 
 .header-right {
   display:flex;
-  justify-content:space-between;
+  justify-content:space-around;
   align-items: center;
   width: 25%;
+  font-family: Bear;
 }
 
 .hamburger-image {
@@ -113,10 +120,11 @@ a.header-links {
   display: none;
 }
 .hamburger-menu-content {
-  /* display: none; */
-  position: absolute;
+
+  position: fixed;
   top: 60px;
-  left: 100px;
+  left: 100%;
+  font-family: Bear;
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -125,8 +133,7 @@ a.header-links {
   margin-top: 12px;
   margin-bottom: 12px;
   z-index: 1;
-  /* transform: translateX(-10px); */
-  transition: left .5s ease-in-out; 
+  transition: transform .5s ease-in-out; 
 }
 
 .hamburger-link-div {
@@ -137,7 +144,7 @@ a.header-links {
   padding-top: 16px;
   /* padding-bottom: ‒16; */
   padding-bottom: 16px;
-  background-color: #bd9fa16f;
+  background-color: #bd9fa1;
 }
 
 .hamburger-links {
@@ -145,12 +152,18 @@ a.header-links {
  
 }
 
+.hamburger-links:hover {
+  text-shadow:4px 4px 10px wheat;
+}
+
+
+
 .hamburger-menu-content .hamburger-link-div:hover {
-  background-color: #6b686862;
+  background-color: #a09c9ce9;
 
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1124px) {
 
   .header-left {
     margin-left: 0
@@ -161,7 +174,7 @@ a.header-links {
   
 }
 
-@media screen and (max-width:420px) {
+@media screen and (max-width:480px) {
   
   .header-left {
     display: none;
@@ -215,7 +228,8 @@ a.header-links {
   .show-hamburger {
     display:flex;
     flex-direction: column;
-    left: -100px;
+    transform: translateX(-120%)
+    /* left: -100px; */
   }
 /* 
 .hamburger:hover .hamburger-menu-content {

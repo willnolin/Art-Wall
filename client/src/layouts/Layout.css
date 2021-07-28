@@ -8,5 +8,6 @@
 .layout-children {
   height:100%;
   text-align:center;
-  /* margin: 0 auto; */
+  min-height: calc(100vh - 112px);
 }
+

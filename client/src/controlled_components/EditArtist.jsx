@@ -96,7 +96,7 @@ export default function EditArtist() {
         </label>
         <br />
         <div className="edit-artist-form-footer">
-          <button className="save-btn">Save</button> <Link to={`/users/${id}`}>Back to Profile (Discard changes)</Link>
+          <button className="save-btn">Save</button> <Link className="back-to-profile" to={`/users/${id}`}>Back to Profile (Discard changes)</Link>
         </div>
         <br />
       </form>

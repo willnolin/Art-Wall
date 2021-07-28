@@ -96,7 +96,7 @@ export default function EditArtwork() {
 
         </div>
         <br />
-        <button>Save</button>
+        <button className="save-btn">Save</button>
         <br />
       </form>
     </div>
