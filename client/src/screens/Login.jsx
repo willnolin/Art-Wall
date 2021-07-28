@@ -31,13 +31,17 @@ export default function Login(props) {
         <label className="form-inputs">Username:
           <input type="text" name="username" value={username} onChange={handleChange}></input>
         </label>
+        <br />
         <label className="form-inputs">Password:
           <input type="password" name="password" value={password} onChange={handleChange}></input>
         </label>
+        <br />
         <button>Login</button>
+        <br />
         <div className="login-form-footer">
           Don't have an account yet? <Link className="register-link" to="/register">Register Here</Link>
         </div>
+        <br />
       </form>
 
     </div>

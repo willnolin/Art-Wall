@@ -1,0 +1,26 @@
+.landing-page-container {
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.landing-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.welcome-section {
+ font-size: 30px; 
+}
+.welcome-section-title {
+ font-size: 35px; 
+}
+
+.paintbrush {
+  box-shadow: none;
+  width: 200px;
+  margin: 20px;
+}

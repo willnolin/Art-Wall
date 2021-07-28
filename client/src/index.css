@@ -11,3 +11,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "Attack";
+  src: url("./assets/fonts/Attack13-rKrx.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Bootle";
+  src: url("./assets/fonts/Bootle-4B9l.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Bear";
+  src: url("./assets/fonts/BaarZeitgeist-2EZo.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Marakech";
+  src: url("./assets/fonts/MukeshCreativeDesignsV2-rKJ7.otf") format("opentype");
+}
+

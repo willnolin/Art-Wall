@@ -40,13 +40,13 @@ export default function ArtistDetail() {
             </div>
             <img src={`${user.profile_pic}`} alt={`${user.username}`} className="profile-pic" />
             <div className="artist-details-section">
-              <h4>{user.name}'s work is currently on display at:</h4>
+              <h4 className="display-titles">{user.name}'s work is currently on display at:</h4>
               {user.artworks.reduce((acc, artwork) => (
                 acc.map(a => a.location ? a.location.name : false).includes(artwork.location?.name) ?
                   acc : [...acc, artwork]
               ), [])
                 .map(artwork => (
-                  <Link to={`/locations/${artwork.location_id}`}><p>{artwork.location?.name}</p></Link>
+                  <Link to={`/locations/${artwork.location_id}`}><p className="location-name">{artwork.location?.name}</p></Link>
                 )
                 )}
             </div>

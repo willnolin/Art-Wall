@@ -57,13 +57,15 @@ export default function LocationDetail() {
       </div>
       <div className="location-details-row">
         <div className="location-details-artists">
-          <h4>Featured Artists</h4>
+          <h4 className="featured-artists-title">Featured Artists</h4>
           {location?.artworks.reduce((acc, artwork) => (
             acc.map(a => a.user.name).includes(artwork.user.name) ?
               acc : [...acc, artwork]
           ), [])
             .map(artwork => (
-              <Link to={`/users/${artwork.user_id}`}><p>{artwork.user.name}</p></Link>
+              <div className="featured-artists-link">
+                <Link to={`/users/${artwork.user_id}`}><p>{artwork.user.name}</p></Link>
+              </div>
             )
             )}
         </div>
@@ -77,7 +79,7 @@ export default function LocationDetail() {
           <p>{`Commission: ${location?.commission}%`}</p>
           <p>On-site sales: {location?.sales ? 'YES' : 'NO'}</p>
           {currentUser ?
-            <button onClick={handleClick}>Contact {location?.name}</button> :
+            <button className="contact-button" onClick={handleClick}>Contact {location?.name}</button> :
             <p className="login-to-contact-message">Log in to contact {location?.name}</p>
           }
         </div>
@@ -87,7 +89,7 @@ export default function LocationDetail() {
           <div className="form">
             <span class="close" onClick={() => {
               setShow('none')
-            }}>&times;</span>
+            }}>{`close (x)`}</span>
             {/* {console.log(score > parseInt(scores[0].fields.score))} */}
             <form onChange={handleChange}>
               {/* onSubmit={handleSubmit} onChange={handleChange} */}

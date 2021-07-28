@@ -1,12 +1,13 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../Context'
+import Search from '../components/Search'
 import './css/LocationList.css'
 // import Layout from '../layouts/Layout'
 import { getAllLocations } from '../services/locations'
-
 export default function LocationList() {
   const { locations, setLocations } = useContext(Context)
+  const [searchItem, setSearchItem] = useState("");
 
 
 
@@ -22,9 +23,17 @@ export default function LocationList() {
   return (
     // <Layout>
     <div className="locations-container">
-      <h3>All Hosts</h3>
+      <Search setSearchItem={setSearchItem} />
       <div className="locations-list-container">
-        {locations.map(location => (
+        {locations.filter((location) => {
+          if (searchItem === "") {
+            return location;
+          }
+          else if (location.name.toLowerCase()
+            .includes(searchItem.toLowerCase())) {
+            return location
+          }
+        }).map(location => (
           <div key={location.id} className="location-card">
             <Link to={`/locations/${location.id}`}>
               <img src={location.img_url} alt={location.name} className="location-card-img" />

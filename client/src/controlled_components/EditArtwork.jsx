@@ -73,27 +73,31 @@ export default function EditArtwork() {
       <form onSubmit={(e) => handleSubmit(e)}>
         <h3>Edit Artwork</h3>
         <div className="form-row">
-          <label>Title:
-            <input type="text" name="title" value={title} onChange={handleChange} />
-          </label>
-        </div>
-        <div className="form-row">
-          <label>Image URL:
-            <input type="text" name="img_url" value={img_url} onChange={handleChange} />
-          </label>
-        </div>
-        <div className="form-row">
-          <label>Location:
-            <select name="location_id" id="location_select" value={location_id} onChange={handleChange}>
-              <option>-select location-</option>
-              {locations.map(location => (
-                <option value={location.id}>{location.name}</option>
-              ))}
-            </select>
+          <label>Title:  </label>
+          <input type="text" name="title" value={title} onChange={handleChange} />
 
-          </label>
         </div>
-        <button>Save</button>
+        <br />
+        <div className="form-row">
+          <label>Image URL:</label>
+          <input type="text" name="img_url" value={img_url} onChange={handleChange} />
+
+        </div>
+        <br />
+        <div className="form-row">
+          <label>Location:</label>
+          <select name="location_id" id="location_select" value={location_id} onChange={handleChange}>
+            <option>-select location-</option>
+            {locations.map(location => (
+              <option value={location.id}>{location.name}</option>
+            ))}
+          </select>
+
+
+        </div>
+        <br />
+        <button className="save-btn">Save</button>
+        <br />
       </form>
     </div>
   )

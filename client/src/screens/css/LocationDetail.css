@@ -1,11 +1,17 @@
 .location-details-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  
 }
 .location-details-row {
   display:flex;
   flex-direction: row;
   justify-content: space-around;
+  width: 100%;
   margin: 10px
 }
 .location-details-title {
@@ -14,7 +20,8 @@
   margin: 0 auto;
 }
 .title {
-  margin-bottom: 0
+  margin-bottom: 10px;
+  font-size: 1.5em;
 }
 .city-state {
   margin-top: 2px
@@ -22,8 +29,20 @@
 .location-details-artists {
 background-color: #C4C4C4;
 padding: 10px;
+margin: 20px;
 height: auto;
+box-shadow: 2px 2px 10px rgb(109, 109, 109);
 overflow: scroll;
+}
+
+.featured-artists-link {
+  text-shadow: 4px 4px 10px wheat;
+  font-size: 1.25em;
+}
+
+.featured-artists-title {
+  text-decoration: underline;
+  font-size: 1em;
 }
 
 .location-image {
@@ -33,6 +52,12 @@ overflow: scroll;
   display: flex;
   flex-direction:column;
   width: 350px;
+}
+
+.contact-button {
+  background-color:#B98F91;
+  width: 200px;
+  margin: 0 auto;
 }
 
 .modal {
@@ -46,7 +71,6 @@ overflow: scroll;
   overflow: auto;
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.6);
-  
 }
 
 .form {
@@ -58,21 +82,35 @@ overflow: scroll;
   margin: 10% auto;
   padding: 10px;
   border: 1px solid #888;
+  box-shadow: 2px 2px 10px rgb(109, 109, 109);
   border-radius: 5px;
   width: 200px; 
 }
 .close {
   width:100%;
-  color: #2e2c2c;
+  color: #030303;
  text-align: right;
-  font-size: 28px;
+  font-size: 10px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 2;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 480px) {
   .location-details-row {
     flex-direction: column-reverse;
+    justify-content:space-evenly;
+    align-items: center;
+  }
+  .location-details-artists {
+    margin-bottom: 0
+  }
+  .location-image{
+    margin-bottom: 20px;
+
+  }
+  .location-details-details {
+    margin-bottom: 20px;
   }
 
 }
