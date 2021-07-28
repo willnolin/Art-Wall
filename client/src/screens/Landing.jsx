@@ -16,11 +16,15 @@ export default function Landing() {
             to hang and sell art! </p>
         </div>
       </div>
-      You can search for registered hosts in your area
+
+      <p className= "call-to-action">
+        You can search for registered hosts in your area.
       Register an account and contact any of our listed hosts! Fill out your artist profile!
       Become a host yourself!  Art Wall is the easiest place to connect with
-      local spaces so what are you waiting for?  Sign up TODAY!
-
+        local spaces so what are you waiting for?
+        <br/>
+        <Link to="/register" className="sign-up-link"> Sign up TODAY! </Link>
+      </p>
 
     </div>
     // </Layout>

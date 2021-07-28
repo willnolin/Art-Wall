@@ -87,7 +87,7 @@ export default function LocationDetail() {
       <>
         <div className="modal" style={{ display: show }}>
           <div className="form">
-            <span class="close" onClick={() => {
+            <span className="close" onClick={() => {
               setShow('none')
             }}>{`close (x)`}</span>
             {/* {console.log(score > parseInt(scores[0].fields.score))} */}

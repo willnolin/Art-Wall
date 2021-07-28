@@ -29,12 +29,15 @@ export default function Register() {
         <label className="form-inputs">Username:
           <input type="text" name="username" value={username}></input>
         </label>
+        <br />
         <label className="form-inputs">Email:
           <input type="text" name="email" value={email}></input>
         </label>
+        <br />
         <label className="form-inputs">Password:
           <input type="password" name="password" value={password}></input>
         </label>
+        <br />
         <button>Register</button>
         {/* <Link to="/login">Login</Link> */}
       </form>
