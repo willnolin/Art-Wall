@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { Context } from '../Context';
-// import Layout from '../layouts/Layout'
 export default function Register() {
   const [formData, setFormData] = useState({
     username: '',

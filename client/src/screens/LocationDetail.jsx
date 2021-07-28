@@ -32,7 +32,7 @@ export default function LocationDetail() {
   const handleClick = () => {
     setShow('block')
   }
-  // setIsEditing(false);
+
   useEffect(() => {
     const fetchLocation = async () => {
       const resp = await getOneLocation(id)
@@ -43,7 +43,6 @@ export default function LocationDetail() {
   }, [])
 
   return (
-    // <Layout>
     <div className="location-details-container">
       <div className="location-details-title">
         {currentUser?.id === location?.user_id ?
@@ -90,9 +89,8 @@ export default function LocationDetail() {
             <span className="close" onClick={() => {
               setShow('none')
             }}>{`close (x)`}</span>
-            {/* {console.log(score > parseInt(scores[0].fields.score))} */}
+
             <form onChange={handleChange}>
-              {/* onSubmit={handleSubmit} onChange={handleChange} */}
               <p>Contact {location?.name}</p>
               <br />
               <label>Enter your name:</label>
@@ -110,6 +108,5 @@ export default function LocationDetail() {
         </div>
       </>
     </div>
-    // </Layout>
   )
 }

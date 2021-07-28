@@ -23,7 +23,6 @@ export default function AddArtwork() {
   const handleCreate = async (formData) => {
     const artData = await postArtwork(formData);
     setArtwork(artData);
-    console.log(artwork)
     history.push(`/users/${currentUser.id}`);
   };
 

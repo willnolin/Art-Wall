@@ -1,6 +1,8 @@
 .profile-pic {
-  width: 300px;
-  max-height: 200px;
+  width: auto;
+  height: auto;
+  max-width: 350px;
+  max-height: 300px;
 }
 
 .artist-details-container {
@@ -38,8 +40,6 @@
   flex-wrap: wrap;
   width: 100%;
   margin-top: 40px;
-  /* padding:20px; */
-  /* padding: 20px; */
 }
 .add-art-container {
   position: relative;
@@ -62,12 +62,10 @@
   display: block;
 }
 .add-art:hover {
-  /* display:block; */
   opacity: 0.5;
 }
 
 .artwork-container {
-  /* border: 1px solid black; */
   height: 250px;
   width: 200px;
   padding: 0 10px;
@@ -123,7 +121,6 @@
     width: 100%;
     margin-top: 0;
     margin-left: 0;
-    /* padding: 20px; */
   }
   .artwork-container {
     margin: 20px auto;
