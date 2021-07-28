@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@iconify/icons-mdi": "^1.1.16",
+    "@iconify/react": "^1.1.4",
+    "google-map-react": "^2.1.10"
+  }
+}

@@ -196,6 +196,7 @@ export default function EditLocation() {
           <br />
           <button type="submit">Submit</button> <button onClick={() => handleDelete(id)}>delete</button>
           <br />
+          <p className = "cancel" onClick={() => {history.push(`/locations`)}}>Cancel</p>
         </form>
       </div>
     </div>

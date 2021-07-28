@@ -1,6 +1,5 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
-// import { useState, useEffect } from 'react';
 import { Provider } from "./Context"
 import Landing from './screens/Landing';
 import LocationList from './screens/LocationList';
@@ -9,12 +8,6 @@ import ArtistDetail from './screens/ArtistDetail';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import Layout from './layouts/Layout';
-// import {
-//   loginUser,
-//   registerUser,
-//   removeToken,
-//   verifyUser,
-// } from './services/auth'
 import EditArtist from './controlled_components/EditArtist';
 import CreateLocation from './controlled_components/CreateLocation';
 import EditArtwork from './controlled_components/EditArtwork';
@@ -22,36 +15,6 @@ import AddArtwork from './controlled_components/AddArtwork';
 import EditLocation from './controlled_components/EditLocation';
 function App() {
 
-  // const [currentUser, setCurrentUser] = useState(null);
-  // const history = useHistory();
-
-  // useEffect(() => {
-  //   const handleVerify = async () => {
-  //     const userData = await verifyUser();
-  //     setCurrentUser(userData);
-  //   };
-  //   handleVerify();
-  // }, []);
-
-  // const handleLogin = async (formData) => {
-  //   const userData = await loginUser(formData);
-  //   console.log(userData.id)
-  //   setCurrentUser(userData);
-  //   history.push(`/users/${userData.id}`);
-  // };
-
-  // const handleRegister = async (formData) => {
-  //   const userData = await registerUser(formData);
-  //   setCurrentUser(userData);
-  //   history.push('/');
-  // };
-
-  // const handleLogout = () => {
-  //   setCurrentUser(null);
-  //   localStorage.removeItem('authToken');
-  //   removeToken();
-  //   history.push('/');
-  // };
   return (
     <div className="App">
       <Provider>

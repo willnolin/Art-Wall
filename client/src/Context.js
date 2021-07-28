@@ -30,7 +30,7 @@ export const Provider = (props) => {
   const handleRegister = async (formData) => {
     const userData = await registerUser(formData);
     setCurrentUser(userData);
-    history.push('/');
+    history.push(`/users/${userData.id}/edit`);
   };
 
   const handleLogout = () => {

@@ -98,6 +98,8 @@ export default function EditArtwork() {
         <br />
         <button className="save-btn">Save</button>
         <br />
+        <p className = "cancel" onClick={() => {history.push(`/users/${artwork.user_id}`)}}>Cancel</p>
+        <br />
       </form>
     </div>
   )

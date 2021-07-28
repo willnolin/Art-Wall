@@ -5,7 +5,7 @@ import { putUser } from '../services/users.js'
 import "./css/EditArtist.css"
 
 export default function EditArtist() {
-  const { currentUser, setCurrentUser } = useContext(Context)
+  const { currentUser, setCurrentUser, setIsOnProfile } = useContext(Context)
   const { id } = useParams();
   const history = useHistory()
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ export default function EditArtist() {
     website,
     message } = formData;
 
-
+  setIsOnProfile(false);
 
   useEffect(() => {
     const prefillFormData = () => {
