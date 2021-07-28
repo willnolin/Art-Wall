@@ -27,6 +27,14 @@ height: auto;
 overflow: scroll;
 }
 
+.featured-artists-link {
+  text-shadow:4px 4px 10px wheat;
+}
+
+.featured-artists-title {
+  text-decoration: underline;
+}
+
 .location-image {
   width: 300px;
 }
@@ -70,11 +78,12 @@ overflow: scroll;
 }
 .close {
   width:100%;
-  color: #2e2c2c;
+  color: #030303;
  text-align: right;
-  font-size: 28px;
+  font-size: 10px;
   font-weight: bold;
   cursor: pointer;
+  z-index: 2;
 }
 
 @media screen and (max-width: 480px) {
