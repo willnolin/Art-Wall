@@ -19,23 +19,11 @@ export default function CreateLocation() {
   const { setLocations } = useContext(Context);
   const history = useHistory();
 
-
-
   const handleCreate = async (formData) => {
     const locationData = await postLocation(formData);
     setLocations((prevState) => [...prevState, locationData]);
     history.push('/locations');
   };
-
-  // const handleUpdate = async (id, formData) => {
-  //   const foodData = await putFood(id, formData);
-  //   setFoodList((prevState) =>
-  //     prevState.map((food) => {
-  //       return food.id === Number(id) ? foodData : food;
-  //     })
-  //   );
-  //   history.push('/locations');
-  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;

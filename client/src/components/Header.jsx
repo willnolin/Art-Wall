@@ -48,9 +48,13 @@ export default function Header() {
             handleProfileMenu()
           }
           }>
-
-            < img src={currentUser.profile_pic} alt="profile_pic"
-              className={`header-profile-pic ${profileHighlight}`} />
+            {currentUser.name ?
+              < img src={currentUser.profile_pic} alt="profile_pic"
+                className={`header-profile-pic ${profileHighlight}`} />
+              :
+              < img src={GrayMan} alt="profile_pic"
+                className={`header-profile-pic ${profileHighlight}`} />
+            }
             <div className={`profile-pic-menu-content ${profileMenuOpen}`} >
               <div className="profile-menu-links-div">
                 <Link to={`/users/${currentUser.id}/edit`} className="profile-menu-links">

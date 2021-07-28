@@ -1,6 +1,6 @@
 .profile-pic {
   width: 300px;
-  max-height:200px;
+  max-height: 200px;
 }
 
 .artist-details-container {
@@ -13,13 +13,14 @@
   max-width: 900px;
 }
 .artist-details-row {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 10px
+  margin: 10px;
 }
 .artist-details-section {
   padding: 20px;
+  width: 200px;
 }
 
 .display-titles {
@@ -39,24 +40,22 @@
   margin-top: 40px;
   /* padding:20px; */
   /* padding: 20px; */
-  
 }
 .add-art-container {
-  position:relative;
+  position: relative;
   text-align: center;
   color: black;
   margin: 45px auto;
 }
 .add-art {
-  transition:1s ease-out;
-
+  transition: 1s ease-out;
 }
 .hidden-text {
-  position:absolute;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index:1;
+  z-index: 1;
   display: none;
 }
 .hidden-text:hover {
@@ -76,14 +75,13 @@
   background: rgba(196, 196, 196, 0.4);
   box-shadow: 2px 2px 10px rgb(109, 108, 108);
 }
-.artist-details-artwork{
+.artist-details-artwork {
   width: auto;
   height: auto;
   max-height: 100px;
   margin: 0 auto;
   box-shadow: 2px 2px 10px rgb(99, 98, 98);
 }
-
 
 .artwork-edit-links {
   display: flex;
@@ -96,26 +94,27 @@
 }
 
 @media screen and (max-width: 550px) {
+  .artist-details-container {
+    padding-top: 0;
+  }
   .artist-details-row {
     flex-direction: column;
     justify-content: space-around;
-    align-items: center; 
+    align-items: center;
   }
-.artist-details-section {
-  padding: 20px;
-}
-.artwork-row {
-  display: flex;
-  justify-content:space-around;
-  align-items: center;
-  width: 100%;
-  margin-top: 0;
-  margin-left: 0;
-  /* padding: 20px; */
-  
-}
+  .artist-details-section {
+    padding: 20px;
+  }
+  .artwork-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    /* padding: 20px; */
+  }
   .artwork-container {
     margin: 20px auto;
   }
 }
-
