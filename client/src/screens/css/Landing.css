@@ -1,5 +1,5 @@
 .landing-page-container {
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -13,14 +13,34 @@
 }
 
 .welcome-section {
- font-size: 30px; 
+  font-size: 30px;
 }
 .welcome-section-title {
- font-size: 35px; 
+  font-size: 35px;
 }
 
 .paintbrush {
   box-shadow: none;
   width: 200px;
   margin: 20px;
+}
+
+@media screen and (max-width: 660px) {
+  .landing-page-container {
+    width: 350px;
+    margin: 0 auto;
+  }
+
+  .welcome-section {
+    font-size: 20px;
+  }
+  .welcome-section-title {
+    font-size: 25px;
+  }
+
+  .paintbrush {
+    box-shadow: none;
+    width: 150px;
+    margin: 20px;
+  }
 }

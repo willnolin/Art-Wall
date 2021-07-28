@@ -45,15 +45,17 @@ export default function ArtistDetail() {
                 acc.map(a => a.location ? a.location.name : false).includes(artwork.location?.name) ?
                   acc : [...acc, artwork]
               ), [])
-                .map(artwork => (
-                  <Link to={`/locations/${artwork.location_id}`}><p className="location-name">{artwork.location?.name}</p></Link>
-                )
-                )}
+              .map((artwork => (
+                <React.Fragment key={artwork.id} >
+                <Link to={`/locations/${artwork.location_id}`}><p className="location-name">{artwork.location?.name}</p></Link>
+                </React.Fragment>
+                  )
+                ))}
             </div>
           </div>
           <div className="artist-details-row artwork-row">
             {user.artworks &&
-              <>{
+              <React.Fragment key = {user.id}>{
                 user.artworks.map(art => (
                   <div className="artwork-container">
                     <h4>{art.title}</h4>
@@ -71,7 +73,7 @@ export default function ArtistDetail() {
                     }
                   </div>
                 ))
-              }</>
+              }</React.Fragment>
             }
             {currentUser?.id === Number(id) &&
               <div className="add-art-container">

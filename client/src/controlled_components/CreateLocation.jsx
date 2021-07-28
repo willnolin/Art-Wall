@@ -87,7 +87,8 @@ export default function CreateLocation() {
           <input type="number" name="commission" min="0" value={commission} onChange={handleChange} />
         </label>
         <br />
-        <button>Submit</button>
+        <button className="submit-btn">Submit</button>
+        <p className = "cancel" onClick={() => {history.push("/locations")}}>Cancel</p>
         <br />
       </form>
     </div>
