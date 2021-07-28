@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { Context } from "../Context"
 import "./css/Login.css"
 
-// import Layout from '../layouts/Layout'
 export default function Login(props) {
   const [formData, setFormData] = useState({
     username: '',

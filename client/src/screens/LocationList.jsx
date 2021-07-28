@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom'
 import { Context } from '../Context'
 import Search from '../components/Search'
 import './css/LocationList.css'
-// import Layout from '../layouts/Layout'
 import { getAllLocations } from '../services/locations'
+
 export default function LocationList() {
   const { locations, setLocations } = useContext(Context)
   const [searchItem, setSearchItem] = useState("");
-
-
 
   useEffect(() => {
     const fetchLocations = async () => {
@@ -21,7 +19,6 @@ export default function LocationList() {
 
 
   return (
-    // <Layout>
     <div className="locations-container">
       <Search setSearchItem={setSearchItem} />
       <div className="locations-list-container">
@@ -44,6 +41,5 @@ export default function LocationList() {
         ))}
       </div>
     </div>
-    // </Layout>
   )
 }

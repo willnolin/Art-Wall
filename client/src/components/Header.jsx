@@ -4,8 +4,9 @@ import { Context } from "../Context"
 import "./css/Header.css"
 import Hamburger from '../assets/images/hamburger_icon.png'
 import GrayMan from '../assets/images/gray-person.png'
-export default function Header() {
-  const { currentUser, handleLogout, isOnProfile } = useContext(Context);
+export default function Header(props) {
+  const { isOnProfile } = useContext(Context);
+  const { currentUser, handleLogout } = props;
   const [menuOpen, setMenuOpen] = useState('');
   const [profileMenuOpen, setProfileMenuOpen] = useState('');
   const [clicked, setClicked] = useState(false);

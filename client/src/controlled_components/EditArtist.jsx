@@ -48,7 +48,6 @@ export default function EditArtist() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(formData)
     handleUpdate(currentUser.id, formData)
   }
 

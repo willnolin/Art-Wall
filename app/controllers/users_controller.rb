@@ -8,12 +8,6 @@ class UsersController < ApplicationController
     render json: @users
   end
 
-  # # Get all users by location
-  # def all_by_location
-  #   @id_array = Artwork.all.where("location_id = #{params[:id]}")
-  #   render json: @id_array
-  # end
-
   # GET /users/1
   def show
     render json: @user, include: { artworks: { include: :location } }

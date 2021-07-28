@@ -190,11 +190,15 @@ a.header-links:hover {
     position: relative;
     display: block;
     border-radius: 100px;
-    margin: 20px;
+    margin: 11px;
   }
   .profile-pic-menu {
     display: flex;
     flex-direction: column;
+  }
+
+  .header-profile-pic {
+    margin: 0;
   }
 
   .show-profile-menu {
@@ -223,18 +227,4 @@ a.header-links:hover {
     transform: translateX(-120%);
     /* left: -100px; */
   }
-  /* 
-.hamburger:hover .hamburger-menu-content {
-  display: block;
-  animation: translateFromRight 3s 1;
-} */
-  /* @keyframes translateFromRight {
-  0% {
-    transform: translateX(300px);
-  }
-  100% {
-    transform: translateX(-150px);
-  }
- 
-} */
 }
