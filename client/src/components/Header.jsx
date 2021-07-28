@@ -95,7 +95,7 @@ export default function Header() {
         </>
 
       }
-      {/* Profile menu  desktop when width > 420 //////////// */}
+      {/* Profile menu  desktop when width > 550 //////////// */}
       <div className="header-left">
         {currentUser &&
           (isOnProfile ?
@@ -106,8 +106,11 @@ export default function Header() {
               View Profile
             </Link>)}
         {currentUser ?
-          <>
+          <>{currentUser.name ?
             < img src={currentUser.profile_pic} alt="profile_pic" className="header-profile-pic" />
+            :
+            < img src={GrayMan} alt="profile_pic" className="header-profile-pic" />
+          }
             <p className="header-username">{currentUser.username}</p>
             <Link to="/" className="header-links" onClick={handleLogout}>
               Logout

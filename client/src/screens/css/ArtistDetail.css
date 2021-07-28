@@ -93,6 +93,17 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 726px) {
+  .display-titles {
+    font-size: 0.7em;
+  }
+
+  .location-name {
+    font-size: 1em;
+    text-shadow: 4px 4px 4px white;
+  }
+}
+
 @media screen and (max-width: 550px) {
   .artist-details-container {
     padding-top: 0;

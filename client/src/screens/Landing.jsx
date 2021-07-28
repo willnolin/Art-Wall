@@ -13,21 +13,21 @@ export default function Landing() {
   return (
     // <Layout>
     <div className="landing-page-container">
-      <div className="landing-row">
-        <img src={paintbrush} alt="paintbrush" className="paintbrush" />
-        <div>
           {currentUser &&
             <>
             <h1>Hello, {currentUser.username}!</h1>
-            <p>Click "Edit Profile" to get started</p>
+            <p>Click "View / Edit Profile" to get started</p>
             </>
 }
+      <div className="landing-row">
+        <img src={paintbrush} alt="paintbrush" className="paintbrush" />
+        <div>
           <p className="welcome-section-title"> Welcome to Art Wall!</p>
           <p className="welcome-section">We are a community of artists looking for spaces
             to hang and sell art! </p>
         </div>
       </div>
-
+      <div className="landing-row">
       <p className= "call-to-action">
         You can search for registered hosts in your area.
       Register an account and contact any of our listed hosts! Fill out your artist profile!
@@ -35,8 +35,10 @@ export default function Landing() {
         local spaces so what are you waiting for?
         <br/>
         <Link to="/register" className="sign-up-link"> Sign up TODAY! </Link>
-      </p>
-
+        </p>
+        <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
+          alt="paintbrushes"  className="paintbrushes" />
+      </div>
     </div>
     // </Layout>
   )

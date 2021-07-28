@@ -3,30 +3,39 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 500px;
+  width: 600px;
   margin: 0 auto;
 }
 
 .landing-row {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .welcome-section {
-  font-size: 30px;
+  font-size: 25px;
+  margin: 20px;
 }
 .welcome-section-title {
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .paintbrush {
   box-shadow: none;
   width: 200px;
   margin: 20px;
+  height: 200px;
 }
 
 .call-to-action {
   font-size: 20px;
+  margin: 20px;
+}
+
+.paintbrushes {
+  width: 200px;
+  height: 200px;
 }
 
 .sign-up-link {
@@ -38,20 +47,37 @@
 
 @media screen and (max-width: 660px) {
   .landing-page-container {
-    width: 350px;
+    width: 400px;
     margin: 0 auto;
   }
 
   .welcome-section {
-    font-size: 20px;
+    font-size: 15px;
   }
   .welcome-section-title {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .paintbrush {
     box-shadow: none;
     width: 150px;
     margin: 20px;
+    height: 150px;
+  }
+  .paintbrushes {
+    width: 150px;
+    height: 150px;
+  }
+  .call-to-action {
+    font-size: 14px;
+    margin: 20px;
+  }
+}
+@media screen and (max-width: 420px) {
+  .landing-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
   }
 }
