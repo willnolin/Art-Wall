@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  position: fixed;
+  width: 100%;
   background-color: #b98f91;
   height: 60px;
   font-family: Attack;
+  z-index: 2;
 }
 
 .header-left {
@@ -190,7 +193,7 @@ a.header-links:hover {
     position: relative;
     display: block;
     border-radius: 100px;
-    margin: 11px;
+    margin: 20px;
   }
   .profile-pic-menu {
     display: flex;

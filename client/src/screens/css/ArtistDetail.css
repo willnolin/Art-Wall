@@ -25,6 +25,14 @@
   width: 200px;
 }
 
+.artist-details-name {
+  text-decoration: underline;
+}
+
+.artist-details-city-state {
+  text-shadow: 2px 2px 10px cornsilk;
+}
+
 .display-titles {
   font-size: 1em;
 }

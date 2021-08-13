@@ -27,6 +27,10 @@ export default function LocationList() {
             return location;
           }
           else if (location.name.toLowerCase()
+            .includes(searchItem.toLowerCase()) ||
+            location.city.toLowerCase()
+              .includes(searchItem.toLowerCase()) ||
+            location.state.toLowerCase()
             .includes(searchItem.toLowerCase())) {
             return location
           }

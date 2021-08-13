@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import './css/LocationDetail.css'
-// import FeaturedArtists from '../components/FeaturedArtists'
-// import Layout from '../layouts/Layout'
-import { getAllArtworks } from '../services/artworks'
 import { getOneLocation } from '../services/locations'
-// import { getAllUsers } from '../services/users'
+
 import { Context } from '../Context'
 
 export default function LocationDetail() {
