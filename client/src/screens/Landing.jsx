@@ -11,7 +11,7 @@ export default function Landing() {
   const {currentUser} = useContext(Context)
 
   return (
-    // <Layout>
+
     <div className="landing-page-container">
           {currentUser &&
             <div className="greeting">
@@ -88,7 +88,7 @@ export default function Landing() {
         {/* <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
           alt="paintbrushes"  className="paintbrushes" /> */}
       <p className= "featured-artist">
-              Artist Of The Week:
+                Artist Of The Week:
               Molly Parks
         <br/>
             </p>
