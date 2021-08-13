@@ -19,7 +19,7 @@ export default function Landing() {
             <p>Click "View / Edit Profile" to get started</p>
             </div>
 }
-      <div className="landing-row first">
+      <div className="landing-row first solid">
         <div className= "top-row-content">
         <div className="top">
           <p className="welcome-section-title"> WELCOME TO ART WALL!</p>
@@ -53,83 +53,80 @@ export default function Landing() {
           </div>
           </div>
       </div>
+
+      {/* ///////////////////////SECOND ROW//////////////////////////////////// */}
       <div className="landing-row second">
       <div className= "second-row-content">
         <div className="featured-artist-card ">
           <div className="featured-artist-overlay ">
         {/* <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
           alt="paintbrushes"  className="paintbrushes" /> */}
+            </div>
       <p className= "featured-artist">
               Artist Of The Week:
               Molly Parks
-        <br/>
+       
             </p>
-            </div>
           </div>
         <div className="call-to-action-gallery-card">
           <div className="call-to-action-overlay">
         <img src="https://res.cloudinary.com/willnolin/image/upload/v1627062605/gallery_frmhcm.jpg"
           alt="yellow-gallery"  className="yellow-gallery" />
       <p className= "gallery-info">
-          See Molly's Artwork
+          Molly's work is on display at Bern Gallery and more!
                 <br />
-                Visit the Van Ward Gallery
-                <br/>
-        <Link to="/register" className="sign-up-link"> Sign up TODAY! </Link>
+                <br />
+        <Link to="/locations/" className="sign-up-link">  Search All Locations </Link>
             </p>
             </div>
           </div>
           </div>
       </div>
-      <div className="landing-row second">
+
+      {/* //////////////////// THIRD ROW //////////////////////////////////// */}
+      <div className="landing-row second solid">
       <div className= "second-row-content">
-        <div className="featured-artist-card ">
-          <div className="featured-artist-overlay ">
+          <div className="call-to-action-card no-shadow">
+            <ul className="host-info">
+            <li>Sign up to be a host and feature your establishment on this website.</li>
+            <li>Artists will contact you via email to set up a time to meet.</li>
+            <li>Artists will add your location to their profile for the public to view!</li>
+            </ul>
+              {/* <div className="call-to-action-overlay">
+            <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
+              alt="paintbrushes"  className="paintbrushes" />
+          <p className= "call-to-action">
+           
+            <br/>
+            <Link to="/register" className="sign-up-link"> Sign up TODAY! </Link>
+                </p>
+                </div> */}
+              </div>
+        <div className="call-to-host-card ">
+          <div className="call-to-host-overlay ">
         {/* <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
           alt="paintbrushes"  className="paintbrushes" /> */}
-      <p className= "featured-artist">
-                Artist Of The Week:
-              Molly Parks
+            </div>
+      <p className= "call-to-host">
+              SIGN UP TO HOST ARTWORK
+              <br />
+              <br/>
+              CONNECT WITH LOCAL ARTISTS
         <br/>
             </p>
-            </div>
-          </div>
-        <div className="call-to-action-card">
-          <div className="call-to-action-overlay">
-        <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
-          alt="paintbrushes"  className="paintbrushes" />
-      <p className= "call-to-action">
-       
-        <br/>
-        <Link to="/register" className="sign-up-link"> Sign up TODAY! </Link>
-            </p>
-            </div>
           </div>
           </div>
       </div>
-      <div className="landing-row second">
-      <div className= "second-row-content">
-        <div className="featured-artist-card ">
-          <div className="featured-artist-overlay ">
-        {/* <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
-          alt="paintbrushes"  className="paintbrushes" /> */}
-      <p className= "featured-artist">
-              Artist Of The Week:
-              Molly Parks
-        <br/>
-            </p>
-            </div>
+
+      {/* ////////////////////FOURTH ROW///////////////////////////////// */}
+      <div className="landing-row fourth solid">
+      <div className= "fourth-overlay">
+          <div>
+            <p>Upcoming Events:  Disc-golf Art show</p>  
           </div>
-        <div className="call-to-action-card">
-          <div className="call-to-action-overlay">
-        <img src="https://res.cloudinary.com/willnolin/image/upload/v1627478256/paintbrushes_usygaj.jpg"
-          alt="paintbrushes"  className="paintbrushes" />
-      <p className= "call-to-action">
-  
-        <br/>
-        <Link to="/register" className="sign-up-link"> Sign up TODAY! </Link>
-            </p>
-            </div>
+          <div>
+            <p> We want to hear from you!</p>
+            <p> Hit us up on social media!</p>
           </div>
           </div>
       </div>
