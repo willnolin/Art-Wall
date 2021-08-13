@@ -8,6 +8,13 @@
   margin: 0 auto;
   background-image: url("https://res.cloudinary.com/willnolin/image/upload/v1628863223/gallery_wood_floor_ulihh6.jpg");
   background-size: cover;
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
+  box-sizing: border-box;
+}
+
+.greeting {
+  font-size: 0.75em;
 }
 
 .landing-row {
@@ -22,7 +29,7 @@
   margin: 0 auto;
 
   width: 100%;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.9);
 }
 .top-row-content {
   display: flex;
@@ -76,6 +83,50 @@
   width: 80%;
   margin: 20px;
 }
+
+.connect-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  max-width: 480px;
+  height: 400px;
+  background: url("https://res.cloudinary.com/willnolin/image/upload/v1628870697/pink-paper_j7sx5x.jpg");
+  background-size: cover;
+  box-shadow: 0.5px 0.5px 30px rgb(179, 178, 178);
+}
+
+.connect-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  max-width: 480px;
+  height: 400px;
+  /* background-size: cover; */
+  background-color: black;
+  opacity: 0.3;
+}
+.connect {
+  position: absolute;
+  font-size: 40px;
+  margin: 20px;
+  font-weight: bold;
+  color: rgba(252, 251, 250, 1);
+  font-family: "Inter", sans-serif;
+  opacity: 1;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.connect:hover {
+  text-decoration: underline;
+}
+
 .featured-artist-card {
   display: flex;
   flex-direction: column;
@@ -88,6 +139,7 @@
   background: url("https://res.cloudinary.com/willnolin/image/upload/v1627062609/girl_lagp5c.jpg");
   background-size: cover;
   background-color: black;
+  box-shadow: 0.5px 0.5px 30px rgb(179, 178, 178);
 }
 .featured-artist-overlay {
   display: flex;
@@ -122,10 +174,13 @@
   align-items: center;
   position: relative;
   width: 50%;
-  max-width: 480px;
+  max-width: 300px;
   height: 400px;
-  /* margin: 0 40px; */
-  background-color: rgb(240, 239, 238);
+  margin: 0 40px;
+  /* padding: 20px; */
+  font-family: "Inter", sans-serif;
+  background-color: rgb(250, 249, 248);
+  box-shadow: 0.5px 0.5px 30px rgb(179, 178, 178);
 }
 /* .call-to-action-overlay {
   position: absolute;
@@ -136,24 +191,87 @@
 /* background-color: black;
   opacity: 0.6;
 } */
-*/ .call-to-action {
+.call-to-action {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  margin: 20px;
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  font-size: 15px;
+  width: 80%;
+  margin: 20px auto;
   font-weight: bold;
-  color: rgb(252, 251, 250);
+  color: rgb(8, 8, 8);
   font-family: "Inter", sans-serif;
 }
 
+.paintbrushes-call-to-action {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 1px;
+  /* height: fit-content; */
+}
+.call-to-action-gallery-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+  height: 400px;
+  margin: 0 40px;
+  /* padding: 20px; */
+  font-family: "Inter", sans-serif;
+  background-color: rgb(250, 249, 248);
+  box-shadow: 0.5px 0.5px 30px rgb(179, 178, 178);
+}
+/* .call-to-action-overlay {
+  position: absolute;
+  width: 100%;
+  max-width: 480px;
+  height: 400px;
+  /* background-size: cover; */
+/* background-color: black;
+  opacity: 0.6;
+} */
+.gallery-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+  font-size: 15px;
+  width: 80%;
+  margin: 20px auto;
+  font-weight: bold;
+  color: rgb(8, 8, 8);
+  font-family: "Inter", sans-serif;
+}
+
+.yellow-gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 0px;
+  box-shadow: none;
+  /* height: fit-content; */
+}
 .paintbrushes {
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  border-radius: 2px;
+  /* height: fit-content; */
 }
 
 .sign-up-link {
+  font-size: 20px;
   color: rgb(59, 59, 181);
 }
 .sign-up-link:hover {
