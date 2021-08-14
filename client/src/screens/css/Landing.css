@@ -14,7 +14,9 @@
 }
 
 .greeting {
+  background-color: rgba(250, 249, 248, 0.9);
   font-size: 0.75em;
+  width: 100%;
 }
 
 .landing-row {
@@ -27,7 +29,6 @@
 
 .first {
   margin: 0 auto;
-
   width: 100%;
   background: rgba(255, 255, 255, 0.9);
 }
@@ -346,10 +347,51 @@
   text-shadow: 2px 2px 10px rgb(240, 191, 95);
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 770px) {
   .landing-page-container {
     width: 400px;
     margin: 0 auto;
+  }
+  .landing-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .second {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    /* margin: 50px auto; */
+    background: rgba(255, 255, 255, 0.75);
+  }
+  .second-row-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* width: 80%; */
+    /* margin: 20px; */
+  }
+  .call-to-action-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 3px;
+    font-family: "Inter", sans-serif;
+    background-color: rgb(250, 249, 248);
+    box-shadow: 0.5px 0.5px 30px rgb(179, 178, 178);
+  }
+  .call-to-action {
+    font-size: 14px;
+    margin: 0 auto;
+    /* left: 3%; */
   }
 
   .welcome-section {
@@ -369,9 +411,83 @@
     width: 150px;
     height: 150px;
   }
-  .call-to-action {
-    font-size: 14px;
+  .connect-card {
+    width: 100%;
+  }
+
+  .connect {
+    font-size: 20px;
     margin: 20px;
+  }
+
+  .connect:hover {
+    text-decoration: underline;
+  }
+
+  .featured-artist-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 3px;
+    width: 100%;
+  }
+  .call-to-action-gallery-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .host-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    font-size: 0.85em;
+    margin-right: 20px;
+    height: 300px;
+    box-shadow: none;
+  }
+
+  .featured-artist {
+    font-size: 25px;
+  }
+
+  .call-to-host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 135px;
+    font-size: 18px;
+    margin: 20px;
+    font-weight: bold;
+    color: rgb(252, 251, 250);
+    font-family: "Inter", sans-serif;
+  }
+
+  .call-to-host-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .fourth {
+    max-height: 600px;
+  }
+  .fourth-overlay {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
   }
 }
 @media screen and (max-width: 420px) {

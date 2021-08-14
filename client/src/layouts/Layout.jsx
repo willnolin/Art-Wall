@@ -6,7 +6,9 @@ import { Context } from "../Context";
 
 import "./Layout.css"
 const Layout = (props) => {
-  const { currentUser, handleVerify, handleLogout, setIsOnProfile } = useContext(Context);
+  const { setIsOnProfile } = useContext(Context);
+  const { handleVerify, handleLogout } = props;
+
   setIsOnProfile(false);
   useEffect(() => {
     handleVerify()
@@ -14,7 +16,7 @@ const Layout = (props) => {
 
   return (
     <div className="layout-parent">
-      <Header currentUser={currentUser} handleLogout={handleLogout} />
+      <Header handleLogout={handleLogout} />
       <div className="layout-children">{props.children}</div>
       <Footer />
     </div>
