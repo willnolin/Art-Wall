@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
-import { Context } from "../Context"
+
 import "./css/Login.css"
 
 export default function Login(props) {
@@ -9,7 +9,7 @@ export default function Login(props) {
     password: ''
   })
   const { username, password } = formData
-  const { handleLogin } = useContext(Context);
+  const { handleLogin } = props;
 
   const handleChange = (e) => {
     const { name, value } = e.target;

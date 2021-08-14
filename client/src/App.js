@@ -1,6 +1,8 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
-import { Provider } from "./Context"
+import { useContext } from 'react';
+// import { Provider } from "./Context"
+import { Context } from './Context';
 import Landing from './screens/Landing';
 import LocationList from './screens/LocationList';
 import LocationDetail from './screens/LocationDetail';
@@ -13,19 +15,54 @@ import CreateLocation from './controlled_components/CreateLocation';
 import EditArtwork from './controlled_components/EditArtwork';
 import AddArtwork from './controlled_components/AddArtwork';
 import EditLocation from './controlled_components/EditLocation';
+import {
+  loginUser,
+  registerUser,
+  removeToken,
+  verifyUser,
+} from './services/auth'
+
 function App() {
+  const {setCurrentUser} = useContext(Context)
+  const history = useHistory(); 
+
+  const handleVerify = async () => {
+    const userData = await verifyUser();
+    setCurrentUser(userData);
+  };
+
+  const handleLogin = async (formData) => {
+    const userData = await loginUser(formData);
+    setCurrentUser(userData);
+    history.push(`/users/${userData.id}`);
+  };
+
+  const handleRegister = async (formData) => {
+    const userData = await registerUser(formData);
+    setCurrentUser(userData);
+    history.push(`/users/${userData.id}/edit`);
+  };
+
+  const handleLogout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem('authToken');
+    removeToken();
+    history.push('/');
+  };
+
+
 
   return (
     <div className="App">
-      <Provider>
-        <Layout>
+      {/* <Provider> */}
+        <Layout handleVerify={handleVerify} handleLogout={handleLogout} >
           <Switch>
             <Route path="/login">
-              <Login />
+              <Login handleLogin={handleLogin}/>
             </Route>
             <Route path="/register">
-              <Register />
-            </Route>
+              <Register handleRegister={handleRegister}/>
+            </Route>  
             <Route path="/users/:id/edit">
               <EditArtist />
             </Route>
@@ -55,7 +92,7 @@ function App() {
             </Route>
           </Switch>
         </Layout>
-      </Provider>
+      {/* </Provider> */}
     </div>
   );
 }
