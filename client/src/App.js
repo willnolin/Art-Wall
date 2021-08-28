@@ -16,6 +16,7 @@ import {
 function App() {
   const [isOnProfile, setIsOnProfile] = useState(false);
   const [invalid, setInvalid] = useState(false);
+  const [errorObj, setErrorObj] = useState({});
   const {setCurrentUser} = useContext(Context)
   const history = useHistory(); 
 
@@ -26,15 +27,24 @@ function App() {
 
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData);
-    setCurrentUser(userData);
-    history.push(`/users/${userData.id}`);
+       console.log(userData)
+    if (userData.error) {
+      setInvalid(true);
+      setErrorObj(userData.error.response.data)
+    } else {
+      setInvalid(false);
+      setCurrentUser(userData);
+      history.push(`/users/${userData.id}`);
+     
+    }
   };
 
   const handleRegister = async (formData) => {
       const userData = await registerUser(formData);
-    console.log(userData.error)
+    // console.log(userData.error.response.data)
     if (userData.error) {
       setInvalid(true)
+      setErrorObj(userData.error.response.data)
     } else {
       setCurrentUser(userData);
       setInvalid(false)
@@ -59,11 +69,14 @@ function App() {
         >
           <Switch>
             <Route path="/login">
-              <Login handleLogin={handleLogin}/>
+            <Login handleLogin={handleLogin}
+              invalid={invalid} errorObj={errorObj}
+              setErrorObj={setErrorObj}
+            />
             </Route>
             <Route path="/register">
             <Register handleRegister={handleRegister}
-              invalid={invalid} setInvalid={setInvalid}
+              invalid={invalid} errorObj={errorObj}
             />
             </Route>  
             <Route path="/">
