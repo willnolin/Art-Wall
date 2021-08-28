@@ -7,7 +7,7 @@ export default function Register(props) {
     password: ''
   })
   const { username, email, password } = formData
-  const { handleRegister } = props;
+  const { handleRegister, invalid} = props;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +36,7 @@ export default function Register(props) {
         <label className="form-inputs">Password:
           <input type="password" name="password" value={password}></input>
         </label>
+        {invalid && <p>Username of email already exists</p>}
         <br />
         <button>Register</button>
         {/* <Link to="/login">Login</Link> */}

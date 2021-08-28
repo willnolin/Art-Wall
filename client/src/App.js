@@ -1,21 +1,11 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
 import { useContext, useState } from 'react';
-// import { Provider } from "./Context"
 import { Context } from './Context';
-// import Landing from './screens/Landing';
-// import LocationList from './screens/LocationList';
-// import LocationDetail from './screens/LocationDetail';
-// import ArtistDetail from './screens/ArtistDetail';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import Layout from './layouts/Layout';
 import MainContainer from './containers/MainContainer';
-// import EditArtist from './controlled_components/EditArtist';
-// import CreateLocation from './controlled_components/CreateLocation';
-// import EditArtwork from './controlled_components/EditArtwork';
-// import AddArtwork from './controlled_components/AddArtwork';
-// import EditLocation from './controlled_components/EditLocation';
 import {
   loginUser,
   registerUser,
@@ -25,7 +15,7 @@ import {
 
 function App() {
   const [isOnProfile, setIsOnProfile] = useState(false);
-  
+  const [invalid, setInvalid] = useState(false);
   const {setCurrentUser} = useContext(Context)
   const history = useHistory(); 
 
@@ -41,9 +31,15 @@ function App() {
   };
 
   const handleRegister = async (formData) => {
-    const userData = await registerUser(formData);
-    setCurrentUser(userData);
-    history.push(`/users/${userData.id}/edit`);
+      const userData = await registerUser(formData);
+    console.log(userData.error)
+    if (userData.error) {
+      setInvalid(true)
+    } else {
+      setCurrentUser(userData);
+      setInvalid(false)
+      history.push(`/users/${userData.id}/edit`);
+    }
   };
 
   const handleLogout = () => {
@@ -57,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Provider> */}
+  
       <Layout handleVerify={handleVerify} handleLogout={handleLogout}
         isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile}
         >
@@ -66,14 +62,16 @@ function App() {
               <Login handleLogin={handleLogin}/>
             </Route>
             <Route path="/register">
-              <Register handleRegister={handleRegister}/>
+            <Register handleRegister={handleRegister}
+              invalid={invalid} setInvalid={setInvalid}
+            />
             </Route>  
             <Route path="/">
               <MainContainer setIsOnProfile={setIsOnProfile} />
             </Route>
           </Switch>
         </Layout>
-      {/* </Provider> */}
+   
     </div>
   );
 }

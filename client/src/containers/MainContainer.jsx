@@ -19,35 +19,35 @@ export default function MainContainer(props) {
   return (
     <div>
       <Switch>
-      <Route path="/users/:id/edit">
-        <EditArtist setIsOnProfile={setIsOnProfile}/>
-      </Route>
-      <Route path="/users/:id">
-        <ArtistDetail setIsOnProfile={setIsOnProfile}/>
-      </Route>
-      <Route path="/locations/:id/edit">
-        <EditLocation locations={locations} setLocations={setLocations}/>
-      </Route>
-      <Route path="/locations/new">
-        <CreateLocation setLocations={setLocations}/>
-      </Route>
-      <Route path="/locations/:id">
-        <LocationDetail />
-      </Route>
-      <Route path="/locations">
-        <LocationList locations={locations} setLocations={setLocations}/>
-      </Route>
-      <Route path="/artworks/:id">
-        <EditArtwork locations={locations} setLocations={setLocations}
-          artwork={artwork} setArtwork={setArtwork}/>
-      </Route>
-      <Route path="/artworks">
-        <AddArtwork setArtwork={setArtwork}/>
-      </Route>
-      <Route path="/home" >
-        <Landing />
+        <Route path="/users/:id/edit">
+          <EditArtist setIsOnProfile={setIsOnProfile}/>
         </Route>
-        </Switch>
+        <Route path="/users/:id">
+          <ArtistDetail setIsOnProfile={setIsOnProfile}/>
+        </Route>
+        <Route path="/locations/:id/edit">
+          <EditLocation locations={locations} setLocations={setLocations}/>
+        </Route>
+        <Route path="/locations/new">
+          <CreateLocation setLocations={setLocations}/>
+        </Route>
+        <Route path="/locations/:id">
+          <LocationDetail />
+        </Route>
+        <Route path="/locations">
+          <LocationList locations={locations} setLocations={setLocations}/>
+        </Route>
+        <Route path="/artworks/:id">
+          <EditArtwork locations={locations} setLocations={setLocations}
+            artwork={artwork} setArtwork={setArtwork}/>
+        </Route>
+        <Route path="/artworks">
+          <AddArtwork setArtwork={setArtwork}/>
+        </Route>
+        <Route path="/home" >
+          <Landing />
+        </Route>
+      </Switch>
     </div>
   )
 }
