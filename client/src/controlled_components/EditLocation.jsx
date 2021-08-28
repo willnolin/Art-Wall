@@ -4,7 +4,8 @@ import { useHistory, useParams } from 'react-router-dom'
 import { getOneLocation, putLocation, deleteLocation } from '../services/locations.js'
 import './css/EditLocation.css'
 
-export default function EditLocation() {
+export default function EditLocation(props) {
+  const { locations, setLocations } = props;
   const [formData, setFormData] = useState({
     name: '',
     street: '',
@@ -16,7 +17,7 @@ export default function EditLocation() {
     commission: 0
   });
   const { name, street, city, state, img_url, message, sales, commission } = formData;
-  const { currentUser, locations, setLocations } = useContext(Context);
+  const { currentUser } = useContext(Context);
   const [location, setLocation] = useState(null);
   const history = useHistory();
   const { id } = useParams();

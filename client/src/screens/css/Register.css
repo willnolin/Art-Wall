@@ -1,15 +1,22 @@
-.login-form-container {
+.reg-error-msg {
+  position: absolute;
+  font-size: 12px;
+  color: red;
+  top: 250px;
+}
+
+.reg-form-container {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-around;
-  position: relative;
   align-items: center;
-  height: 300px;
+  position: relative;
+  height: 365px;
   width: 100%;
   margin: 0 auto;
 }
-.login-form {
+.reg-form {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -28,16 +35,4 @@
   flex-direction: row;
   justify-content: space-between;
   width: 250px;
-}
-.register-link {
-  color: rgb(11, 11, 179);
-}
-.login-error-msg {
-  position: absolute;
-  font-size: 12px;
-  color: red;
-  top: 200px;
-}
-
-@media screen and (max-width: 670px) {
 }

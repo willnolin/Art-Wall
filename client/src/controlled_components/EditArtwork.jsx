@@ -5,8 +5,9 @@ import { getOneArtwork, putArtwork } from "../services/artworks.js"
 import { getAllLocations } from '../services/locations';
 import './css/EditArtwork.css'
 
-export default function EditArtwork() {
-  const { currentUser, locations, setLocations, artwork, setArtwork } = useContext(Context)
+export default function EditArtwork(props) {
+  const { locations, setLocations, artwork, setArtwork } = props;
+  const { currentUser } = useContext(Context)
   const { id } = useParams();
   const history = useHistory()
 

@@ -1,20 +1,11 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
-import { useContext } from 'react';
-// import { Provider } from "./Context"
+import { useContext, useState } from 'react';
 import { Context } from './Context';
-import Landing from './screens/Landing';
-import LocationList from './screens/LocationList';
-import LocationDetail from './screens/LocationDetail';
-import ArtistDetail from './screens/ArtistDetail';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import Layout from './layouts/Layout';
-import EditArtist from './controlled_components/EditArtist';
-import CreateLocation from './controlled_components/CreateLocation';
-import EditArtwork from './controlled_components/EditArtwork';
-import AddArtwork from './controlled_components/AddArtwork';
-import EditLocation from './controlled_components/EditLocation';
+import MainContainer from './containers/MainContainer';
 import {
   loginUser,
   registerUser,
@@ -23,6 +14,9 @@ import {
 } from './services/auth'
 
 function App() {
+  const [isOnProfile, setIsOnProfile] = useState(false);
+  const [invalid, setInvalid] = useState(false);
+  const [errorObj, setErrorObj] = useState({});
   const {setCurrentUser} = useContext(Context)
   const history = useHistory(); 
 
@@ -33,14 +27,29 @@ function App() {
 
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData);
-    setCurrentUser(userData);
-    history.push(`/users/${userData.id}`);
+       console.log(userData)
+    if (userData.error) {
+      setInvalid(true);
+      setErrorObj(userData.error.response.data)
+    } else {
+      setInvalid(false);
+      setCurrentUser(userData);
+      history.push(`/users/${userData.id}`);
+     
+    }
   };
 
   const handleRegister = async (formData) => {
-    const userData = await registerUser(formData);
-    setCurrentUser(userData);
-    history.push(`/users/${userData.id}/edit`);
+      const userData = await registerUser(formData);
+    // console.log(userData.error.response.data)
+    if (userData.error) {
+      setInvalid(true)
+      setErrorObj(userData.error.response.data)
+    } else {
+      setCurrentUser(userData);
+      setInvalid(false)
+      history.push(`/users/${userData.id}/edit`);
+    }
   };
 
   const handleLogout = () => {
@@ -54,45 +63,28 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Provider> */}
-        <Layout handleVerify={handleVerify} handleLogout={handleLogout} >
+  
+      <Layout handleVerify={handleVerify} handleLogout={handleLogout}
+        isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile}
+        >
           <Switch>
             <Route path="/login">
-              <Login handleLogin={handleLogin}/>
+            <Login handleLogin={handleLogin}
+              invalid={invalid} errorObj={errorObj}
+              setErrorObj={setErrorObj}
+            />
             </Route>
             <Route path="/register">
-              <Register handleRegister={handleRegister}/>
+            <Register handleRegister={handleRegister}
+              invalid={invalid} errorObj={errorObj}
+            />
             </Route>  
-            <Route path="/users/:id/edit">
-              <EditArtist />
-            </Route>
-            <Route path="/users/:id">
-              <ArtistDetail />
-            </Route>
-            <Route path="/locations/:id/edit">
-              <EditLocation />
-            </Route>
-            <Route path="/locations/new">
-              <CreateLocation />
-            </Route>
-            <Route path="/locations/:id">
-              <LocationDetail />
-            </Route>
-            <Route path="/locations">
-              <LocationList />
-            </Route>
-            <Route path="/artworks/:id">
-              <EditArtwork />
-            </Route>
-            <Route path="/artworks">
-              <AddArtwork />
-            </Route>
-            <Route path="/" exact>
-              <Landing />
+            <Route path="/">
+              <MainContainer setIsOnProfile={setIsOnProfile} />
             </Route>
           </Switch>
         </Layout>
-      {/* </Provider> */}
+   
     </div>
   );
 }

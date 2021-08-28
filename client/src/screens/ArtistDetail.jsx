@@ -6,11 +6,12 @@ import { deleteArtwork } from '../services/artworks';
 import "./css/ArtistDetail.css"
 // ask why the picture takes so long to show up.
 
-export default function ArtistDetail() {
+export default function ArtistDetail(props) {
+  const { setIsOnProfile } = props;
   const { id } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [user, setUser] = useState(null);
-  const { currentUser, setIsOnProfile } = useContext(Context)
+  const { currentUser } = useContext(Context)
 
   setIsOnProfile(true);
   useEffect(() => {

@@ -4,8 +4,9 @@ import { Context } from '../Context';
 import { useHistory } from 'react-router-dom'
 import "./css/AddArtwork.css"
 
-export default function AddArtwork() {
-  const { artwork, setArtwork, currentUser } = useContext(Context)
+export default function AddArtwork(props) {
+  const { setArtwork } = props;
+  const { currentUser } = useContext(Context)
   const [formData, setFormData] = useState({
     title: '',
     img_url: ''

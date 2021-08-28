@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react'
-import { Context } from '../Context'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { postLocation } from '../services/locations.js'
 import "./css/CreateLocation.css"
 
-export default function CreateLocation() {
+export default function CreateLocation(props) {
   const [formData, setFormData] = useState({
     name: '',
     street: '',
@@ -16,7 +15,7 @@ export default function CreateLocation() {
     commission: 0
   });
   const { name, street, city, state, img_url, message, sales, commission } = formData;
-  const { setLocations } = useContext(Context);
+  const { setLocations } = props
   const history = useHistory();
 
   const handleCreate = async (formData) => {
