@@ -18,6 +18,7 @@ export default function Login(props) {
       [name]: value,
     }));
     setErrorObj({})
+    // setInvalid(false)
   };
 
   return (
@@ -44,10 +45,10 @@ export default function Login(props) {
         })}
           </div>
         <br />
+        <br />
         <div className="login-form-footer">
           Don't have an account yet? <Link className="register-link" to="/register">Register Here</Link>
         </div>
-        <br />
       </form>
 
     </div>
