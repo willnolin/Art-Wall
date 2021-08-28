@@ -1,14 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Context } from '../Context'
 import Search from '../components/Search'
 import './css/LocationList.css'
 import { getAllLocations } from '../services/locations'
 
-export default function LocationList() {
-  const { locations, setLocations } = useContext(Context)
+export default function LocationList(props) {
   const [searchItem, setSearchItem] = useState("");
-
+  const { locations, setLocations } = props;
   useEffect(() => {
     const fetchLocations = async () => {
       const resp = await getAllLocations()

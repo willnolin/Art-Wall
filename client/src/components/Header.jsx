@@ -5,7 +5,8 @@ import "./css/Header.css"
 import Hamburger from '../assets/images/hamburger_icon.png'
 import GrayMan from '../assets/images/gray-person.png'
 export default function Header(props) {
-  const { currentUser, isOnProfile } = useContext(Context);
+  const { isOnProfile } = props;
+  const { currentUser } = useContext(Context);
   const { handleLogout } = props;
   const [menuOpen, setMenuOpen] = useState('');
   const [profileMenuOpen, setProfileMenuOpen] = useState('');
@@ -70,7 +71,7 @@ export default function Header(props) {
               </div>
 
               <div className="profile-menu-links-div">
-                <Link to="/" className="profile-menu-links" onClick={handleLogout}>
+                <Link to="/home" className="profile-menu-links" onClick={handleLogout}>
                   Logout
                 </Link>
               </div>
@@ -113,7 +114,7 @@ export default function Header(props) {
             < img src={GrayMan} alt="profile_pic" className="header-profile-pic" />
           }
             <p className="header-username">{currentUser.username}</p>
-            <Link to="/" className="header-links" onClick={handleLogout}>
+            <Link to="/home" className="header-links" onClick={handleLogout}>
               Logout
             </Link>
           </> :
@@ -123,7 +124,7 @@ export default function Header(props) {
 
         }
       </div>
-      <div><Link to="/" className="header-title">Art Wall</Link></div>
+      <div><Link to="/home" className="header-title">Art Wall</Link></div>
       {/* Hamburger when logged in  ///////////////*/}
       {
         currentUser ?

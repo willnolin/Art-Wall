@@ -1,13 +1,10 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import React, { useEffect, useContext } from 'react';
-import { Context } from "../Context";
-
+import React, { useEffect } from 'react';
 
 import "./Layout.css"
 const Layout = (props) => {
-  const { setIsOnProfile } = useContext(Context);
-  const { handleVerify, handleLogout } = props;
+  const { handleVerify, handleLogout, isOnProfile, setIsOnProfile  } = props;
 
   setIsOnProfile(false);
   useEffect(() => {
@@ -16,7 +13,8 @@ const Layout = (props) => {
 
   return (
     <div className="layout-parent">
-      <Header handleLogout={handleLogout} />
+      <Header handleLogout={handleLogout}
+        isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile} />
       <div className="layout-children">{props.children}</div>
       <Footer />
     </div>

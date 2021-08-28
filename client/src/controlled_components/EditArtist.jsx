@@ -4,8 +4,9 @@ import { useParams, useHistory, Link } from 'react-router-dom'
 import { putUser } from '../services/users.js'
 import "./css/EditArtist.css"
 
-export default function EditArtist() {
-  const { currentUser, setCurrentUser, setIsOnProfile } = useContext(Context)
+export default function EditArtist(props) {
+  const { setIsOnProfile } = props;
+  const { currentUser, setCurrentUser} = useContext(Context)
   const { id } = useParams();
   const history = useHistory()
   const [formData, setFormData] = useState({
