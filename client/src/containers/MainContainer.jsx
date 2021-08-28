@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import EditArtist from '../controlled_components/EditArtist';
 import CreateLocation from '../controlled_components/CreateLocation';
 import EditArtwork from '../controlled_components/EditArtwork';
@@ -46,6 +46,9 @@ export default function MainContainer(props) {
         </Route>
         <Route path="/home" >
           <Landing />
+        </Route>
+        <Route path="/">
+          <Redirect to="/home" />
         </Route>
       </Switch>
     </div>
