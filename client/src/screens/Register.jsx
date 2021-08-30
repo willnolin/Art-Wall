@@ -41,9 +41,9 @@ export default function Register(props) {
         <button>Register</button>
         {/* <Link to="/login">Login</Link> */}
         <div className="reg-error-msg">
-        {invalid && Object.entries(errorObj).map((entry, i) => {
-          return <p>{`${entry[0]} ${entry[1]}`}</p>
-        })}
+          {invalid && Object.entries(errorObj).length < 4 &&
+            <p>username or email has already been taken</p>
+        }
           </div>
       </form>
 

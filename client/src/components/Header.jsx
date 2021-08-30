@@ -118,7 +118,7 @@ export default function Header(props) {
               Logout
             </Link>
           </> :
-          <Link to="/login" className="header-links">
+          <Link to="/login" className="header-links login">
             Login
           </Link>
 
@@ -166,7 +166,7 @@ export default function Header(props) {
 
       }
       <div className="header-right">
-        <Link to="/locations" className="header-links">
+        <Link to="/locations" className="header-links search">
           SEARCH HOSTS
         </Link>
         {currentUser &&

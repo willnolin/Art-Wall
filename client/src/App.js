@@ -27,10 +27,9 @@ function App() {
 
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData);
-       console.log(userData)
     if (userData.error) {
       setInvalid(true);
-      setErrorObj(userData.error.response.data)
+      setErrorObj(userData?.error.response.data)
     } else {
       setInvalid(false);
       setCurrentUser(userData);
