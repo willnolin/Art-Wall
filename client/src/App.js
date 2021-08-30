@@ -76,6 +76,7 @@ function App() {
             <Route path="/register">
             <Register handleRegister={handleRegister}
               invalid={invalid} errorObj={errorObj}
+              setErrorObj={setErrorObj}
             />
             </Route>  
             <Route path="/">

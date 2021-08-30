@@ -7,7 +7,7 @@ export default function Register(props) {
     password: ''
   })
   const { username, email, password } = formData
-  const { handleRegister, invalid, errorObj} = props;
+  const { handleRegister, invalid, errorObj, setErrorObj} = props;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,6 +15,7 @@ export default function Register(props) {
       ...prevState,
       [name]: value,
     }));
+    setErrorObj({})
   };
 
   return (
@@ -42,7 +43,9 @@ export default function Register(props) {
         {/* <Link to="/login">Login</Link> */}
         <div className="reg-error-msg">
           {invalid && Object.entries(errorObj).length < 4 &&
-            <p>username or email has already been taken</p>
+            Object.entries(errorObj).map(entry => (
+              <p>username or email has already been taken</p>
+            ))
         }
           </div>
       </form>
