@@ -44,7 +44,7 @@ export default function Register(props) {
         <div className="reg-error-msg">
           {invalid && Object.entries(errorObj).length < 4 &&
             Object.entries(errorObj).map(entry => (
-              <p>username or email has already been taken</p>
+              <p>{entry[0]} {entry[1]}</p>
             ))
         }
           </div>
