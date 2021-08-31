@@ -16,8 +16,9 @@ class UsersController < ApplicationController
   # post to db
   def create
     @user = User.new(user_params)
+    # puts @user.username
     if @user.save
-      NewUserEmailMailer.notify_user(@user).deliver
+      # NewUserEmailMailer.notify_user(@user).delivers
       @token = encode({ id: @user.id })
       render json: {
         user: @user.attributes.except('password_digest'),
