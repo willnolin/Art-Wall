@@ -1,16 +1,15 @@
 import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
-import { Context } from "../Context"
+
 import "./css/Login.css"
 
-// import Layout from '../layouts/Layout'
 export default function Login(props) {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   })
   const { username, password } = formData
-  const { handleLogin } = useContext(Context);
+  const { handleLogin, invalid, errorObj, setErrorObj} = props;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,6 +17,8 @@ export default function Login(props) {
       ...prevState,
       [name]: value,
     }));
+    setErrorObj({})
+    // setInvalid(false)
   };
 
   return (
@@ -37,11 +38,17 @@ export default function Login(props) {
         </label>
         <br />
         <button>Login</button>
+        <div className="login-error-msg">
+        {invalid && Object.entries(errorObj).map((entry, i) => {
+          // return <p>{`${entry[0]} ${entry[1]}`}</p>
+          return <p>Username or Password invalid. Please try again.</p>
+        })}
+          </div>
+        <br />
         <br />
         <div className="login-form-footer">
           Don't have an account yet? <Link className="register-link" to="/register">Register Here</Link>
         </div>
-        <br />
       </form>
 
     </div>

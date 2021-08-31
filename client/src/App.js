@@ -1,98 +1,90 @@
 import { Route, Switch, useHistory } from 'react-router-dom';
 import './App.css';
-// import { useState, useEffect } from 'react';
-import { Provider } from "./Context"
-import Landing from './screens/Landing';
-import LocationList from './screens/LocationList';
-import LocationDetail from './screens/LocationDetail';
-import ArtistDetail from './screens/ArtistDetail';
+import { useContext, useState } from 'react';
+import { Context } from './Context';
 import Login from './screens/Login';
 import Register from './screens/Register';
 import Layout from './layouts/Layout';
-// import {
-//   loginUser,
-//   registerUser,
-//   removeToken,
-//   verifyUser,
-// } from './services/auth'
-import EditArtist from './controlled_components/EditArtist';
-import CreateLocation from './controlled_components/CreateLocation';
-import EditArtwork from './controlled_components/EditArtwork';
-import AddArtwork from './controlled_components/AddArtwork';
-import EditLocation from './controlled_components/EditLocation';
+import MainContainer from './containers/MainContainer';
+import {
+  loginUser,
+  registerUser,
+  removeToken,
+  verifyUser,
+} from './services/auth'
+
 function App() {
+  const [isOnProfile, setIsOnProfile] = useState(false);
+  const [invalid, setInvalid] = useState(false);
+  const [errorObj, setErrorObj] = useState({});
+  const {setCurrentUser} = useContext(Context)
+  const history = useHistory(); 
 
-  // const [currentUser, setCurrentUser] = useState(null);
-  // const history = useHistory();
+  const handleVerify = async () => {
+    const userData = await verifyUser();
+    setCurrentUser(userData);
+  };
 
-  // useEffect(() => {
-  //   const handleVerify = async () => {
-  //     const userData = await verifyUser();
-  //     setCurrentUser(userData);
-  //   };
-  //   handleVerify();
-  // }, []);
+  const handleLogin = async (formData) => {
+    const userData = await loginUser(formData);
+    if (userData.error) {
+      setInvalid(true);
+      setErrorObj(userData?.error.response.data)
+    } else {
+      setInvalid(false);
+      setCurrentUser(userData);
+      history.push(`/users/${userData.id}`);
+     
+    }
+  };
 
-  // const handleLogin = async (formData) => {
-  //   const userData = await loginUser(formData);
-  //   console.log(userData.id)
-  //   setCurrentUser(userData);
-  //   history.push(`/users/${userData.id}`);
-  // };
+  const handleRegister = async (formData) => {
+      const userData = await registerUser(formData);
+    // console.log(userData.error.response.data)
+    if (userData.error) {
+      setInvalid(true)
+      setErrorObj(userData.error.response.data)
+    } else {
+      setCurrentUser(userData);
+      setInvalid(false)
+      history.push(`/users/${userData.id}/edit`);
+    }
+  };
 
-  // const handleRegister = async (formData) => {
-  //   const userData = await registerUser(formData);
-  //   setCurrentUser(userData);
-  //   history.push('/');
-  // };
+  const handleLogout = () => {
+    setCurrentUser(null);
+    localStorage.removeItem('authToken');
+    removeToken();
+    history.push('/');
+  };
 
-  // const handleLogout = () => {
-  //   setCurrentUser(null);
-  //   localStorage.removeItem('authToken');
-  //   removeToken();
-  //   history.push('/');
-  // };
+
+
   return (
     <div className="App">
-      <Provider>
-        <Layout>
+  
+      <Layout handleVerify={handleVerify} handleLogout={handleLogout}
+        isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile}
+        >
           <Switch>
             <Route path="/login">
-              <Login />
+            <Login handleLogin={handleLogin}
+              invalid={invalid} errorObj={errorObj}
+              setErrorObj={setErrorObj}
+            />
             </Route>
             <Route path="/register">
-              <Register />
-            </Route>
-            <Route path="/users/:id/edit">
-              <EditArtist />
-            </Route>
-            <Route path="/users/:id">
-              <ArtistDetail />
-            </Route>
-            <Route path="/locations/:id/edit">
-              <EditLocation />
-            </Route>
-            <Route path="/locations/new">
-              <CreateLocation />
-            </Route>
-            <Route path="/locations/:id">
-              <LocationDetail />
-            </Route>
-            <Route path="/locations">
-              <LocationList />
-            </Route>
-            <Route path="/artworks/:id">
-              <EditArtwork />
-            </Route>
-            <Route path="/artworks">
-              <AddArtwork />
-            </Route>
-            <Route path="/" exact>
-              <Landing />
+            <Register handleRegister={handleRegister}
+              invalid={invalid} errorObj={errorObj}
+              setErrorObj={setErrorObj}
+            />
+            </Route>  
+            <Route path="/">
+              <MainContainer setIsOnProfile={setIsOnProfile} />
             </Route>
           </Switch>
         </Layout>
-      </Provider>
+   
     </div>
   );
 }

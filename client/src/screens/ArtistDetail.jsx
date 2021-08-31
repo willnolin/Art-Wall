@@ -6,11 +6,12 @@ import { deleteArtwork } from '../services/artworks';
 import "./css/ArtistDetail.css"
 // ask why the picture takes so long to show up.
 
-export default function ArtistDetail() {
+export default function ArtistDetail(props) {
+  const { setIsOnProfile } = props;
   const { id } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [user, setUser] = useState(null);
-  const { currentUser, setIsOnProfile } = useContext(Context)
+  const { currentUser } = useContext(Context)
 
   setIsOnProfile(true);
   useEffect(() => {
@@ -35,7 +36,8 @@ export default function ArtistDetail() {
         <div className="artist-details-container">
           <div className="artist-details-row">
             <div className="artist-details-section">
-              <h1>{user.name}</h1>
+            <h1 className="artist-details-name">{user.name}</h1>
+            <p className="artist-details-city-state">{`Works in: ${user.city_state}`}</p>
               <p>{user.message}</p>
             </div>
             <img src={`${user.profile_pic}`} alt={`${user.username}`} className="profile-pic" />
@@ -45,15 +47,17 @@ export default function ArtistDetail() {
                 acc.map(a => a.location ? a.location.name : false).includes(artwork.location?.name) ?
                   acc : [...acc, artwork]
               ), [])
-                .map(artwork => (
-                  <Link to={`/locations/${artwork.location_id}`}><p className="location-name">{artwork.location?.name}</p></Link>
-                )
-                )}
+              .map((artwork => (
+                <React.Fragment key={artwork.id} >
+                <Link to={`/locations/${artwork.location_id}`}><p className="location-name">{artwork.location?.name}</p></Link>
+                </React.Fragment>
+                  )
+                ))}
             </div>
           </div>
           <div className="artist-details-row artwork-row">
             {user.artworks &&
-              <>{
+              <React.Fragment key = {user.id}>{
                 user.artworks.map(art => (
                   <div className="artwork-container">
                     <h4>{art.title}</h4>
@@ -71,7 +75,7 @@ export default function ArtistDetail() {
                     }
                   </div>
                 ))
-              }</>
+              }</React.Fragment>
             }
             {currentUser?.id === Number(id) &&
               <div className="add-art-container">

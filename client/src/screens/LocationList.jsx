@@ -1,16 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Context } from '../Context'
 import Search from '../components/Search'
 import './css/LocationList.css'
-// import Layout from '../layouts/Layout'
 import { getAllLocations } from '../services/locations'
-export default function LocationList() {
-  const { locations, setLocations } = useContext(Context)
+
+export default function LocationList(props) {
   const [searchItem, setSearchItem] = useState("");
-
-
-
+  const { locations, setLocations } = props;
   useEffect(() => {
     const fetchLocations = async () => {
       const resp = await getAllLocations()
@@ -21,7 +17,6 @@ export default function LocationList() {
 
 
   return (
-    // <Layout>
     <div className="locations-container">
       <Search setSearchItem={setSearchItem} />
       <div className="locations-list-container">
@@ -30,6 +25,10 @@ export default function LocationList() {
             return location;
           }
           else if (location.name.toLowerCase()
+            .includes(searchItem.toLowerCase()) ||
+            location.city.toLowerCase()
+              .includes(searchItem.toLowerCase()) ||
+            location.state.toLowerCase()
             .includes(searchItem.toLowerCase())) {
             return location
           }
@@ -44,6 +43,5 @@ export default function LocationList() {
         ))}
       </div>
     </div>
-    // </Layout>
   )
 }

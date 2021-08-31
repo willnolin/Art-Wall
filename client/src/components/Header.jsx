@@ -4,8 +4,10 @@ import { Context } from "../Context"
 import "./css/Header.css"
 import Hamburger from '../assets/images/hamburger_icon.png'
 import GrayMan from '../assets/images/gray-person.png'
-export default function Header() {
-  const { currentUser, handleLogout, isOnProfile } = useContext(Context);
+export default function Header(props) {
+  const { isOnProfile } = props;
+  const { currentUser } = useContext(Context);
+  const { handleLogout } = props;
   const [menuOpen, setMenuOpen] = useState('');
   const [profileMenuOpen, setProfileMenuOpen] = useState('');
   const [clicked, setClicked] = useState(false);
@@ -48,9 +50,13 @@ export default function Header() {
             handleProfileMenu()
           }
           }>
-
-            < img src={currentUser.profile_pic} alt="profile_pic"
-              className={`header-profile-pic ${profileHighlight}`} />
+            {currentUser.name ?
+              < img src={currentUser.profile_pic} alt="profile_pic"
+                className={`header-profile-pic ${profileHighlight}`} />
+              :
+              < img src={GrayMan} alt="profile_pic"
+                className={`header-profile-pic ${profileHighlight}`} />
+            }
             <div className={`profile-pic-menu-content ${profileMenuOpen}`} >
               <div className="profile-menu-links-div">
                 <Link to={`/users/${currentUser.id}/edit`} className="profile-menu-links">
@@ -65,7 +71,7 @@ export default function Header() {
               </div>
 
               <div className="profile-menu-links-div">
-                <Link to="/" className="profile-menu-links" onClick={handleLogout}>
+                <Link to="/home" className="profile-menu-links" onClick={handleLogout}>
                   Logout
                 </Link>
               </div>
@@ -91,7 +97,7 @@ export default function Header() {
         </>
 
       }
-      {/* Profile menu  desktop when width > 420 //////////// */}
+      {/* Profile menu  desktop when width > 550 //////////// */}
       <div className="header-left">
         {currentUser &&
           (isOnProfile ?
@@ -102,20 +108,23 @@ export default function Header() {
               View Profile
             </Link>)}
         {currentUser ?
-          <>
+          <>{currentUser.name ?
             < img src={currentUser.profile_pic} alt="profile_pic" className="header-profile-pic" />
+            :
+            < img src={GrayMan} alt="profile_pic" className="header-profile-pic" />
+          }
             <p className="header-username">{currentUser.username}</p>
-            <Link to="/" className="header-links" onClick={handleLogout}>
+            <Link to="/home" className="header-links" onClick={handleLogout}>
               Logout
             </Link>
           </> :
-          <Link to="/login" className="header-links">
+          <Link to="/login" className="header-links login">
             Login
           </Link>
 
         }
       </div>
-      <div><Link to="/" className="header-title">Art-Wall</Link></div>
+      <div><Link to="/home" className="header-title">Art Wall</Link></div>
       {/* Hamburger when logged in  ///////////////*/}
       {
         currentUser ?
@@ -157,7 +166,7 @@ export default function Header() {
 
       }
       <div className="header-right">
-        <Link to="/locations" className="header-links">
+        <Link to="/locations" className="header-links search">
           SEARCH HOSTS
         </Link>
         {currentUser &&

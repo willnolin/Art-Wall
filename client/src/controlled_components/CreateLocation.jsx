@@ -1,10 +1,9 @@
-import React, { useState, useContext } from 'react'
-import { Context } from '../Context'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { postLocation } from '../services/locations.js'
 import "./css/CreateLocation.css"
 
-export default function CreateLocation() {
+export default function CreateLocation(props) {
   const [formData, setFormData] = useState({
     name: '',
     street: '',
@@ -16,26 +15,14 @@ export default function CreateLocation() {
     commission: 0
   });
   const { name, street, city, state, img_url, message, sales, commission } = formData;
-  const { setLocations } = useContext(Context);
+  const { setLocations } = props
   const history = useHistory();
-
-
 
   const handleCreate = async (formData) => {
     const locationData = await postLocation(formData);
     setLocations((prevState) => [...prevState, locationData]);
     history.push('/locations');
   };
-
-  // const handleUpdate = async (id, formData) => {
-  //   const foodData = await putFood(id, formData);
-  //   setFoodList((prevState) =>
-  //     prevState.map((food) => {
-  //       return food.id === Number(id) ? foodData : food;
-  //     })
-  //   );
-  //   history.push('/locations');
-  // };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -87,7 +74,8 @@ export default function CreateLocation() {
           <input type="number" name="commission" min="0" value={commission} onChange={handleChange} />
         </label>
         <br />
-        <button>Submit</button>
+        <button className="submit-btn">Submit</button>
+        <p className = "cancel" onClick={() => {history.push("/locations")}}>Cancel</p>
         <br />
       </form>
     </div>

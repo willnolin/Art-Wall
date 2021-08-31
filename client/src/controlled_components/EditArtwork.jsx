@@ -5,8 +5,9 @@ import { getOneArtwork, putArtwork } from "../services/artworks.js"
 import { getAllLocations } from '../services/locations';
 import './css/EditArtwork.css'
 
-export default function EditArtwork() {
-  const { currentUser, locations, setLocations, artwork, setArtwork } = useContext(Context)
+export default function EditArtwork(props) {
+  const { locations, setLocations, artwork, setArtwork } = props;
+  const { currentUser } = useContext(Context)
   const { id } = useParams();
   const history = useHistory()
 
@@ -97,6 +98,8 @@ export default function EditArtwork() {
         </div>
         <br />
         <button className="save-btn">Save</button>
+        <br />
+        <p className = "cancel" onClick={() => {history.push(`/users/${artwork.user_id}`)}}>Cancel</p>
         <br />
       </form>
     </div>

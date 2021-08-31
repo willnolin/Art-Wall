@@ -1,7 +1,7 @@
 .create-location-form {
-  display:flex;
+  display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content: space-around;
   align-items: center;
   width: 40%;
   margin: 30px auto;
@@ -12,9 +12,17 @@
   box-shadow: 2px 2px 10px rgb(109, 108, 108);
 }
 .form-field {
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width:250px;
+  width: 250px;
+}
+.submit-btn {
+  background-color: #b98f91;
+  cursor: pointer;
+  font-size: 17px;
+}
+.cancel {
+  font-size: 12px;
 }

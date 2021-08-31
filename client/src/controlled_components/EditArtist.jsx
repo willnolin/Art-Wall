@@ -4,8 +4,9 @@ import { useParams, useHistory, Link } from 'react-router-dom'
 import { putUser } from '../services/users.js'
 import "./css/EditArtist.css"
 
-export default function EditArtist() {
-  const { currentUser, setCurrentUser } = useContext(Context)
+export default function EditArtist(props) {
+  const { setIsOnProfile } = props;
+  const { currentUser, setCurrentUser} = useContext(Context)
   const { id } = useParams();
   const history = useHistory()
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ export default function EditArtist() {
     website,
     message } = formData;
 
-
+  setIsOnProfile(false);
 
   useEffect(() => {
     const prefillFormData = () => {
@@ -48,7 +49,6 @@ export default function EditArtist() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(formData)
     handleUpdate(currentUser.id, formData)
   }
 
