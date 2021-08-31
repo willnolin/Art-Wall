@@ -30,6 +30,11 @@ export default function LocationDetail() {
     setShow('block')
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+  }
+
   useEffect(() => {
     const fetchLocation = async () => {
       const resp = await getOneLocation(id)
@@ -87,7 +92,7 @@ export default function LocationDetail() {
               setShow('none')
             }}>{`close (x)`}</span>
 
-            <form onChange={handleChange}>
+            <form onChange={handleChange} onSubmit={handleSubmit}>
               <p>Contact {location?.name}</p>
               <br />
               <label>Enter your name:</label>
