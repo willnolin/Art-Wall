@@ -24,6 +24,7 @@
 }
 .blank-profile-pic {
   display: none;
+  position:absolute;
   width: 32px;
   border-radius: 70px;
   background: gray;
@@ -80,7 +81,7 @@
 
 .header-profile-pic {
   width: 32px;
-  border-radius: 70px;
+  border-radius: 100px;
   /* margin-right:5px; */
 }
 .login {
