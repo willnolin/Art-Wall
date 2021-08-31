@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Search from '../components/Search'
 import './css/LocationList.css'
@@ -13,6 +13,7 @@ export default function LocationList(props) {
       setLocations(resp)
     };
     fetchLocations();
+    // eslint-disable-next-line
   }, [])
 
 

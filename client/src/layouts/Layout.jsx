@@ -6,15 +6,16 @@ import "./Layout.css"
 const Layout = (props) => {
   const { handleVerify, handleLogout, isOnProfile, setIsOnProfile  } = props;
 
-  setIsOnProfile(false);
   useEffect(() => {
+    setIsOnProfile(false);
     handleVerify()
+    // eslint-disable-next-line
   }, [])
 
   return (
     <div className="layout-parent">
       <Header handleLogout={handleLogout}
-        isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile} />
+        isOnProfile={isOnProfile} />
       <div className="layout-children">{props.children}</div>
       <Footer />
     </div>

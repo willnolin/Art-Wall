@@ -25,6 +25,7 @@ export default function EditArtwork(props) {
       setArtwork(thisArt)
     }
     fetchArtwork();
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
@@ -33,6 +34,7 @@ export default function EditArtwork(props) {
       setLocations(resp)
     };
     fetchLocations();
+    // eslint-disable-next-line
   }, [])
 
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function EditArtwork(props) {
     };
 
     prefillFormData();
-
+// eslint-disable-next-line
   }, [artwork]);
 
   const handleSubmit = (e) => {

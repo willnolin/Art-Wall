@@ -20,7 +20,7 @@ export default function ArtistDetail(props) {
       setUser(thisArtist)
     };
     fetchUser()
-
+// eslint-disable-next-line
   }, [deleted])
 
   const handleDelete = async (id) => {

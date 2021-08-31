@@ -32,7 +32,7 @@ export default function LocationDetail() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
   }
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function LocationDetail() {
       setLocation(resp)
     };
     fetchLocation();
-
+// eslint-disable-next-line
   }, [])
 
   return (
