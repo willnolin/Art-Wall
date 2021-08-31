@@ -27,10 +27,9 @@ function App() {
 
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData);
-       console.log(userData)
     if (userData.error) {
       setInvalid(true);
-      setErrorObj(userData.error.response.data)
+      setErrorObj(userData?.error.response.data)
     } else {
       setInvalid(false);
       setCurrentUser(userData);
@@ -77,6 +76,7 @@ function App() {
             <Route path="/register">
             <Register handleRegister={handleRegister}
               invalid={invalid} errorObj={errorObj}
+              setErrorObj={setErrorObj}
             />
             </Route>  
             <Route path="/">
