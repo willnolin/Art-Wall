@@ -19,7 +19,7 @@
   position: absolute;
   /* margin-left: -70px; */
   width: 30%;
-  top: 10px;
+  top: 5px;
   left: 10px;
 }
 .blank-profile-pic {
@@ -121,8 +121,10 @@ a.header-links:hover {
 
 .header-right {
   display: flex;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: flex-end;
   align-items: center;
+  /* position: absolute; */
   width: 25%;
   font-family: Bear;
 }
@@ -178,9 +180,9 @@ a.header-links:hover {
 }
 
 @media screen and (max-width: 1124px) {
-  /* .header-left {
-    margin-left: 0;
-  } */
+  .header-left {
+    top: 16px;
+  }
   .header-username {
     display: none;
   }
@@ -257,8 +259,9 @@ a.header-links:hover {
 @media screen and (max-width: 550px) {
   .header-title {
     text-align: center;
-    top: 10px;
-    left: 35%;
+    position: relative;
+    top: 5px;
+    left: 0;
     font-size: 1.5em;
   }
 }
