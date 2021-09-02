@@ -57,23 +57,23 @@ export default function Header(props) {
                 className={`header-profile-pic ${profileHighlight}`} />
             }
             <div className={`profile-pic-menu-content ${profileMenuOpen}`} >
-              <div className="profile-menu-links-div">
                 <Link to={`/users/${currentUser.id}/edit`} className="profile-menu-links">
+              <div className="profile-menu-links-div">
                   Edit Profile
-                </Link>
               </div>
+                </Link>
 
-              <div className="profile-menu-links-div">
                 <Link to={`/users/${currentUser.id}`} className="profile-menu-links">
-                  View Profile
-                </Link>
-              </div>
-
               <div className="profile-menu-links-div">
-                <Link to="/home" className="profile-menu-links" onClick={handleLogout}>
-                  Logout
-                </Link>
+                  View Profile
               </div>
+                </Link>
+
+                <Link to="/home" className="profile-menu-links" onClick={handleLogout}>
+              <div className="profile-menu-links-div">
+                  Logout
+              </div>
+                </Link>
             </div>
           </div>
         </> :
@@ -86,11 +86,11 @@ export default function Header(props) {
           }>
             <img src={GrayMan} alt="login" className={`blank-profile-pic ${profileHighlight}`} />
             <div className={`profile-pic-menu-content ${profileMenuOpen}`}>
-              <div className="profile-menu-links-div">
                 <Link to="/login" className="profile-menu-links">
+              <div className="profile-menu-links-div">
                   Login
-                </Link>
               </div>
+                </Link>
             </div>
           </div>
         </>
@@ -135,16 +135,16 @@ export default function Header(props) {
             < img src={Hamburger} alt="profile_pic" className={`hamburger-image ${hamburgerRotate} ${hamburgerHighlight}`} />
             {/* <div className={`hamburger-menu-content ${menuOpen}`} style={{ display: menuOpen }}> */}
             <div className={`hamburger-menu-content ${menuOpen}`}>
-              <div className="hamburger-link-div">
                 <Link to="/locations" className="hamburger-links">
-                  Search Hosts
-                </Link>
-              </div>
               <div className="hamburger-link-div">
-                <Link to="/locations/new" className="hamburger-links">
-                  Become A Host
-                </Link>
+                  Search Hosts
               </div>
+                </Link>
+                <Link to="/locations/new" className="hamburger-links">
+              <div className="hamburger-link-div">
+                  Become A Host
+              </div>
+                </Link>
             </div>
           </div> :
           // Hamburger when logged out /////////////////////
@@ -155,11 +155,11 @@ export default function Header(props) {
           }>
             < img src={Hamburger} alt="profile_pic" className={`hamburger-image ${hamburgerRotate} ${hamburgerHighlight}`} />
             <div className={`hamburger-menu-content ${menuOpen}`}>
-              <div className="hamburger-link-div">
                 <Link to="/locations" className="hamburger-links">
+              <div className="hamburger-link-div">
                   SEARCH HOSTS
-                </Link>
               </div>
+                </Link>
             </div>
           </div>
 
