@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom';
 
 import "./css/Login.css"
@@ -18,7 +18,6 @@ export default function Login(props) {
       [name]: value,
     }));
     setErrorObj({})
-    // setInvalid(false)
   };
 
   return (
@@ -40,7 +39,6 @@ export default function Login(props) {
         <button>Login</button>
         <div className="login-error-msg">
         {invalid && Object.entries(errorObj).map((entry, i) => {
-          // return <p>{`${entry[0]} ${entry[1]}`}</p>
           return <p>Username or Password invalid. Please try again.</p>
         })}
           </div>
