@@ -23,7 +23,7 @@ export default function Landing() {
         <div className= "top-row-content">
         <div className="top">
           <p className="welcome-section-title"> WELCOME TO ART WALL!</p>
-          <p className="welcome-section"> a community for artists and enthusiants</p>
+          <p className="welcome-section"> a community for artists and art enthusiasts</p>
           </div>
         <img src={paintbrush} alt="paintbrush" className="paintbrush" />
           </div>
