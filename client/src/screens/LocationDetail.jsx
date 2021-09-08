@@ -54,6 +54,7 @@ export default function LocationDetail() {
       <div className="location-details-row">
         <div className="location-details-artists">
           <h4 className="featured-artists-title">Featured Artists</h4>
+          {console.log(location)}
           {location?.artworks.reduce((acc, artwork) => (
             acc.map(a => a.user.name).includes(artwork.user.name) ?
               acc : [...acc, artwork]

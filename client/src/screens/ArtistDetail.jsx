@@ -41,7 +41,8 @@ export default function ArtistDetail(props) {
               <p>{user.message}</p>
             </div>
             <img src={`${user.profile_pic}`} alt={`${user.username}`} className="profile-pic" />
-            <div className="artist-details-section">
+          <div className="artist-details-section">
+            {console.log(user)}
               <h4 className="display-titles">{user.name}'s work is currently on display at:</h4>
               {user.artworks.reduce((acc, artwork) => (
                 acc.map(a => a.location ? a.location.name : false).includes(artwork.location?.name) ?
