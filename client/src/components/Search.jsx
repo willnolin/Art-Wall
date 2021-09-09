@@ -1,10 +1,10 @@
 import React from 'react'
-
+import "./css/Search.css"
 export default function Search(props) {
   const { setSearchItem } = props
   return (
     <div>
-      <form >
+      <form className="search-form">
         <label htmlFor="header-search">
           <p className="visually-hidden">Search All Hosts</p>
         </label>

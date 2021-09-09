@@ -24,7 +24,7 @@
 }
 .blank-profile-pic {
   display: none;
-  position:absolute;
+  position: absolute;
   width: 32px;
   border-radius: 70px;
   background: gray;
@@ -81,16 +81,19 @@
 
 .header-profile-pic {
   width: 32px;
+  height: 33px;
   border-radius: 100px;
+  object-fit: cover;
   /* margin-right:5px; */
 }
 .login {
   position: absolute;
-  top: 10px;
+  top: 16px;
   left: 10px;
 }
+
 .search {
-  position: absolute;
+  /* position: absolute; */
   top: 20px;
   right: 30px;
 }
@@ -110,9 +113,9 @@ a.header-links:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
+  /* position: absolute; */
   top: 3px;
-  left: 40%;
+  /* margin-left: 400px; */
   font-family: Attack;
   font-size: 2.5em;
   font-weight: bolder;
@@ -123,10 +126,11 @@ a.header-links:hover {
 .header-right {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
-  /* position: absolute; */
+  position: absolute;
   width: 25%;
+  right: 40px;
   font-family: Bear;
 }
 
@@ -183,6 +187,9 @@ a.header-links:hover {
 @media screen and (max-width: 1124px) {
   .header-left {
     top: 16px;
+  }
+  .login {
+    top: 5px;
   }
   .header-username {
     display: none;
@@ -246,7 +253,9 @@ a.header-links:hover {
   .header-profile-pic {
     /* margin: 0; */
     position: absolute;
+    top: -3px;
     left: 0;
+    bottom: 0;
   }
 
   .show-profile-menu {
