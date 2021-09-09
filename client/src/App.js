@@ -80,7 +80,7 @@ function App() {
             />
             </Route>  
             <Route path="/">
-              <MainContainer setIsOnProfile={setIsOnProfile} />
+            <MainContainer isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile} />
             </Route>
           </Switch>
         </Layout>

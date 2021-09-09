@@ -14,7 +14,7 @@ export default function CreateLocation(props) {
     sales: false,
     commission: 0
   });
-  const { name, street, city, state, img_url, message, sales, commission } = formData;
+  const { name, street, city, state, img_url, message, commission } = formData;
   const { setLocations } = props
   const history = useHistory();
 

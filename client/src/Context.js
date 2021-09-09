@@ -6,9 +6,8 @@ export const Provider = (props) => {
   const [currentUser, setCurrentUser] = useState(null);
 
   const providerValue = {
-    currentUser, setCurrentUser,
+    currentUser, setCurrentUser
   }
-
 
   return (
     <>

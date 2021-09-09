@@ -14,7 +14,7 @@ export default function MainContainer(props) {
   
   const [artwork, setArtwork] = useState(null);
   const [locations, setLocations] = useState([]);
-  const { setIsOnProfile} = props;
+  const { isOnProfile, setIsOnProfile} = props;
 
   return (
     <div>
@@ -23,7 +23,7 @@ export default function MainContainer(props) {
           <EditArtist setIsOnProfile={setIsOnProfile}/>
         </Route>
         <Route path="/users/:id">
-          <ArtistDetail setIsOnProfile={setIsOnProfile}/>
+          <ArtistDetail isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile}/>
         </Route>
         <Route path="/locations/:id/edit">
           <EditLocation locations={locations} setLocations={setLocations}/>

@@ -7,21 +7,24 @@ import "./css/ArtistDetail.css"
 // ask why the picture takes so long to show up.
 
 export default function ArtistDetail(props) {
-  const { setIsOnProfile } = props;
+  const { isOnProfile, setIsOnProfile } = props;
   const { id } = useParams();
   const [deleted, setDeleted] = useState(false);
   const [user, setUser] = useState(null);
   const { currentUser } = useContext(Context)
-
-  setIsOnProfile(true);
+  
+  useEffect(() => {
+    setIsOnProfile(true);
+   
+}, [user])
   useEffect(() => {
     const fetchUser = async () => {
       const thisArtist = await getOneUser(id);
       setUser(thisArtist)
     };
     fetchUser()
-
-  }, [deleted])
+// eslint-disable-next-line
+  }, [deleted, id])
 
   const handleDelete = async (id) => {
     await deleteArtwork(id)

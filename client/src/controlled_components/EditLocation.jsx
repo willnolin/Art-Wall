@@ -16,7 +16,7 @@ export default function EditLocation(props) {
     sales: false,
     commission: 0
   });
-  const { name, street, city, state, img_url, message, sales, commission } = formData;
+  const { name, street, city, state, img_url, message, commission } = formData;
   const { currentUser } = useContext(Context);
   const [location, setLocation] = useState(null);
   const history = useHistory();
@@ -28,6 +28,7 @@ export default function EditLocation(props) {
       setLocation(thisLocation);
     }
     fetchLocation();
+    // eslint-disable-next-line
   }, [])
   
   // Location Edit form //////////////////////////////////
@@ -48,7 +49,7 @@ export default function EditLocation(props) {
     };
 
     prefillFormData();
-
+// eslint-disable-next-line
   }, [location]);
 
 
