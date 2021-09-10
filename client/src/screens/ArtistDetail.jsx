@@ -27,9 +27,12 @@ export default function ArtistDetail(props) {
   }, [deleted, id])
 
   const handleDelete = async (id) => {
-    await deleteArtwork(id)
-    user.artworks.splice(user.artworks.indexOf(id), 1);
-    setDeleted(prevState => !prevState)
+    const confirmation = window.confirm("Are you sure you want to delete this artwork?")
+    if (confirmation) {
+      await deleteArtwork(id)
+      user.artworks.splice(user.artworks.indexOf(id), 1);
+      setDeleted(prevState => !prevState)
+    }
   }
 
   return (

@@ -9,7 +9,8 @@ export default function Login(props) {
     password: ''
   })
   const { username, password } = formData
-  const { handleLogin, invalid, errorObj, setErrorObj} = props;
+  // const { handleLogin, invalid, errorObj, setErrorObj} = props;
+  const { handleLogin, invalid, setInvalid} = props;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +18,8 @@ export default function Login(props) {
       ...prevState,
       [name]: value,
     }));
-    setErrorObj({})
+    setInvalid(false)
+    // setErrorObj({})
   };
 
   return (
@@ -38,9 +40,12 @@ export default function Login(props) {
         <br />
         <button>Login</button>
         <div className="login-error-msg">
-        {invalid && Object.entries(errorObj).map((entry, i) => {
+        {/* {invalid && Object.entries(errorObj).map((entry, i) => {
           return <p>Username or Password invalid. Please try again.</p>
-        })}
+        })} */}
+        {invalid && 
+          <p>Username or Password invalid. Please try again.</p>
+        }
           </div>
         <br />
         <br />

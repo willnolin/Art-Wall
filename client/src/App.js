@@ -69,8 +69,10 @@ function App() {
           <Switch>
             <Route path="/login">
             <Login handleLogin={handleLogin}
-              invalid={invalid} errorObj={errorObj}
-              setErrorObj={setErrorObj}
+              invalid={invalid}
+              setInvalid={setInvalid}
+              // errorObj={errorObj}
+              // setErrorObj={setErrorObj}
             />
             </Route>
             <Route path="/register">
