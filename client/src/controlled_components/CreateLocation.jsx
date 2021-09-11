@@ -61,7 +61,7 @@ export default function CreateLocation(props) {
         </label>
         <br />
         <label className="form-field">Message:
-          <textarea name="message" rows="5" value={message} onChange={handleChange} />
+          <textarea className="location-textarea" name="message" rows="5" value={message} onChange={handleChange} />
         </label>
         <div className="form-field">
           <p>On-site sales?</p>

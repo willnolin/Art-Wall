@@ -18,6 +18,11 @@
   align-items: center;
   width: 250px;
 }
+
+.location-textarea {
+  width: 147px;
+}
+
 .submit-btn {
   background-color: #b98f91;
   cursor: pointer;
