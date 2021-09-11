@@ -123,7 +123,7 @@ export default function Header(props) {
 
         }
       </div>
-      <div><Link to="/home" className="header-title">Art Wall</Link></div>
+      <div><h1><Link to="/home" className="header-title">Art Wall</Link></h1></div>
       {/* Hamburger when logged in  ///////////////*/}
       {
         currentUser ?
