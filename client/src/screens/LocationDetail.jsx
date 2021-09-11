@@ -79,30 +79,28 @@ export default function LocationDetail() {
           <p>{location?.message}</p>
           <p>{`Commission: ${location?.commission}%`}</p>
           <p>On-site sales: {location?.sales ? 'YES' : 'NO'}</p>
+        </div>
+      </div>
           {currentUser ?
             <button className="contact-button" onClick={handleClick}>Contact {location?.name}</button> :
             <p className="login-to-contact-message">Log in to contact {location?.name}</p>
           }
-        </div>
-      </div>
       <>
         <div className="modal" style={{ display: show }}>
-          <div className="form">
+          <div className="contact-form">
             <span className="close" onClick={() => {
               setShow('none')
             }}>{`close (x)`}</span>
-
             <form onChange={handleChange} onSubmit={handleSubmit}>
-              <p>Contact {location?.name}</p>
-              <br />
+              <p className="contact-title">Contact {location?.name}</p>
               <label>Enter your name:</label>
-              <input type="text" name="name" />
+              <input className="contact-input" type="text" name="name" />
               <br />
               <label>Enter your email:</label>
-              <input type="text" name="email" />
+              <input className="contact-input" type="text" name="email" />
               <br />
               <label>Type your message:</label>
-              <textarea name="message" rows='5' />
+              <textarea className="contact-input" name="message" rows='5' />
               <br />
               <button>submit</button>
             </form>

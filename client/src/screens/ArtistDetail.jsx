@@ -55,7 +55,8 @@ export default function ArtistDetail(props) {
               ), [])
               .map((artwork => (
                 <React.Fragment key={artwork.id} >
-                <Link to={`/locations/${artwork.location_id}`}><p className="location-name">{artwork.location?.name}</p></Link>
+                  <Link to={`/locations/${artwork.location_id}`}>
+                    <p className="location-name">{artwork.location?.name}</p></Link>
                 </React.Fragment>
                   )
                 ))}
@@ -87,8 +88,9 @@ export default function ArtistDetail(props) {
               <div className="add-art-container">
                 <Link to={`/artworks`}><img src="https://res.cloudinary.com/willnolin/image/upload/v1627152616/add-sign_is1j85.jpg"
                   alt="click to add art"
-                  className="artist-details-artwork add-art" />
-                  <p className="hidden-text">Add Image</p></Link>
+              className="artist-details-artwork add-art" />
+              <br />
+                  <p className="">Add Artwork</p></Link>
               </div>
             }
           </div>
