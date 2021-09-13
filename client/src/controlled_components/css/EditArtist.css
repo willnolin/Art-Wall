@@ -27,6 +27,9 @@
   align-items: center;
   width: 250px;
 }
+.artist-textarea {
+  width: 147px;
+}
 
 .save-btn {
   background-color: #b98f91;

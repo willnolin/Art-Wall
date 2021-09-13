@@ -28,7 +28,7 @@
 }
 
 .artist-details-name {
-  text-decoration: underline;
+  text-shadow: 2px 2px 10px rgb(165, 164, 164);
 }
 
 .artist-details-city-state {
@@ -112,7 +112,7 @@
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 660px) {
   .artist-details-container {
     padding-top: 0;
   }

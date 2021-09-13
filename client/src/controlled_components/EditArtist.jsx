@@ -99,7 +99,7 @@ export default function EditArtist(props) {
         </label>
         <br />
         <label className="form-input">Message:
-          <textarea type="text" name="message"
+          <textarea className="artist-textarea" type="text" name="message"
             value={message} rows="4" cols="20"
             placeholder="a little about you"
             onChange={handleChange} />
