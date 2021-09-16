@@ -21,7 +21,7 @@ export default function ArtistDetail(props) {
   useEffect(() => {
     const fetchUser = async () => {
       const thisArtist = await getOneUser(id);
-      // console.log(thisArtist)
+      console.log(thisArtist)
       setUser(thisArtist)
     };
     fetchUser()
