@@ -15,6 +15,7 @@ import {
 
 function App() {
   const [isOnProfile, setIsOnProfile] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
   const [invalid, setInvalid] = useState(false);
   const [errorObj, setErrorObj] = useState({});
   const {setCurrentUser} = useContext(Context)
@@ -45,9 +46,11 @@ function App() {
       setInvalid(true)
       setErrorObj(userData.error.response.data)
     } else {
+      setIsLoading(false)
       setCurrentUser(userData);
       setInvalid(false)
-      history.push(`/users/${userData.id}/edit`);
+      // history.push(`/users/${userData.id}/edit`);
+      history.push(`/`);
     }
   };
 
@@ -78,11 +81,11 @@ function App() {
             <Route path="/register">
             <Register handleRegister={handleRegister}
               invalid={invalid} errorObj={errorObj}
-              setErrorObj={setErrorObj}
+              setErrorObj={setErrorObj} isLoading={isLoading} setIsLoading={setIsLoading}
             />
             </Route>  
             <Route path="/">
-            <MainContainer isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile} />
+            <MainContainer isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile}/>
             </Route>
           </Switch>
         </Layout>

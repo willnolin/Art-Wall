@@ -47,43 +47,38 @@ export default function LocationDetail() {
   return (
     <div className="location-details-container">
       <div className="location-details-title">
-        {currentUser?.id === location?.user_id ?
+        {currentUser?.id === location?.location.user_id ?
           <>
             <p>You are the owner of this location</p>
             <Link to={`/locations/${id}/edit`}><button>Edit</button></Link>
           </>
           : ''}
-        <h3 className="title">{location?.name}</h3>
-        <p className="city-state"> {`${location?.city}, ${location?.state}`}</p>
+        <h3 className="title">{location?.location.name}</h3>
+        <p className="city-state"> {`${location?.location.city}, ${location?.location.state}`}</p>
       </div>
       <div className="location-details-row">
         <div className="location-details-artists">
           <h4 className="featured-artists-title">Featured Artists</h4>
-          {location?.artworks.reduce((acc, artwork) => (
-            acc.map(a => a.user.name).includes(artwork.user.name) ?
-              acc : [...acc, artwork]
-          ), [])
-            .map(artwork => (
-              <div className="featured-artists-link">
-                <Link to={`/users/${artwork.user_id}`}><p>{artwork.user.name}</p></Link>
-              </div>
-            )
-            )}
+          {location?.artists.map(artist => (
+            <div className="featured-artists-link">
+            <Link to={`/users/${artist.id}`}><p>{artist.name}</p></Link>
+            </div>
+          ))}
         </div>
-        <img src={location?.img_url} alt={location?.name} className="location-image" />
+        <img src={location?.location.img_url} alt={location?.location.name} className="location-image" />
       </div>
       <div className="location-details-row">
         <img src="https://res.cloudinary.com/willnolin/image/upload/v1627229241/map_w1mll4.png"
           alt="map" className="location-details-map" />
         <div className="location-details-details">
-          <p>{location?.message}</p>
-          <p>{`Commission: ${location?.commission}%`}</p>
-          <p>On-site sales: {location?.sales ? 'YES' : 'NO'}</p>
+          <p>{location?.location.message}</p>
+          <p>{`Commission: ${location?.location.commission}%`}</p>
+          <p>On-site sales: {location?.location.sales ? 'YES' : 'NO'}</p>
         </div>
       </div>
           {currentUser ?
-            <button className="contact-button" onClick={handleClick}>Contact {location?.name}</button> :
-            <p className="login-to-contact-message">Log in to contact {location?.name}</p>
+            <button className="contact-button" onClick={handleClick}>Contact {location?.location.name}</button> :
+            <p className="login-to-contact-message">Log in to contact {location?.location.name}</p>
           }
       <>
         <div className="modal" style={{ display: show }}>

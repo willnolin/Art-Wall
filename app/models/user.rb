@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :locations
-  has_many :artworks
+  has_many :artworks 
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show update destroy]
   before_action :authorize_request, only: %i[update destroy]
-  # before_action :get_users_at_location, only: :all_by_location
+  before_action :set_locations, only: :show
   # GET /users
   def index
     @users = User.all
@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user, include: { artworks: { include: :location } }
+    render json: {user: @user, artworks: @user.artworks , locations: @locations}
   end
 
   # post to db
@@ -45,6 +45,17 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+   # join tables and find all locations where user has artwork
+   def set_locations
+    @locations = Location.joins(
+    <<~SQL 
+      INNER JOIN artworks ON artworks.location_id = locations.id
+      INNER JOIN users ON users.id = artworks.user_id
+      WHERE users.id = #{params[:id]} 
+      SQL
+    ).distinct
   end
 
   # Only allow a list of trusted parameters through.

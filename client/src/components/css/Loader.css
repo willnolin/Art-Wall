@@ -1,0 +1,17 @@
+.loading-circle {
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: black;
+  border-radius: 1.25em;
+}
+
+.loading-container {
+  padding-top: 10px;
+  margin-top: 15px;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
