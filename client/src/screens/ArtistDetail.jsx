@@ -40,7 +40,7 @@ export default function ArtistDetail(props) {
   return (
 
     <div>
-      {user &&
+      {user.user &&
         <div className="artist-details-container">
           <div className="artist-details-row">
             <div className="artist-details-section">
