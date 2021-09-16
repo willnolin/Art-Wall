@@ -7,6 +7,7 @@ export const getAllLocations = async () => {
 
 export const getOneLocation = async (id) => {
   const resp = await api.get(`/locations/${id}`);
+  console.log(resp.data)
   return resp.data;
 };
 
@@ -21,9 +22,6 @@ export const putLocation = async (id, locationData) => {
 };
 
 export const deleteLocation = async (id) => {
-
   const resp = await api.delete(`/locations/${id}`);
-
   return resp;
 };
-
