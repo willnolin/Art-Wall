@@ -16,10 +16,12 @@ export default function ArtistDetail(props) {
   useEffect(() => {
     setIsOnProfile(true);
    
-}, [user])
+  }, [user])
+  
   useEffect(() => {
     const fetchUser = async () => {
       const thisArtist = await getOneUser(id);
+      // console.log(thisArtist)
       setUser(thisArtist)
     };
     fetchUser()
@@ -42,9 +44,9 @@ export default function ArtistDetail(props) {
         <div className="artist-details-container">
           <div className="artist-details-row">
             <div className="artist-details-section">
-            <h1 className="artist-details-name">{user.user.name}</h1>
+            <h1 className="artist-details-name">{user.user?.name}</h1>
             <p className="artist-details-city-state">{`Works in: ${user.user.city_state}`}</p>
-              <p>{user.user.message}</p>
+              <p>{user.user?.message}</p>
             </div>
             <img src={`${user.user.profile_pic}`} alt={`${user.user.username}`} className="profile-pic" />
             <div className="artist-details-section">

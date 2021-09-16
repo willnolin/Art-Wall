@@ -18,7 +18,7 @@ const containerVariants = {
 const circleVariants = {
   start: {
    y: "0%"
-  },
+  }, 
   end: {
     y: "100%"
   }
