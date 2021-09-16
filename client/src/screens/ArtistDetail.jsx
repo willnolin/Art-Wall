@@ -51,7 +51,7 @@ export default function ArtistDetail(props) {
             <img src={`${user.user?.profile_pic}`} alt={`${user.user?.username}`} className="profile-pic" />
             <div className="artist-details-section">
             <h4 className="display-titles">{user.user?.name}'s work is currently on display at:</h4>
-            {user.locations.map((location, i) => (
+            {user.locations?.map((location, i) => (
               <Link to={`/locations/${location.id}`}>
                 <p className="location-name" key={i}>{location?.name}</p>
               </Link>
@@ -72,7 +72,7 @@ export default function ArtistDetail(props) {
         <div className="artist-details-row artwork-row">
             {user.artworks &&
               <React.Fragment key = {user.user?.id}>{
-                user.artworks.map(art => (
+                user.artworks?.map(art => (
                   <div className="artwork-container">
                     <h4>{art.title}</h4>
                     <img src={art.img_url} alt={art.title}
