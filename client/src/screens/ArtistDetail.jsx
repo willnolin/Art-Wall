@@ -40,18 +40,18 @@ export default function ArtistDetail(props) {
   return (
 
     <div>
-      {user?.user &&
+      {user &&
         <div className="artist-details-container">
           <div className="artist-details-row">
             <div className="artist-details-section">
-            <h1 className="artist-details-name">{user.user?.name}</h1>
-            <p className="artist-details-city-state">{`Works in: ${user.user?.city_state}`}</p>
-              <p>{user.user?.message}</p>
+            <h1 className="artist-details-name">{user?.user?.name}</h1>
+            <p className="artist-details-city-state">{`Works in: ${user?.user?.city_state}`}</p>
+              <p>{user?.user?.message}</p>
             </div>
-            <img src={`${user.user?.profile_pic}`} alt={`${user.user?.username}`} className="profile-pic" />
+            <img src={`${user?.user?.profile_pic}`} alt={`${user?.user?.username}`} className="profile-pic" />
             <div className="artist-details-section">
-            <h4 className="display-titles">{user.user?.name}'s work is currently on display at:</h4>
-            {user.locations?.map((location, i) => (
+            <h4 className="display-titles">{user?.user?.name}'s work is currently on display at:</h4>
+            {user?.locations?.map((location, i) => (
               <Link to={`/locations/${location.id}`}>
                 <p className="location-name" key={i}>{location?.name}</p>
               </Link>
@@ -70,9 +70,9 @@ export default function ArtistDetail(props) {
             </div>
           </div>
         <div className="artist-details-row artwork-row">
-            {user.artworks &&
-              <React.Fragment key = {user.user?.id}>{
-                user.artworks?.map(art => (
+            {user?.artworks &&
+              <React.Fragment key = {user?.user?.id}>{
+                user?.artworks?.map(art => (
                   <div className="artwork-container">
                     <h4>{art.title}</h4>
                     <img src={art.img_url} alt={art.title}
