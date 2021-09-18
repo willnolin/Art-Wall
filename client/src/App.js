@@ -44,6 +44,7 @@ function App() {
     // console.log(userData.error.response.data)
     if (userData.error) {
       setInvalid(true)
+      setIsLoading(false)
       setErrorObj(userData.error.response.data)
     } else {
       setIsLoading(false)
@@ -71,21 +72,28 @@ function App() {
         >
           <Switch>
             <Route path="/login">
-            <Login handleLogin={handleLogin}
-              invalid={invalid}
-              setInvalid={setInvalid}
-              // errorObj={errorObj}
-              // setErrorObj={setErrorObj}
-            />
+              <Login
+                handleLogin={handleLogin}
+                invalid={invalid}
+                setInvalid={setInvalid}
+              />
             </Route>
             <Route path="/register">
-            <Register handleRegister={handleRegister}
-              invalid={invalid} errorObj={errorObj}
-              setErrorObj={setErrorObj} isLoading={isLoading} setIsLoading={setIsLoading}
-            />
+              <Register
+                handleRegister={handleRegister}
+                invalid={invalid}
+                setInvalid={setInvalid}
+                errorObj={errorObj}
+                setErrorObj={setErrorObj}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
             </Route>  
             <Route path="/">
-            <MainContainer isOnProfile={isOnProfile} setIsOnProfile={setIsOnProfile}/>
+              <MainContainer
+                isOnProfile={isOnProfile}
+                setIsOnProfile={setIsOnProfile}
+              />
             </Route>
           </Switch>
         </Layout>
