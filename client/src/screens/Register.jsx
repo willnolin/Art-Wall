@@ -10,7 +10,7 @@ export default function Register(props) {
   })
   const { currentUser } = useContext(Context);
   const { username, email, password } = formData
-  const { handleRegister, invalid, errorObj, setErrorObj,
+  const { handleRegister, invalid, setInvalid, errorObj, setErrorObj,
     isLoading, setIsLoading } = props;
 
   const handleChange = (e) => {
@@ -19,6 +19,7 @@ export default function Register(props) {
       ...prevState,
       [name]: value,
     }));
+    setInvalid(false)
     setErrorObj({})
   };
 
